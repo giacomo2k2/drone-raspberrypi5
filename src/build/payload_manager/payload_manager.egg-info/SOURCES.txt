@@ -1,0 +1,11 @@
+package.xml
+setup.cfg
+setup.py
+payload_manager/__init__.py
+payload_manager.egg-info/PKG-INFO
+payload_manager.egg-info/SOURCES.txt
+payload_manager.egg-info/dependency_links.txt
+payload_manager.egg-info/requires.txt
+payload_manager.egg-info/top_level.txt
+payload_manager.egg-info/zip-safe
+resource/payload_manager

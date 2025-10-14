@@ -1,0 +1,19 @@
+# FollowTrajectory.action
+
+# ===== GOAL =====
+geometry_msgs/Point[] waypoints    # Waypoints to follow
+float64[] hold_times               # How long to hold at each waypoint (seconds)
+int32 hold_index                   # Index of the waypoint to hold at
+
+---
+# ===== RESULT =====
+bool success                       # True if trajectory executed successfully
+string message                     # Optional debug message
+
+---
+# ===== FEEDBACK =====
+geometry_msgs/Point current_point  # Current drone position
+int32 current_segment               # Index of current trajectory segment
+float64 progress                    # Progress along current segment (0.0 - 1.0)
+float64 distance_to_next            # Distance to next segment switch point
+float64 deviation                   # Deviation from trajectory (Euclidean)

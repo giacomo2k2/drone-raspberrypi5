@@ -1,0 +1,69 @@
+hardware_interfaces (python): 
+	- Low-level drivers for Pi5 ↔ devices (UART, I²C, SPI, GPIO, USB cameras, etc.)
+	Topics: 
+	
+		
+	
+	
+
+fc_interface (c++)
+	- Handles MAVLink/MAVROS comms with flight controller (Mamba F405)
+	Topics: 
+		Subscriptions:
+			mavros.state (mavros)
+			final_setpoints (navigator)
+		Publish: 
+			mavros.setpoint_position.local
+			uav.state
+	
+rc_interface (c++)
+	- Reads RC inputs directly into the Pi5 (if you want RC → onboard software)
+
+status_monitoring (python)
+	- Aggregates system status (battery, telemetry, CPU, comms, payload)	
+	- Publishes health/status topics
+
+state_machine (python)
+	- High-level flight states (idle, pre-arm, takeoff, mission, land, emergency)
+	- Commands navigator & failsafe_manager
+
+trajectory_planner (c++)
+	- Generates smooth paths (splines, minimum jerk, obstacle-aware routes)
+
+mission_manager (python)
+	- Mission/task sequencing (multi-waypoint, survey, delivery, etc.)
+
+vision_perception (python/c++)
+	- SLAM, object detection, optical flow, fiducial markers
+
+vision_guidance (python)
+	- Converts perception into actionable setpoints (landing targets, obstacle avoidance)
+
+navigator (c++)
+	- Arbitration + fusion of GPS / mission / planner / vision / RC
+	- Outputs final setpoints to fc_interface
+
+communications_bridge (python)
+	- Manages Wi-Fi / 4G / MAVLink routing
+	- Ground station ↔ UAV ↔ Cloud interfaces
+
+data_logger (python)
+	- Logs mission-aware data, beyond raw ROS2 bags
+
+sitl_launcher (python)
+	- Simulation bringup for ArduPilot SITL + ROS2 stack
+
+payload_manager (python)
+	- Handles payload devices (servos, sprayers, delivery mechanisms, sensors)
+
+localization (c++)
+	- Optional state estimation (fusion of GPS + vision + IMU using e.g. robot_localization)
+
+failsafe_manager (c++)
+	- Emergency handling (battery low, comms loss, GPS failure, RC override)
+	- Overrides navigator when triggered
+	
+uav_config (python)
+	- Centralized config package (all YAMLs: common, SITL, flight profiles)
+	- Stores thresholds, arbitration rules, mission configs, comms settings
+	- Also holds the main launch files (sitl_bringup.launch.py, flight_bringup.launch.py)

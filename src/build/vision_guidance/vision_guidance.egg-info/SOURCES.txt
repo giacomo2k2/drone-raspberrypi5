@@ -1,0 +1,11 @@
+package.xml
+setup.cfg
+setup.py
+resource/vision_guidance
+vision_guidance/__init__.py
+vision_guidance.egg-info/PKG-INFO
+vision_guidance.egg-info/SOURCES.txt
+vision_guidance.egg-info/dependency_links.txt
+vision_guidance.egg-info/requires.txt
+vision_guidance.egg-info/top_level.txt
+vision_guidance.egg-info/zip-safe

@@ -1,0 +1,9 @@
+source;share/hardware_interfaces/hook/pythonpath.ps1
+source;share/hardware_interfaces/hook/pythonpath.dsv
+source;share/hardware_interfaces/hook/pythonpath.sh
+source;share/hardware_interfaces/hook/ament_prefix_path.ps1
+source;share/hardware_interfaces/hook/ament_prefix_path.dsv
+source;share/hardware_interfaces/hook/ament_prefix_path.sh
+source;../../build/hardware_interfaces/share/hardware_interfaces/hook/pythonpath_develop.ps1
+source;../../build/hardware_interfaces/share/hardware_interfaces/hook/pythonpath_develop.dsv
+source;../../build/hardware_interfaces/share/hardware_interfaces/hook/pythonpath_develop.sh

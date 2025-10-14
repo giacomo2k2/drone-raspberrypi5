@@ -1,0 +1,1 @@
+/home/giacomo/drone_ws/src/communication_bridge/setup.py

@@ -1,0 +1,1 @@
+/home/giacomo/drone_ws/src/vision_perception/setup.py

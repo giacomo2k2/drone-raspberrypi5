@@ -1,0 +1,13 @@
+running develop
+running egg_info
+writing communication_bridge.egg-info/PKG-INFO
+writing dependency_links to communication_bridge.egg-info/dependency_links.txt
+writing requirements to communication_bridge.egg-info/requires.txt
+writing top-level names to communication_bridge.egg-info/top_level.txt
+reading manifest file 'communication_bridge.egg-info/SOURCES.txt'
+writing manifest file 'communication_bridge.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/giacomo/drone_ws/src/install/communication_bridge/lib/python3.12/site-packages/communication-bridge.egg-link (link to .)
+
+Installed /home/giacomo/drone_ws/src/build/communication_bridge
+running symlink_data

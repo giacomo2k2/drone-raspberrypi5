@@ -1,0 +1,1 @@
+/home/giacomo/drone_ws/src/build/localization/ament_cmake_core/localizationConfig-version.cmake

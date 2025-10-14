@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing payload_manager.egg-info/PKG-INFO
+writing dependency_links to payload_manager.egg-info/dependency_links.txt
+writing requirements to payload_manager.egg-info/requires.txt
+writing top-level names to payload_manager.egg-info/top_level.txt
+reading manifest file 'payload_manager.egg-info/SOURCES.txt'
+writing manifest file 'payload_manager.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/giacomo/drone_ws/src/install/payload_manager/lib/python3.12/site-packages/payload-manager.egg-link (link to .)
+
+Installed /home/giacomo/drone_ws/src/build/payload_manager
+running symlink_data
+symbolically linking /home/giacomo/drone_ws/src/build/payload_manager/resource/payload_manager -> /home/giacomo/drone_ws/src/install/payload_manager/share/ament_index/resource_index/packages
+symbolically linking /home/giacomo/drone_ws/src/build/payload_manager/package.xml -> /home/giacomo/drone_ws/src/install/payload_manager/share/payload_manager

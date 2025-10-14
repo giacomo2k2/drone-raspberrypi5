@@ -1,0 +1,47 @@
+[0.139s] Invoking command in '/home/giacomo/drone_ws/src/build/trajectory_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/trajectory_planner -- -j8 -l8
+[0.177s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.516s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.532s] -- Found rclcpp: 28.1.11 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.578s] -- Found rosidl_generator_c: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.591s] -- Found rosidl_generator_cpp: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.607s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.626s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.741s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.747s] -- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.904s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.996s] -- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)
+[1.097s] -- Found ament_lint_auto: 0.17.3 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[1.245s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.245s] -- Configured cppcheck include dirs: 
+[1.245s] -- Configured cppcheck exclude dirs and/or files: 
+[1.245s] -- Added test 'lint_cmake' to check CMake code style
+[1.247s] -- Added test 'uncrustify' to check C / C++ code style
+[1.247s] -- Configured uncrustify additional arguments: 
+[1.248s] -- Added test 'xmllint' to check XML markup files
+[1.249s] -- Configuring done (1.1s)
+[1.266s] -- Generating done (0.0s)
+[1.271s] -- Build files have been written to: /home/giacomo/drone_ws/src/build/trajectory_planner
+[1.317s] [ 50%] [32mBuilding CXX object CMakeFiles/trajectory_planner_node.dir/src/trajectory_planner_node.cpp.o[0m
+[1.342s] [100%] [32m[1mLinking CXX executable trajectory_planner_node[0m
+[1.640s] [100%] Built target trajectory_planner_node
+[1.663s] Invoked command in '/home/giacomo/drone_ws/src/build/trajectory_planner' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/trajectory_planner -- -j8 -l8
+[1.665s] Invoking command in '/home/giacomo/drone_ws/src/build/trajectory_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/trajectory_planner
+[1.677s] -- Install configuration: ""
+[1.677s] -- Execute custom install script
+[1.678s] -- Symlinking: /home/giacomo/drone_ws/src/install/trajectory_planner/lib/trajectory_planner/trajectory_planner_node
+[1.691s] -- Up-to-date symlink: /home/giacomo/drone_ws/src/install/trajectory_planner/share/ament_index/resource_index/package_run_dependencies/trajectory_planner
+[1.693s] -- Up-to-date symlink: /home/giacomo/drone_ws/src/install/trajectory_planner/share/ament_index/resource_index/parent_prefix_path/trajectory_planner
+[1.693s] -- Up-to-date symlink: /home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/environment/ament_prefix_path.sh
+[1.693s] -- Up-to-date symlink: /home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/environment/ament_prefix_path.dsv
+[1.694s] -- Up-to-date symlink: /home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/environment/path.sh
+[1.694s] -- Up-to-date symlink: /home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/environment/path.dsv
+[1.694s] -- Up-to-date symlink: /home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/local_setup.bash
+[1.694s] -- Up-to-date symlink: /home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/local_setup.sh
+[1.694s] -- Up-to-date symlink: /home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/local_setup.zsh
+[1.695s] -- Up-to-date symlink: /home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/local_setup.dsv
+[1.695s] -- Symlinking: /home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/package.dsv
+[1.705s] -- Up-to-date symlink: /home/giacomo/drone_ws/src/install/trajectory_planner/share/ament_index/resource_index/packages/trajectory_planner
+[1.705s] -- Up-to-date symlink: /home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/cmake/trajectory_plannerConfig.cmake
+[1.706s] -- Up-to-date symlink: /home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/cmake/trajectory_plannerConfig-version.cmake
+[1.706s] -- Up-to-date symlink: /home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/package.xml
+[1.709s] Invoked command in '/home/giacomo/drone_ws/src/build/trajectory_planner' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/trajectory_planner

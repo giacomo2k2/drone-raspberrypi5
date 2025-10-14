@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing vision_guidance.egg-info/PKG-INFO
+writing dependency_links to vision_guidance.egg-info/dependency_links.txt
+writing requirements to vision_guidance.egg-info/requires.txt
+writing top-level names to vision_guidance.egg-info/top_level.txt
+reading manifest file 'vision_guidance.egg-info/SOURCES.txt'
+writing manifest file 'vision_guidance.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/giacomo/drone_ws/src/install/vision_guidance/lib/python3.12/site-packages/vision-guidance.egg-link (link to .)
+
+Installed /home/giacomo/drone_ws/src/build/vision_guidance
+running symlink_data
+symbolically linking /home/giacomo/drone_ws/src/build/vision_guidance/resource/vision_guidance -> /home/giacomo/drone_ws/src/install/vision_guidance/share/ament_index/resource_index/packages
+symbolically linking /home/giacomo/drone_ws/src/build/vision_guidance/package.xml -> /home/giacomo/drone_ws/src/install/vision_guidance/share/vision_guidance

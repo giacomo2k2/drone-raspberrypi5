@@ -1,0 +1,33 @@
+[1.862s] Invoking command in '/home/giacomo/drone_ws/src/status_monitoring': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/status_monitoring/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/status_monitoring/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/status_monitoring build --build-base /home/giacomo/drone_ws/src/build/status_monitoring/build install --record /home/giacomo/drone_ws/src/build/status_monitoring/install.log --single-version-externally-managed install_data
+[2.506s] running egg_info
+[2.506s] creating ../build/status_monitoring/status_monitoring.egg-info
+[2.554s] writing ../build/status_monitoring/status_monitoring.egg-info/PKG-INFO
+[2.554s] writing dependency_links to ../build/status_monitoring/status_monitoring.egg-info/dependency_links.txt
+[2.555s] writing requirements to ../build/status_monitoring/status_monitoring.egg-info/requires.txt
+[2.555s] writing top-level names to ../build/status_monitoring/status_monitoring.egg-info/top_level.txt
+[2.558s] writing manifest file '../build/status_monitoring/status_monitoring.egg-info/SOURCES.txt'
+[2.652s] reading manifest file '../build/status_monitoring/status_monitoring.egg-info/SOURCES.txt'
+[2.652s] adding license file 'LICENSE'
+[2.653s] writing manifest file '../build/status_monitoring/status_monitoring.egg-info/SOURCES.txt'
+[2.653s] running build
+[2.653s] running build_py
+[2.656s] creating /home/giacomo/drone_ws/src/build/status_monitoring/build
+[2.656s] creating /home/giacomo/drone_ws/src/build/status_monitoring/build/lib
+[2.656s] creating /home/giacomo/drone_ws/src/build/status_monitoring/build/lib/status_monitoring
+[2.657s] copying status_monitoring/__init__.py -> /home/giacomo/drone_ws/src/build/status_monitoring/build/lib/status_monitoring
+[2.657s] running install
+[2.670s] running install_lib
+[2.723s] creating /home/giacomo/drone_ws/src/install/status_monitoring/lib/python3.12/site-packages/status_monitoring
+[2.723s] copying /home/giacomo/drone_ws/src/build/status_monitoring/build/lib/status_monitoring/__init__.py -> /home/giacomo/drone_ws/src/install/status_monitoring/lib/python3.12/site-packages/status_monitoring
+[2.723s] byte-compiling /home/giacomo/drone_ws/src/install/status_monitoring/lib/python3.12/site-packages/status_monitoring/__init__.py to __init__.cpython-312.pyc
+[2.724s] running install_data
+[2.724s] creating /home/giacomo/drone_ws/src/install/status_monitoring/share/ament_index
+[2.727s] creating /home/giacomo/drone_ws/src/install/status_monitoring/share/ament_index/resource_index
+[2.727s] creating /home/giacomo/drone_ws/src/install/status_monitoring/share/ament_index/resource_index/packages
+[2.727s] copying resource/status_monitoring -> /home/giacomo/drone_ws/src/install/status_monitoring/share/ament_index/resource_index/packages
+[2.727s] copying package.xml -> /home/giacomo/drone_ws/src/install/status_monitoring/share/status_monitoring
+[2.728s] running install_egg_info
+[2.778s] Copying ../build/status_monitoring/status_monitoring.egg-info to /home/giacomo/drone_ws/src/install/status_monitoring/lib/python3.12/site-packages/status_monitoring-0.0.0-py3.12.egg-info
+[2.779s] running install_scripts
+[3.125s] writing list of installed files to '/home/giacomo/drone_ws/src/build/status_monitoring/install.log'
+[3.213s] Invoked command in '/home/giacomo/drone_ws/src/status_monitoring' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/status_monitoring/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/status_monitoring/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/status_monitoring build --build-base /home/giacomo/drone_ws/src/build/status_monitoring/build install --record /home/giacomo/drone_ws/src/build/status_monitoring/install.log --single-version-externally-managed install_data

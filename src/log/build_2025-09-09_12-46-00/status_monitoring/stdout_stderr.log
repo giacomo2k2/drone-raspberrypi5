@@ -1,0 +1,13 @@
+running develop
+running egg_info
+writing status_monitoring.egg-info/PKG-INFO
+writing dependency_links to status_monitoring.egg-info/dependency_links.txt
+writing requirements to status_monitoring.egg-info/requires.txt
+writing top-level names to status_monitoring.egg-info/top_level.txt
+reading manifest file 'status_monitoring.egg-info/SOURCES.txt'
+writing manifest file 'status_monitoring.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/giacomo/drone_ws/src/install/status_monitoring/lib/python3.12/site-packages/status-monitoring.egg-link (link to .)
+
+Installed /home/giacomo/drone_ws/src/build/status_monitoring
+running symlink_data

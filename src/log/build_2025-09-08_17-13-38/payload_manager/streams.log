@@ -1,0 +1,17 @@
+[2.458s] Invoking command in '/home/giacomo/drone_ws/src/build/payload_manager': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/payload_manager/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/payload_manager/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/payload_manager/build --no-deps symlink_data --force
+[3.167s] running develop
+[3.484s] running egg_info
+[3.514s] writing payload_manager.egg-info/PKG-INFO
+[3.515s] writing dependency_links to payload_manager.egg-info/dependency_links.txt
+[3.515s] writing requirements to payload_manager.egg-info/requires.txt
+[3.515s] writing top-level names to payload_manager.egg-info/top_level.txt
+[3.579s] reading manifest file 'payload_manager.egg-info/SOURCES.txt'
+[3.580s] writing manifest file 'payload_manager.egg-info/SOURCES.txt'
+[3.612s] running build_ext
+[3.612s] Creating /home/giacomo/drone_ws/src/install/payload_manager/lib/python3.12/site-packages/payload-manager.egg-link (link to .)
+[3.613s] 
+[3.613s] Installed /home/giacomo/drone_ws/src/build/payload_manager
+[3.613s] running symlink_data
+[3.613s] symbolically linking /home/giacomo/drone_ws/src/build/payload_manager/resource/payload_manager -> /home/giacomo/drone_ws/src/install/payload_manager/share/ament_index/resource_index/packages
+[3.614s] symbolically linking /home/giacomo/drone_ws/src/build/payload_manager/package.xml -> /home/giacomo/drone_ws/src/install/payload_manager/share/payload_manager
+[3.775s] Invoked command in '/home/giacomo/drone_ws/src/build/payload_manager' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/payload_manager/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/payload_manager/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/payload_manager/build --no-deps symlink_data --force

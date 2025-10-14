@@ -1,0 +1,15 @@
+/home/giacomo/drone_ws/src/install/localization/share/ament_index/resource_index/package_run_dependencies/localization
+/home/giacomo/drone_ws/src/install/localization/share/ament_index/resource_index/parent_prefix_path/localization
+/home/giacomo/drone_ws/src/install/localization/share/localization/environment/ament_prefix_path.sh
+/home/giacomo/drone_ws/src/install/localization/share/localization/environment/ament_prefix_path.dsv
+/home/giacomo/drone_ws/src/install/localization/share/localization/environment/path.sh
+/home/giacomo/drone_ws/src/install/localization/share/localization/environment/path.dsv
+/home/giacomo/drone_ws/src/install/localization/share/localization/local_setup.bash
+/home/giacomo/drone_ws/src/install/localization/share/localization/local_setup.sh
+/home/giacomo/drone_ws/src/install/localization/share/localization/local_setup.zsh
+/home/giacomo/drone_ws/src/install/localization/share/localization/local_setup.dsv
+/home/giacomo/drone_ws/src/install/localization/share/localization/package.dsv
+/home/giacomo/drone_ws/src/install/localization/share/ament_index/resource_index/packages/localization
+/home/giacomo/drone_ws/src/install/localization/share/localization/cmake/localizationConfig.cmake
+/home/giacomo/drone_ws/src/install/localization/share/localization/cmake/localizationConfig-version.cmake
+/home/giacomo/drone_ws/src/install/localization/share/localization/package.xml

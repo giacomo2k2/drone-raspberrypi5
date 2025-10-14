@@ -1,0 +1,16 @@
+/home/giacomo/drone_ws/src/install/fc_interface/lib/fc_interface/fc_interface_node
+/home/giacomo/drone_ws/src/install/fc_interface/share/ament_index/resource_index/package_run_dependencies/fc_interface
+/home/giacomo/drone_ws/src/install/fc_interface/share/ament_index/resource_index/parent_prefix_path/fc_interface
+/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/environment/ament_prefix_path.sh
+/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/environment/ament_prefix_path.dsv
+/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/environment/path.sh
+/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/environment/path.dsv
+/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/local_setup.bash
+/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/local_setup.sh
+/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/local_setup.zsh
+/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/local_setup.dsv
+/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/package.dsv
+/home/giacomo/drone_ws/src/install/fc_interface/share/ament_index/resource_index/packages/fc_interface
+/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/cmake/fc_interfaceConfig.cmake
+/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/cmake/fc_interfaceConfig-version.cmake
+/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/package.xml

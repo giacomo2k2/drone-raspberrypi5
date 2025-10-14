@@ -1,0 +1,20 @@
+# Request
+geometry_msgs/Point[] waypoints        # Waypoints to fly through
+float64 vmax                           # Maximum allowed velocity
+float64 amax                           # Maximum allowed acceleration
+int32 order                            # Polynomial order (optional)
+int32 continuity_order                 # Continuity constraints (optional)
+int32 min_derivative_order             # Min derivative for QP (optional)
+---
+# Response
+bool success                            # True if trajectory generation succeeded
+string message                          # Error/debug message
+
+# Coefficients: arrays of arrays flattened into 1D for ROS
+float64[] coeffs_x                      # coeffs_x = [seg0_order0, seg0_order1, ..., seg1_order0, ...]
+float64[] coeffs_y
+float64[] coeffs_z
+int32 num_segments                       # Number of segments
+int32 coeffs_per_segment                  # Number of coefficients per segment (order+1)
+float64[] start_times
+float64[] end_times

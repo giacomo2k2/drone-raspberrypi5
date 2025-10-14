@@ -1,0 +1,1037 @@
+[0.132s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.132s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x75bd4b77c0b0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x75bd4b72ca10>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x75bd4b72ca10>>, mixin_verb=('build',))
+[0.176s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.176s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.176s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.176s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.176s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.176s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.176s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/giacomo/drone_ws/src'
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.205s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.205s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.205s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.205s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.205s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(communication_bridge) by extensions ['ignore', 'ignore_ament_install']
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(communication_bridge) by extension 'ignore'
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(communication_bridge) by extension 'ignore_ament_install'
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(communication_bridge) by extensions ['colcon_pkg']
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(communication_bridge) by extension 'colcon_pkg'
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(communication_bridge) by extensions ['colcon_meta']
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(communication_bridge) by extension 'colcon_meta'
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(communication_bridge) by extensions ['ros']
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(communication_bridge) by extension 'ros'
+[0.209s] DEBUG:colcon.colcon_core.package_identification:Package 'communication_bridge' with type 'ros.ament_python' and name 'communication_bridge'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(data_logger) by extensions ['ignore', 'ignore_ament_install']
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(data_logger) by extension 'ignore'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(data_logger) by extension 'ignore_ament_install'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(data_logger) by extensions ['colcon_pkg']
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(data_logger) by extension 'colcon_pkg'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(data_logger) by extensions ['colcon_meta']
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(data_logger) by extension 'colcon_meta'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(data_logger) by extensions ['ros']
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(data_logger) by extension 'ros'
+[0.210s] DEBUG:colcon.colcon_core.package_identification:Package 'data_logger' with type 'ros.ament_python' and name 'data_logger'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(failsafe_manager) by extensions ['ignore', 'ignore_ament_install']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(failsafe_manager) by extension 'ignore'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(failsafe_manager) by extension 'ignore_ament_install'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(failsafe_manager) by extensions ['colcon_pkg']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(failsafe_manager) by extension 'colcon_pkg'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(failsafe_manager) by extensions ['colcon_meta']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(failsafe_manager) by extension 'colcon_meta'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(failsafe_manager) by extensions ['ros']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(failsafe_manager) by extension 'ros'
+[0.211s] DEBUG:colcon.colcon_core.package_identification:Package 'failsafe_manager' with type 'ros.ament_cmake' and name 'failsafe_manager'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(fc_interface) by extensions ['ignore', 'ignore_ament_install']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(fc_interface) by extension 'ignore'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(fc_interface) by extension 'ignore_ament_install'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(fc_interface) by extensions ['colcon_pkg']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(fc_interface) by extension 'colcon_pkg'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(fc_interface) by extensions ['colcon_meta']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(fc_interface) by extension 'colcon_meta'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(fc_interface) by extensions ['ros']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(fc_interface) by extension 'ros'
+[0.212s] DEBUG:colcon.colcon_core.package_identification:Package 'fc_interface' with type 'ros.ament_cmake' and name 'fc_interface'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_interfaces) by extension 'ignore'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_interfaces) by extension 'ignore_ament_install'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_interfaces) by extensions ['colcon_pkg']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_interfaces) by extension 'colcon_pkg'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_interfaces) by extensions ['colcon_meta']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_interfaces) by extension 'colcon_meta'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_interfaces) by extensions ['ros']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_interfaces) by extension 'ros'
+[0.213s] DEBUG:colcon.colcon_core.package_identification:Package 'hardware_interfaces' with type 'ros.ament_python' and name 'hardware_interfaces'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(localization) by extensions ['ignore', 'ignore_ament_install']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(localization) by extension 'ignore'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(localization) by extension 'ignore_ament_install'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(localization) by extensions ['colcon_pkg']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(localization) by extension 'colcon_pkg'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(localization) by extensions ['colcon_meta']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(localization) by extension 'colcon_meta'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(localization) by extensions ['ros']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(localization) by extension 'ros'
+[0.214s] DEBUG:colcon.colcon_core.package_identification:Package 'localization' with type 'ros.ament_cmake' and name 'localization'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(mission_manager) by extensions ['ignore', 'ignore_ament_install']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(mission_manager) by extension 'ignore'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(mission_manager) by extension 'ignore_ament_install'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(mission_manager) by extensions ['colcon_pkg']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(mission_manager) by extension 'colcon_pkg'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(mission_manager) by extensions ['colcon_meta']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(mission_manager) by extension 'colcon_meta'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(mission_manager) by extensions ['ros']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(mission_manager) by extension 'ros'
+[0.215s] DEBUG:colcon.colcon_core.package_identification:Package 'mission_manager' with type 'ros.ament_python' and name 'mission_manager'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(navigator) by extensions ['ignore', 'ignore_ament_install']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(navigator) by extension 'ignore'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(navigator) by extension 'ignore_ament_install'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(navigator) by extensions ['colcon_pkg']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(navigator) by extension 'colcon_pkg'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(navigator) by extensions ['colcon_meta']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(navigator) by extension 'colcon_meta'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(navigator) by extensions ['ros']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(navigator) by extension 'ros'
+[0.216s] DEBUG:colcon.colcon_core.package_identification:Package 'navigator' with type 'ros.ament_cmake' and name 'navigator'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(payload_manager) by extensions ['ignore', 'ignore_ament_install']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(payload_manager) by extension 'ignore'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(payload_manager) by extension 'ignore_ament_install'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(payload_manager) by extensions ['colcon_pkg']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(payload_manager) by extension 'colcon_pkg'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(payload_manager) by extensions ['colcon_meta']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(payload_manager) by extension 'colcon_meta'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(payload_manager) by extensions ['ros']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(payload_manager) by extension 'ros'
+[0.217s] DEBUG:colcon.colcon_core.package_identification:Package 'payload_manager' with type 'ros.ament_python' and name 'payload_manager'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(rc_interface) by extensions ['ignore', 'ignore_ament_install']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(rc_interface) by extension 'ignore'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(rc_interface) by extension 'ignore_ament_install'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(rc_interface) by extensions ['colcon_pkg']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(rc_interface) by extension 'colcon_pkg'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(rc_interface) by extensions ['colcon_meta']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(rc_interface) by extension 'colcon_meta'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(rc_interface) by extensions ['ros']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(rc_interface) by extension 'ros'
+[0.218s] DEBUG:colcon.colcon_core.package_identification:Package 'rc_interface' with type 'ros.ament_cmake' and name 'rc_interface'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(sitl_launcher) by extensions ['ignore', 'ignore_ament_install']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(sitl_launcher) by extension 'ignore'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(sitl_launcher) by extension 'ignore_ament_install'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(sitl_launcher) by extensions ['colcon_pkg']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(sitl_launcher) by extension 'colcon_pkg'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(sitl_launcher) by extensions ['colcon_meta']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(sitl_launcher) by extension 'colcon_meta'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(sitl_launcher) by extensions ['ros']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(sitl_launcher) by extension 'ros'
+[0.218s] DEBUG:colcon.colcon_core.package_identification:Package 'sitl_launcher' with type 'ros.ament_python' and name 'sitl_launcher'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(state_machine) by extensions ['ignore', 'ignore_ament_install']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(state_machine) by extension 'ignore'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(state_machine) by extension 'ignore_ament_install'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(state_machine) by extensions ['colcon_pkg']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(state_machine) by extension 'colcon_pkg'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(state_machine) by extensions ['colcon_meta']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(state_machine) by extension 'colcon_meta'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(state_machine) by extensions ['ros']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(state_machine) by extension 'ros'
+[0.219s] DEBUG:colcon.colcon_core.package_identification:Package 'state_machine' with type 'ros.ament_python' and name 'state_machine'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(status_monitoring) by extensions ['ignore', 'ignore_ament_install']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(status_monitoring) by extension 'ignore'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(status_monitoring) by extension 'ignore_ament_install'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(status_monitoring) by extensions ['colcon_pkg']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(status_monitoring) by extension 'colcon_pkg'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(status_monitoring) by extensions ['colcon_meta']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(status_monitoring) by extension 'colcon_meta'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(status_monitoring) by extensions ['ros']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(status_monitoring) by extension 'ros'
+[0.220s] DEBUG:colcon.colcon_core.package_identification:Package 'status_monitoring' with type 'ros.ament_python' and name 'status_monitoring'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(trajectory_planner) by extensions ['ignore', 'ignore_ament_install']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(trajectory_planner) by extension 'ignore'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(trajectory_planner) by extension 'ignore_ament_install'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(trajectory_planner) by extensions ['colcon_pkg']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(trajectory_planner) by extension 'colcon_pkg'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(trajectory_planner) by extensions ['colcon_meta']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(trajectory_planner) by extension 'colcon_meta'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(trajectory_planner) by extensions ['ros']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(trajectory_planner) by extension 'ros'
+[0.221s] DEBUG:colcon.colcon_core.package_identification:Package 'trajectory_planner' with type 'ros.ament_cmake' and name 'trajectory_planner'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(uav_config) by extensions ['ignore', 'ignore_ament_install']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(uav_config) by extension 'ignore'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(uav_config) by extension 'ignore_ament_install'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(uav_config) by extensions ['colcon_pkg']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(uav_config) by extension 'colcon_pkg'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(uav_config) by extensions ['colcon_meta']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(uav_config) by extension 'colcon_meta'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(uav_config) by extensions ['ros']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(uav_config) by extension 'ros'
+[0.222s] DEBUG:colcon.colcon_core.package_identification:Package 'uav_config' with type 'ros.ament_python' and name 'uav_config'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(vision_guidance) by extensions ['ignore', 'ignore_ament_install']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(vision_guidance) by extension 'ignore'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(vision_guidance) by extension 'ignore_ament_install'
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(vision_guidance) by extensions ['colcon_pkg']
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(vision_guidance) by extension 'colcon_pkg'
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(vision_guidance) by extensions ['colcon_meta']
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(vision_guidance) by extension 'colcon_meta'
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(vision_guidance) by extensions ['ros']
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(vision_guidance) by extension 'ros'
+[0.223s] DEBUG:colcon.colcon_core.package_identification:Package 'vision_guidance' with type 'ros.ament_python' and name 'vision_guidance'
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(vision_perception) by extensions ['ignore', 'ignore_ament_install']
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(vision_perception) by extension 'ignore'
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(vision_perception) by extension 'ignore_ament_install'
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(vision_perception) by extensions ['colcon_pkg']
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(vision_perception) by extension 'colcon_pkg'
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(vision_perception) by extensions ['colcon_meta']
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(vision_perception) by extension 'colcon_meta'
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(vision_perception) by extensions ['ros']
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(vision_perception) by extension 'ros'
+[0.224s] DEBUG:colcon.colcon_core.package_identification:Package 'vision_perception' with type 'ros.ament_python' and name 'vision_perception'
+[0.224s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.224s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.224s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.224s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.224s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.246s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.246s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.248s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/giacomo/drone_ws/install/drone_sitl' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.248s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/giacomo/drone_ws/install/drone_interface' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.251s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 17 installed packages in /home/giacomo/drone_ws/install
+[0.253s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 293 installed packages in /opt/ros/jazzy
+[0.254s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'communication_bridge' build argument 'cmake_args' from command line to 'None'
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'communication_bridge' build argument 'cmake_target' from command line to 'None'
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'communication_bridge' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'communication_bridge' build argument 'cmake_clean_cache' from command line to 'False'
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'communication_bridge' build argument 'cmake_clean_first' from command line to 'False'
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'communication_bridge' build argument 'cmake_force_configure' from command line to 'False'
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'communication_bridge' build argument 'ament_cmake_args' from command line to 'None'
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'communication_bridge' build argument 'catkin_cmake_args' from command line to 'None'
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'communication_bridge' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.309s] DEBUG:colcon.colcon_core.verb:Building package 'communication_bridge' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/giacomo/drone_ws/src/build/communication_bridge', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/giacomo/drone_ws/src/install/communication_bridge', 'merge_install': False, 'path': '/home/giacomo/drone_ws/src/communication_bridge', 'symlink_install': True, 'test_result_base': None}
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'data_logger' build argument 'cmake_args' from command line to 'None'
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'data_logger' build argument 'cmake_target' from command line to 'None'
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'data_logger' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'data_logger' build argument 'cmake_clean_cache' from command line to 'False'
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'data_logger' build argument 'cmake_clean_first' from command line to 'False'
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'data_logger' build argument 'cmake_force_configure' from command line to 'False'
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'data_logger' build argument 'ament_cmake_args' from command line to 'None'
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'data_logger' build argument 'catkin_cmake_args' from command line to 'None'
+[0.309s] Level 5:colcon.colcon_core.verb:set package 'data_logger' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.309s] DEBUG:colcon.colcon_core.verb:Building package 'data_logger' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/giacomo/drone_ws/src/build/data_logger', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/giacomo/drone_ws/src/install/data_logger', 'merge_install': False, 'path': '/home/giacomo/drone_ws/src/data_logger', 'symlink_install': True, 'test_result_base': None}
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'failsafe_manager' build argument 'cmake_args' from command line to 'None'
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'failsafe_manager' build argument 'cmake_target' from command line to 'None'
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'failsafe_manager' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'failsafe_manager' build argument 'cmake_clean_cache' from command line to 'False'
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'failsafe_manager' build argument 'cmake_clean_first' from command line to 'False'
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'failsafe_manager' build argument 'cmake_force_configure' from command line to 'False'
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'failsafe_manager' build argument 'ament_cmake_args' from command line to 'None'
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'failsafe_manager' build argument 'catkin_cmake_args' from command line to 'None'
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'failsafe_manager' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.310s] DEBUG:colcon.colcon_core.verb:Building package 'failsafe_manager' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/giacomo/drone_ws/src/build/failsafe_manager', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/giacomo/drone_ws/src/install/failsafe_manager', 'merge_install': False, 'path': '/home/giacomo/drone_ws/src/failsafe_manager', 'symlink_install': True, 'test_result_base': None}
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'fc_interface' build argument 'cmake_args' from command line to 'None'
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'fc_interface' build argument 'cmake_target' from command line to 'None'
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'fc_interface' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'fc_interface' build argument 'cmake_clean_cache' from command line to 'False'
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'fc_interface' build argument 'cmake_clean_first' from command line to 'False'
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'fc_interface' build argument 'cmake_force_configure' from command line to 'False'
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'fc_interface' build argument 'ament_cmake_args' from command line to 'None'
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'fc_interface' build argument 'catkin_cmake_args' from command line to 'None'
+[0.310s] Level 5:colcon.colcon_core.verb:set package 'fc_interface' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.310s] DEBUG:colcon.colcon_core.verb:Building package 'fc_interface' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/giacomo/drone_ws/src/build/fc_interface', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/giacomo/drone_ws/src/install/fc_interface', 'merge_install': False, 'path': '/home/giacomo/drone_ws/src/fc_interface', 'symlink_install': True, 'test_result_base': None}
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'hardware_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'hardware_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'hardware_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'hardware_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'hardware_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'hardware_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'hardware_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'hardware_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'hardware_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.311s] DEBUG:colcon.colcon_core.verb:Building package 'hardware_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/giacomo/drone_ws/src/build/hardware_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/giacomo/drone_ws/src/install/hardware_interfaces', 'merge_install': False, 'path': '/home/giacomo/drone_ws/src/hardware_interfaces', 'symlink_install': True, 'test_result_base': None}
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'localization' build argument 'cmake_args' from command line to 'None'
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'localization' build argument 'cmake_target' from command line to 'None'
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'localization' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'localization' build argument 'cmake_clean_cache' from command line to 'False'
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'localization' build argument 'cmake_clean_first' from command line to 'False'
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'localization' build argument 'cmake_force_configure' from command line to 'False'
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'localization' build argument 'ament_cmake_args' from command line to 'None'
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'localization' build argument 'catkin_cmake_args' from command line to 'None'
+[0.311s] Level 5:colcon.colcon_core.verb:set package 'localization' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.311s] DEBUG:colcon.colcon_core.verb:Building package 'localization' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/giacomo/drone_ws/src/build/localization', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/giacomo/drone_ws/src/install/localization', 'merge_install': False, 'path': '/home/giacomo/drone_ws/src/localization', 'symlink_install': True, 'test_result_base': None}
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'mission_manager' build argument 'cmake_args' from command line to 'None'
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'mission_manager' build argument 'cmake_target' from command line to 'None'
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'mission_manager' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'mission_manager' build argument 'cmake_clean_cache' from command line to 'False'
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'mission_manager' build argument 'cmake_clean_first' from command line to 'False'
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'mission_manager' build argument 'cmake_force_configure' from command line to 'False'
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'mission_manager' build argument 'ament_cmake_args' from command line to 'None'
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'mission_manager' build argument 'catkin_cmake_args' from command line to 'None'
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'mission_manager' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.312s] DEBUG:colcon.colcon_core.verb:Building package 'mission_manager' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/giacomo/drone_ws/src/build/mission_manager', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/giacomo/drone_ws/src/install/mission_manager', 'merge_install': False, 'path': '/home/giacomo/drone_ws/src/mission_manager', 'symlink_install': True, 'test_result_base': None}
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'navigator' build argument 'cmake_args' from command line to 'None'
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'navigator' build argument 'cmake_target' from command line to 'None'
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'navigator' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'navigator' build argument 'cmake_clean_cache' from command line to 'False'
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'navigator' build argument 'cmake_clean_first' from command line to 'False'
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'navigator' build argument 'cmake_force_configure' from command line to 'False'
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'navigator' build argument 'ament_cmake_args' from command line to 'None'
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'navigator' build argument 'catkin_cmake_args' from command line to 'None'
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'navigator' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.312s] DEBUG:colcon.colcon_core.verb:Building package 'navigator' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/giacomo/drone_ws/src/build/navigator', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/giacomo/drone_ws/src/install/navigator', 'merge_install': False, 'path': '/home/giacomo/drone_ws/src/navigator', 'symlink_install': True, 'test_result_base': None}
+[0.312s] Level 5:colcon.colcon_core.verb:set package 'payload_manager' build argument 'cmake_args' from command line to 'None'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'payload_manager' build argument 'cmake_target' from command line to 'None'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'payload_manager' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'payload_manager' build argument 'cmake_clean_cache' from command line to 'False'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'payload_manager' build argument 'cmake_clean_first' from command line to 'False'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'payload_manager' build argument 'cmake_force_configure' from command line to 'False'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'payload_manager' build argument 'ament_cmake_args' from command line to 'None'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'payload_manager' build argument 'catkin_cmake_args' from command line to 'None'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'payload_manager' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.313s] DEBUG:colcon.colcon_core.verb:Building package 'payload_manager' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/giacomo/drone_ws/src/build/payload_manager', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/giacomo/drone_ws/src/install/payload_manager', 'merge_install': False, 'path': '/home/giacomo/drone_ws/src/payload_manager', 'symlink_install': True, 'test_result_base': None}
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'rc_interface' build argument 'cmake_args' from command line to 'None'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'rc_interface' build argument 'cmake_target' from command line to 'None'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'rc_interface' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'rc_interface' build argument 'cmake_clean_cache' from command line to 'False'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'rc_interface' build argument 'cmake_clean_first' from command line to 'False'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'rc_interface' build argument 'cmake_force_configure' from command line to 'False'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'rc_interface' build argument 'ament_cmake_args' from command line to 'None'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'rc_interface' build argument 'catkin_cmake_args' from command line to 'None'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'rc_interface' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.313s] DEBUG:colcon.colcon_core.verb:Building package 'rc_interface' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/giacomo/drone_ws/src/build/rc_interface', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/giacomo/drone_ws/src/install/rc_interface', 'merge_install': False, 'path': '/home/giacomo/drone_ws/src/rc_interface', 'symlink_install': True, 'test_result_base': None}
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'sitl_launcher' build argument 'cmake_args' from command line to 'None'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'sitl_launcher' build argument 'cmake_target' from command line to 'None'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'sitl_launcher' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.313s] Level 5:colcon.colcon_core.verb:set package 'sitl_launcher' build argument 'cmake_clean_cache' from command line to 'False'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'sitl_launcher' build argument 'cmake_clean_first' from command line to 'False'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'sitl_launcher' build argument 'cmake_force_configure' from command line to 'False'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'sitl_launcher' build argument 'ament_cmake_args' from command line to 'None'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'sitl_launcher' build argument 'catkin_cmake_args' from command line to 'None'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'sitl_launcher' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.314s] DEBUG:colcon.colcon_core.verb:Building package 'sitl_launcher' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/giacomo/drone_ws/src/build/sitl_launcher', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/giacomo/drone_ws/src/install/sitl_launcher', 'merge_install': False, 'path': '/home/giacomo/drone_ws/src/sitl_launcher', 'symlink_install': True, 'test_result_base': None}
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'state_machine' build argument 'cmake_args' from command line to 'None'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'state_machine' build argument 'cmake_target' from command line to 'None'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'state_machine' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'state_machine' build argument 'cmake_clean_cache' from command line to 'False'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'state_machine' build argument 'cmake_clean_first' from command line to 'False'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'state_machine' build argument 'cmake_force_configure' from command line to 'False'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'state_machine' build argument 'ament_cmake_args' from command line to 'None'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'state_machine' build argument 'catkin_cmake_args' from command line to 'None'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'state_machine' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.314s] DEBUG:colcon.colcon_core.verb:Building package 'state_machine' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/giacomo/drone_ws/src/build/state_machine', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/giacomo/drone_ws/src/install/state_machine', 'merge_install': False, 'path': '/home/giacomo/drone_ws/src/state_machine', 'symlink_install': True, 'test_result_base': None}
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'status_monitoring' build argument 'cmake_args' from command line to 'None'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'status_monitoring' build argument 'cmake_target' from command line to 'None'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'status_monitoring' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'status_monitoring' build argument 'cmake_clean_cache' from command line to 'False'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'status_monitoring' build argument 'cmake_clean_first' from command line to 'False'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'status_monitoring' build argument 'cmake_force_configure' from command line to 'False'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'status_monitoring' build argument 'ament_cmake_args' from command line to 'None'
+[0.314s] Level 5:colcon.colcon_core.verb:set package 'status_monitoring' build argument 'catkin_cmake_args' from command line to 'None'
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'status_monitoring' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.315s] DEBUG:colcon.colcon_core.verb:Building package 'status_monitoring' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/giacomo/drone_ws/src/build/status_monitoring', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/giacomo/drone_ws/src/install/status_monitoring', 'merge_install': False, 'path': '/home/giacomo/drone_ws/src/status_monitoring', 'symlink_install': True, 'test_result_base': None}
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'trajectory_planner' build argument 'cmake_args' from command line to 'None'
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'trajectory_planner' build argument 'cmake_target' from command line to 'None'
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'trajectory_planner' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'trajectory_planner' build argument 'cmake_clean_cache' from command line to 'False'
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'trajectory_planner' build argument 'cmake_clean_first' from command line to 'False'
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'trajectory_planner' build argument 'cmake_force_configure' from command line to 'False'
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'trajectory_planner' build argument 'ament_cmake_args' from command line to 'None'
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'trajectory_planner' build argument 'catkin_cmake_args' from command line to 'None'
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'trajectory_planner' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.315s] DEBUG:colcon.colcon_core.verb:Building package 'trajectory_planner' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/giacomo/drone_ws/src/build/trajectory_planner', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/giacomo/drone_ws/src/install/trajectory_planner', 'merge_install': False, 'path': '/home/giacomo/drone_ws/src/trajectory_planner', 'symlink_install': True, 'test_result_base': None}
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'uav_config' build argument 'cmake_args' from command line to 'None'
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'uav_config' build argument 'cmake_target' from command line to 'None'
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'uav_config' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'uav_config' build argument 'cmake_clean_cache' from command line to 'False'
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'uav_config' build argument 'cmake_clean_first' from command line to 'False'
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'uav_config' build argument 'cmake_force_configure' from command line to 'False'
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'uav_config' build argument 'ament_cmake_args' from command line to 'None'
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'uav_config' build argument 'catkin_cmake_args' from command line to 'None'
+[0.315s] Level 5:colcon.colcon_core.verb:set package 'uav_config' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.315s] DEBUG:colcon.colcon_core.verb:Building package 'uav_config' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/giacomo/drone_ws/src/build/uav_config', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/giacomo/drone_ws/src/install/uav_config', 'merge_install': False, 'path': '/home/giacomo/drone_ws/src/uav_config', 'symlink_install': True, 'test_result_base': None}
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_guidance' build argument 'cmake_args' from command line to 'None'
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_guidance' build argument 'cmake_target' from command line to 'None'
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_guidance' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_guidance' build argument 'cmake_clean_cache' from command line to 'False'
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_guidance' build argument 'cmake_clean_first' from command line to 'False'
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_guidance' build argument 'cmake_force_configure' from command line to 'False'
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_guidance' build argument 'ament_cmake_args' from command line to 'None'
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_guidance' build argument 'catkin_cmake_args' from command line to 'None'
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_guidance' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.316s] DEBUG:colcon.colcon_core.verb:Building package 'vision_guidance' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/giacomo/drone_ws/src/build/vision_guidance', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/giacomo/drone_ws/src/install/vision_guidance', 'merge_install': False, 'path': '/home/giacomo/drone_ws/src/vision_guidance', 'symlink_install': True, 'test_result_base': None}
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_perception' build argument 'cmake_args' from command line to 'None'
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_perception' build argument 'cmake_target' from command line to 'None'
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_perception' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_perception' build argument 'cmake_clean_cache' from command line to 'False'
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_perception' build argument 'cmake_clean_first' from command line to 'False'
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_perception' build argument 'cmake_force_configure' from command line to 'False'
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_perception' build argument 'ament_cmake_args' from command line to 'None'
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_perception' build argument 'catkin_cmake_args' from command line to 'None'
+[0.316s] Level 5:colcon.colcon_core.verb:set package 'vision_perception' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.316s] DEBUG:colcon.colcon_core.verb:Building package 'vision_perception' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/giacomo/drone_ws/src/build/vision_perception', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/giacomo/drone_ws/src/install/vision_perception', 'merge_install': False, 'path': '/home/giacomo/drone_ws/src/vision_perception', 'symlink_install': True, 'test_result_base': None}
+[0.316s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.317s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.318s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/giacomo/drone_ws/src/communication_bridge' with build type 'ament_python'
+[0.318s] Level 1:colcon.colcon_core.shell:create_environment_hook('communication_bridge', 'ament_prefix_path')
+[0.321s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.321s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/communication_bridge/share/communication_bridge/hook/ament_prefix_path.ps1'
+[0.322s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/communication_bridge/share/communication_bridge/hook/ament_prefix_path.dsv'
+[0.323s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/communication_bridge/share/communication_bridge/hook/ament_prefix_path.sh'
+[0.323s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.323s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.330s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/giacomo/drone_ws/src/data_logger' with build type 'ament_python'
+[0.331s] Level 1:colcon.colcon_core.shell:create_environment_hook('data_logger', 'ament_prefix_path')
+[0.331s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/data_logger/share/data_logger/hook/ament_prefix_path.ps1'
+[0.332s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/data_logger/share/data_logger/hook/ament_prefix_path.dsv'
+[0.332s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/data_logger/share/data_logger/hook/ament_prefix_path.sh'
+[0.333s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.333s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.338s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/giacomo/drone_ws/src/failsafe_manager' with build type 'ament_cmake'
+[0.338s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/giacomo/drone_ws/src/failsafe_manager'
+[0.338s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.338s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.345s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/giacomo/drone_ws/src/fc_interface' with build type 'ament_cmake'
+[0.345s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/giacomo/drone_ws/src/fc_interface'
+[0.345s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.346s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.351s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/giacomo/drone_ws/src/hardware_interfaces' with build type 'ament_python'
+[0.351s] Level 1:colcon.colcon_core.shell:create_environment_hook('hardware_interfaces', 'ament_prefix_path')
+[0.351s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/hardware_interfaces/share/hardware_interfaces/hook/ament_prefix_path.ps1'
+[0.352s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/hardware_interfaces/share/hardware_interfaces/hook/ament_prefix_path.dsv'
+[0.352s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/hardware_interfaces/share/hardware_interfaces/hook/ament_prefix_path.sh'
+[0.353s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.353s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.359s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/giacomo/drone_ws/src/localization' with build type 'ament_cmake'
+[0.360s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/giacomo/drone_ws/src/localization'
+[0.360s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.360s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.366s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/giacomo/drone_ws/src/mission_manager' with build type 'ament_python'
+[0.366s] Level 1:colcon.colcon_core.shell:create_environment_hook('mission_manager', 'ament_prefix_path')
+[0.366s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/mission_manager/share/mission_manager/hook/ament_prefix_path.ps1'
+[0.367s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/mission_manager/share/mission_manager/hook/ament_prefix_path.dsv'
+[0.367s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/mission_manager/share/mission_manager/hook/ament_prefix_path.sh'
+[0.368s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.368s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.375s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/giacomo/drone_ws/src/navigator' with build type 'ament_cmake'
+[0.375s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/giacomo/drone_ws/src/navigator'
+[0.375s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.375s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.675s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/giacomo/drone_ws/src/communication_bridge'
+[0.676s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.676s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.959s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/giacomo/drone_ws/src/data_logger'
+[0.960s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.960s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.971s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/failsafe_manager': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/failsafe_manager -- -j8 -l8
+[0.974s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/fc_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/fc_interface -- -j8 -l8
+[1.283s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/giacomo/drone_ws/src/hardware_interfaces'
+[1.284s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.284s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.292s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/localization': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/localization -- -j8 -l8
+[1.601s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/giacomo/drone_ws/src/mission_manager'
+[1.601s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.601s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.617s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/navigator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/navigator -- -j8 -l8
+[1.619s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/failsafe_manager' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/failsafe_manager -- -j8 -l8
+[1.636s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/failsafe_manager': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/failsafe_manager
+[1.636s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/localization' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/localization -- -j8 -l8
+[1.638s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/localization': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/localization
+[1.672s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(localization)
+[1.673s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/localization' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/localization
+[1.675s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/localization' for CMake module files
+[1.676s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/localization' for CMake config files
+[1.677s] Level 1:colcon.colcon_core.shell:create_environment_hook('localization', 'cmake_prefix_path')
+[1.677s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/localization/share/localization/hook/cmake_prefix_path.ps1'
+[1.677s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/localization/share/localization/hook/cmake_prefix_path.dsv'
+[1.678s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/localization/share/localization/hook/cmake_prefix_path.sh'
+[1.679s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/localization/bin'
+[1.679s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/localization/lib/pkgconfig/localization.pc'
+[1.679s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/localization/lib/python3.12/site-packages'
+[1.679s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/localization/bin'
+[1.680s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/localization/share/localization/package.ps1'
+[1.680s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/localization/share/localization/package.dsv'
+[1.681s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/localization/share/localization/package.sh'
+[1.682s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/localization/share/localization/package.bash'
+[1.683s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/localization/share/localization/package.zsh'
+[1.683s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/localization/share/colcon-core/packages/localization)
+[1.684s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(localization)
+[1.685s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/localization' for CMake module files
+[1.685s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/localization' for CMake config files
+[1.686s] Level 1:colcon.colcon_core.shell:create_environment_hook('localization', 'cmake_prefix_path')
+[1.686s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/localization/share/localization/hook/cmake_prefix_path.ps1'
+[1.686s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/localization/share/localization/hook/cmake_prefix_path.dsv'
+[1.687s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/localization/share/localization/hook/cmake_prefix_path.sh'
+[1.687s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/localization/bin'
+[1.687s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/localization/lib/pkgconfig/localization.pc'
+[1.688s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/localization/lib/python3.12/site-packages'
+[1.688s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/localization/bin'
+[1.688s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/localization/share/localization/package.ps1'
+[1.689s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/localization/share/localization/package.dsv'
+[1.690s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/localization/share/localization/package.sh'
+[1.690s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/localization/share/localization/package.bash'
+[1.691s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/localization/share/localization/package.zsh'
+[1.691s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/localization/share/colcon-core/packages/localization)
+[1.692s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/giacomo/drone_ws/src/payload_manager' with build type 'ament_python'
+[1.692s] Level 1:colcon.colcon_core.shell:create_environment_hook('payload_manager', 'ament_prefix_path')
+[1.693s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/payload_manager/share/payload_manager/hook/ament_prefix_path.ps1'
+[1.694s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/payload_manager/share/payload_manager/hook/ament_prefix_path.dsv'
+[1.695s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/payload_manager/share/payload_manager/hook/ament_prefix_path.sh'
+[1.697s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.697s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.713s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(failsafe_manager)
+[1.713s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/failsafe_manager' for CMake module files
+[1.716s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/failsafe_manager' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/failsafe_manager
+[1.716s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/failsafe_manager' for CMake config files
+[1.717s] Level 1:colcon.colcon_core.shell:create_environment_hook('failsafe_manager', 'cmake_prefix_path')
+[1.717s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/hook/cmake_prefix_path.ps1'
+[1.719s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/hook/cmake_prefix_path.dsv'
+[1.720s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/hook/cmake_prefix_path.sh'
+[1.722s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/failsafe_manager/bin'
+[1.723s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/failsafe_manager/lib/pkgconfig/failsafe_manager.pc'
+[1.724s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/failsafe_manager/lib/python3.12/site-packages'
+[1.725s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/failsafe_manager/bin'
+[1.726s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/package.ps1'
+[1.727s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/package.dsv'
+[1.728s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/package.sh'
+[1.729s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/package.bash'
+[1.730s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/package.zsh'
+[1.731s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/failsafe_manager/share/colcon-core/packages/failsafe_manager)
+[1.732s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(failsafe_manager)
+[1.732s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/failsafe_manager' for CMake module files
+[1.734s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/failsafe_manager' for CMake config files
+[1.734s] Level 1:colcon.colcon_core.shell:create_environment_hook('failsafe_manager', 'cmake_prefix_path')
+[1.735s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/hook/cmake_prefix_path.ps1'
+[1.735s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/hook/cmake_prefix_path.dsv'
+[1.736s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/hook/cmake_prefix_path.sh'
+[1.737s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/failsafe_manager/bin'
+[1.738s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/failsafe_manager/lib/pkgconfig/failsafe_manager.pc'
+[1.738s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/failsafe_manager/lib/python3.12/site-packages'
+[1.739s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/failsafe_manager/bin'
+[1.739s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/package.ps1'
+[1.741s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/package.dsv'
+[1.743s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/package.sh'
+[1.744s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/package.bash'
+[1.745s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/package.zsh'
+[1.746s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/failsafe_manager/share/colcon-core/packages/failsafe_manager)
+[1.747s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/giacomo/drone_ws/src/rc_interface' with build type 'ament_cmake'
+[1.748s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/giacomo/drone_ws/src/rc_interface'
+[1.748s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.748s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.207s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/giacomo/drone_ws/src/payload_manager'
+[2.208s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.208s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.222s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/rc_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/rc_interface -- -j8 -l8
+[2.299s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/rc_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/rc_interface -- -j8 -l8
+[2.300s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/rc_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/rc_interface
+[2.358s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rc_interface)
+[2.359s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/rc_interface' for CMake module files
+[2.360s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/rc_interface' for CMake config files
+[2.360s] Level 1:colcon.colcon_core.shell:create_environment_hook('rc_interface', 'cmake_prefix_path')
+[2.358s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/rc_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/rc_interface
+[2.361s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/hook/cmake_prefix_path.ps1'
+[2.362s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/hook/cmake_prefix_path.dsv'
+[2.362s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/hook/cmake_prefix_path.sh'
+[2.364s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/rc_interface/bin'
+[2.364s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/rc_interface/lib/pkgconfig/rc_interface.pc'
+[2.364s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/rc_interface/lib/python3.12/site-packages'
+[2.365s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/rc_interface/bin'
+[2.365s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/package.ps1'
+[2.366s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/package.dsv'
+[2.367s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/package.sh'
+[2.368s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/package.bash'
+[2.368s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/package.zsh'
+[2.369s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/rc_interface/share/colcon-core/packages/rc_interface)
+[2.370s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rc_interface)
+[2.370s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/rc_interface' for CMake module files
+[2.371s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/rc_interface' for CMake config files
+[2.372s] Level 1:colcon.colcon_core.shell:create_environment_hook('rc_interface', 'cmake_prefix_path')
+[2.372s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/hook/cmake_prefix_path.ps1'
+[2.373s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/hook/cmake_prefix_path.dsv'
+[2.374s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/hook/cmake_prefix_path.sh'
+[2.375s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/rc_interface/bin'
+[2.375s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/rc_interface/lib/pkgconfig/rc_interface.pc'
+[2.376s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/rc_interface/lib/python3.12/site-packages'
+[2.377s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/rc_interface/bin'
+[2.377s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/package.ps1'
+[2.378s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/package.dsv'
+[2.379s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/package.sh'
+[2.380s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/package.bash'
+[2.381s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/package.zsh'
+[2.382s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/rc_interface/share/colcon-core/packages/rc_interface)
+[2.386s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/giacomo/drone_ws/src/sitl_launcher' with build type 'ament_python'
+[2.386s] Level 1:colcon.colcon_core.shell:create_environment_hook('sitl_launcher', 'ament_prefix_path')
+[2.387s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/sitl_launcher/share/sitl_launcher/hook/ament_prefix_path.ps1'
+[2.388s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/sitl_launcher/share/sitl_launcher/hook/ament_prefix_path.dsv'
+[2.389s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/sitl_launcher/share/sitl_launcher/hook/ament_prefix_path.sh'
+[2.391s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.391s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.000s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/giacomo/drone_ws/src/sitl_launcher'
+[3.001s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.001s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.125s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/data_logger': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/data_logger/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/data_logger/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/data_logger/build --no-deps symlink_data
+[3.329s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/communication_bridge': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/communication_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/communication_bridge/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/communication_bridge/build --no-deps symlink_data
+[3.357s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/mission_manager': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/mission_manager/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/mission_manager/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/mission_manager/build --no-deps symlink_data
+[3.416s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/hardware_interfaces': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/hardware_interfaces/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/hardware_interfaces/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/hardware_interfaces/build --no-deps symlink_data
+[3.985s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/payload_manager': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/payload_manager/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/payload_manager/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/payload_manager/build --no-deps symlink_data
+[4.012s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/fc_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/fc_interface -- -j8 -l8
+[4.013s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/fc_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/fc_interface
+[4.559s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(fc_interface)
+[4.559s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/fc_interface' for CMake module files
+[4.561s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/fc_interface' for CMake config files
+[4.562s] Level 1:colcon.colcon_core.shell:create_environment_hook('fc_interface', 'cmake_prefix_path')
+[4.562s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/hook/cmake_prefix_path.ps1'
+[4.563s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/hook/cmake_prefix_path.dsv'
+[4.564s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/fc_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/fc_interface
+[4.565s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/hook/cmake_prefix_path.sh'
+[4.566s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/fc_interface/lib'
+[4.567s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/fc_interface/bin'
+[4.567s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/fc_interface/lib/pkgconfig/fc_interface.pc'
+[4.567s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/fc_interface/lib/python3.12/site-packages'
+[4.568s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/fc_interface/bin'
+[4.568s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/package.ps1'
+[4.569s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/package.dsv'
+[4.570s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/package.sh'
+[4.570s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/package.bash'
+[4.571s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/package.zsh'
+[4.572s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/fc_interface/share/colcon-core/packages/fc_interface)
+[4.573s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(fc_interface)
+[4.573s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/fc_interface' for CMake module files
+[4.574s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/fc_interface' for CMake config files
+[4.575s] Level 1:colcon.colcon_core.shell:create_environment_hook('fc_interface', 'cmake_prefix_path')
+[4.575s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/hook/cmake_prefix_path.ps1'
+[4.576s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/hook/cmake_prefix_path.dsv'
+[4.576s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/hook/cmake_prefix_path.sh'
+[4.577s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/fc_interface/lib'
+[4.578s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/fc_interface/bin'
+[4.578s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/fc_interface/lib/pkgconfig/fc_interface.pc'
+[4.578s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/fc_interface/lib/python3.12/site-packages'
+[4.579s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/fc_interface/bin'
+[4.579s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/package.ps1'
+[4.580s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/package.dsv'
+[4.581s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/package.sh'
+[4.582s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/package.bash'
+[4.582s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/fc_interface/share/fc_interface/package.zsh'
+[4.583s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/fc_interface/share/colcon-core/packages/fc_interface)
+[4.588s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/giacomo/drone_ws/src/state_machine' with build type 'ament_python'
+[4.588s] Level 1:colcon.colcon_core.shell:create_environment_hook('state_machine', 'ament_prefix_path')
+[4.589s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/state_machine/share/state_machine/hook/ament_prefix_path.ps1'
+[4.589s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/state_machine/share/state_machine/hook/ament_prefix_path.dsv'
+[4.590s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/state_machine/share/state_machine/hook/ament_prefix_path.sh'
+[4.591s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.591s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.617s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/navigator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/navigator -- -j8 -l8
+[4.617s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/navigator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/navigator
+[4.998s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/giacomo/drone_ws/src/state_machine'
+[4.999s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.999s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.006s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(navigator)
+[5.007s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/navigator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/navigator
+[5.007s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/navigator' for CMake module files
+[5.008s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/navigator' for CMake config files
+[5.009s] Level 1:colcon.colcon_core.shell:create_environment_hook('navigator', 'cmake_prefix_path')
+[5.009s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/navigator/share/navigator/hook/cmake_prefix_path.ps1'
+[5.010s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/navigator/share/navigator/hook/cmake_prefix_path.dsv'
+[5.010s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/navigator/share/navigator/hook/cmake_prefix_path.sh'
+[5.011s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/navigator/lib'
+[5.011s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/navigator/bin'
+[5.011s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/navigator/lib/pkgconfig/navigator.pc'
+[5.012s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/navigator/lib/python3.12/site-packages'
+[5.012s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/navigator/bin'
+[5.013s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/navigator/share/navigator/package.ps1'
+[5.013s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/navigator/share/navigator/package.dsv'
+[5.014s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/navigator/share/navigator/package.sh'
+[5.015s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/navigator/share/navigator/package.bash'
+[5.015s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/navigator/share/navigator/package.zsh'
+[5.016s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/navigator/share/colcon-core/packages/navigator)
+[5.017s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(navigator)
+[5.017s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/navigator' for CMake module files
+[5.018s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/navigator' for CMake config files
+[5.019s] Level 1:colcon.colcon_core.shell:create_environment_hook('navigator', 'cmake_prefix_path')
+[5.019s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/navigator/share/navigator/hook/cmake_prefix_path.ps1'
+[5.021s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/navigator/share/navigator/hook/cmake_prefix_path.dsv'
+[5.021s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/navigator/share/navigator/hook/cmake_prefix_path.sh'
+[5.022s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/navigator/lib'
+[5.022s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/navigator/bin'
+[5.022s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/navigator/lib/pkgconfig/navigator.pc'
+[5.022s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/navigator/lib/python3.12/site-packages'
+[5.022s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/navigator/bin'
+[5.023s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/navigator/share/navigator/package.ps1'
+[5.024s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/navigator/share/navigator/package.dsv'
+[5.025s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/navigator/share/navigator/package.sh'
+[5.026s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/navigator/share/navigator/package.bash'
+[5.026s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/navigator/share/navigator/package.zsh'
+[5.027s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/navigator/share/colcon-core/packages/navigator)
+[5.030s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/giacomo/drone_ws/src/status_monitoring' with build type 'ament_python'
+[5.031s] Level 1:colcon.colcon_core.shell:create_environment_hook('status_monitoring', 'ament_prefix_path')
+[5.031s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/status_monitoring/share/status_monitoring/hook/ament_prefix_path.ps1'
+[5.032s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/sitl_launcher': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/sitl_launcher/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/sitl_launcher/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/sitl_launcher/build --no-deps symlink_data
+[5.034s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/status_monitoring/share/status_monitoring/hook/ament_prefix_path.dsv'
+[5.035s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/status_monitoring/share/status_monitoring/hook/ament_prefix_path.sh'
+[5.036s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.036s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.477s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/giacomo/drone_ws/src/status_monitoring'
+[5.478s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.478s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.484s] Level 1:colcon.colcon_core.shell:create_environment_hook('data_logger', 'pythonpath_develop')
+[5.485s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/data_logger/share/data_logger/hook/pythonpath_develop.ps1'
+[5.485s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/data_logger' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/data_logger/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/data_logger/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/data_logger/build --no-deps symlink_data
+[5.486s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/build/data_logger/share/data_logger/hook/pythonpath_develop.dsv'
+[5.487s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/data_logger/share/data_logger/hook/pythonpath_develop.sh'
+[5.488s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/data_logger' for CMake module files
+[5.489s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/data_logger' for CMake config files
+[5.490s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/data_logger/lib'
+[5.490s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/data_logger/bin'
+[5.490s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/data_logger/lib/pkgconfig/data_logger.pc'
+[5.490s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/data_logger/lib/python3.12/site-packages'
+[5.491s] Level 1:colcon.colcon_core.shell:create_environment_hook('data_logger', 'pythonpath')
+[5.491s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/data_logger/share/data_logger/hook/pythonpath.ps1'
+[5.492s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/data_logger/share/data_logger/hook/pythonpath.dsv'
+[5.492s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/data_logger/share/data_logger/hook/pythonpath.sh'
+[5.493s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/data_logger/bin'
+[5.493s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(data_logger)
+[5.494s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/data_logger/share/data_logger/package.ps1'
+[5.495s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/data_logger/share/data_logger/package.dsv'
+[5.496s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/data_logger/share/data_logger/package.sh'
+[5.497s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/data_logger/share/data_logger/package.bash'
+[5.497s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/data_logger/share/data_logger/package.zsh'
+[5.498s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/data_logger/share/colcon-core/packages/data_logger)
+[5.499s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/giacomo/drone_ws/src/trajectory_planner' with build type 'ament_cmake'
+[5.499s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/giacomo/drone_ws/src/trajectory_planner'
+[5.500s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.500s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.513s] Level 1:colcon.colcon_core.shell:create_environment_hook('communication_bridge', 'pythonpath_develop')
+[5.514s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/communication_bridge/share/communication_bridge/hook/pythonpath_develop.ps1'
+[5.515s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/communication_bridge' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/communication_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/communication_bridge/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/communication_bridge/build --no-deps symlink_data
+[5.516s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/build/communication_bridge/share/communication_bridge/hook/pythonpath_develop.dsv'
+[5.517s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/communication_bridge/share/communication_bridge/hook/pythonpath_develop.sh'
+[5.518s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/communication_bridge' for CMake module files
+[5.519s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/communication_bridge' for CMake config files
+[5.520s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/communication_bridge/lib'
+[5.521s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/communication_bridge/bin'
+[5.521s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/communication_bridge/lib/pkgconfig/communication_bridge.pc'
+[5.522s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/communication_bridge/lib/python3.12/site-packages'
+[5.522s] Level 1:colcon.colcon_core.shell:create_environment_hook('communication_bridge', 'pythonpath')
+[5.523s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/communication_bridge/share/communication_bridge/hook/pythonpath.ps1'
+[5.524s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/communication_bridge/share/communication_bridge/hook/pythonpath.dsv'
+[5.525s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/communication_bridge/share/communication_bridge/hook/pythonpath.sh'
+[5.527s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/communication_bridge/bin'
+[5.528s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(communication_bridge)
+[5.528s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/communication_bridge/share/communication_bridge/package.ps1'
+[5.530s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/communication_bridge/share/communication_bridge/package.dsv'
+[5.531s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/communication_bridge/share/communication_bridge/package.sh'
+[5.532s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/communication_bridge/share/communication_bridge/package.bash'
+[5.533s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/communication_bridge/share/communication_bridge/package.zsh'
+[5.534s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/communication_bridge/share/colcon-core/packages/communication_bridge)
+[5.534s] Level 1:colcon.colcon_core.shell:create_environment_hook('hardware_interfaces', 'pythonpath_develop')
+[5.535s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/hardware_interfaces/share/hardware_interfaces/hook/pythonpath_develop.ps1'
+[5.536s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/hardware_interfaces' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/hardware_interfaces/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/hardware_interfaces/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/hardware_interfaces/build --no-deps symlink_data
+[5.536s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/build/hardware_interfaces/share/hardware_interfaces/hook/pythonpath_develop.dsv'
+[5.537s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/hardware_interfaces/share/hardware_interfaces/hook/pythonpath_develop.sh'
+[5.538s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/hardware_interfaces' for CMake module files
+[5.540s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/hardware_interfaces' for CMake config files
+[5.541s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/hardware_interfaces/lib'
+[5.541s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/hardware_interfaces/bin'
+[5.541s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/hardware_interfaces/lib/pkgconfig/hardware_interfaces.pc'
+[5.542s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/hardware_interfaces/lib/python3.12/site-packages'
+[5.542s] Level 1:colcon.colcon_core.shell:create_environment_hook('hardware_interfaces', 'pythonpath')
+[5.542s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/hardware_interfaces/share/hardware_interfaces/hook/pythonpath.ps1'
+[5.544s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/hardware_interfaces/share/hardware_interfaces/hook/pythonpath.dsv'
+[5.545s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/hardware_interfaces/share/hardware_interfaces/hook/pythonpath.sh'
+[5.546s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/hardware_interfaces/bin'
+[5.547s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hardware_interfaces)
+[5.548s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/hardware_interfaces/share/hardware_interfaces/package.ps1'
+[5.549s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/hardware_interfaces/share/hardware_interfaces/package.dsv'
+[5.551s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/hardware_interfaces/share/hardware_interfaces/package.sh'
+[5.552s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/hardware_interfaces/share/hardware_interfaces/package.bash'
+[5.553s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/hardware_interfaces/share/hardware_interfaces/package.zsh'
+[5.554s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/hardware_interfaces/share/colcon-core/packages/hardware_interfaces)
+[5.554s] Level 1:colcon.colcon_core.shell:create_environment_hook('mission_manager', 'pythonpath_develop')
+[5.555s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/mission_manager/share/mission_manager/hook/pythonpath_develop.ps1'
+[5.556s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/build/mission_manager/share/mission_manager/hook/pythonpath_develop.dsv'
+[5.557s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/mission_manager' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/mission_manager/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/mission_manager/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/mission_manager/build --no-deps symlink_data
+[5.558s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/mission_manager/share/mission_manager/hook/pythonpath_develop.sh'
+[5.559s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/mission_manager' for CMake module files
+[5.560s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/mission_manager' for CMake config files
+[5.561s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/mission_manager/lib'
+[5.562s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/mission_manager/bin'
+[5.562s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/mission_manager/lib/pkgconfig/mission_manager.pc'
+[5.562s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/mission_manager/lib/python3.12/site-packages'
+[5.563s] Level 1:colcon.colcon_core.shell:create_environment_hook('mission_manager', 'pythonpath')
+[5.563s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/mission_manager/share/mission_manager/hook/pythonpath.ps1'
+[5.564s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/mission_manager/share/mission_manager/hook/pythonpath.dsv'
+[5.565s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/mission_manager/share/mission_manager/hook/pythonpath.sh'
+[5.566s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/mission_manager/bin'
+[5.566s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mission_manager)
+[5.567s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/mission_manager/share/mission_manager/package.ps1'
+[5.568s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/mission_manager/share/mission_manager/package.dsv'
+[5.570s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/mission_manager/share/mission_manager/package.sh'
+[5.571s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/mission_manager/share/mission_manager/package.bash'
+[5.572s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/mission_manager/share/mission_manager/package.zsh'
+[5.574s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/mission_manager/share/colcon-core/packages/mission_manager)
+[5.576s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/giacomo/drone_ws/src/uav_config' with build type 'ament_python'
+[5.577s] Level 1:colcon.colcon_core.shell:create_environment_hook('uav_config', 'ament_prefix_path')
+[5.577s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/uav_config/share/uav_config/hook/ament_prefix_path.ps1'
+[5.579s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/uav_config/share/uav_config/hook/ament_prefix_path.dsv'
+[5.579s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/uav_config/share/uav_config/hook/ament_prefix_path.sh'
+[5.581s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.581s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.593s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/giacomo/drone_ws/src/vision_guidance' with build type 'ament_python'
+[5.593s] Level 1:colcon.colcon_core.shell:create_environment_hook('vision_guidance', 'ament_prefix_path')
+[5.594s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/vision_guidance/share/vision_guidance/hook/ament_prefix_path.ps1'
+[5.595s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/vision_guidance/share/vision_guidance/hook/ament_prefix_path.dsv'
+[5.595s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/vision_guidance/share/vision_guidance/hook/ament_prefix_path.sh'
+[5.597s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.597s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.608s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/giacomo/drone_ws/src/vision_perception' with build type 'ament_python'
+[5.609s] Level 1:colcon.colcon_core.shell:create_environment_hook('vision_perception', 'ament_prefix_path')
+[5.610s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/vision_perception/share/vision_perception/hook/ament_prefix_path.ps1'
+[5.611s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/vision_perception/share/vision_perception/hook/ament_prefix_path.dsv'
+[5.612s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/vision_perception/share/vision_perception/hook/ament_prefix_path.sh'
+[5.613s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.613s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.636s] Level 1:colcon.colcon_core.shell:create_environment_hook('payload_manager', 'pythonpath_develop')
+[5.636s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/payload_manager/share/payload_manager/hook/pythonpath_develop.ps1'
+[5.638s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/build/payload_manager/share/payload_manager/hook/pythonpath_develop.dsv'
+[5.639s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/trajectory_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/trajectory_planner -- -j8 -l8
+[5.640s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/payload_manager' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/payload_manager/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/payload_manager/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/payload_manager/build --no-deps symlink_data
+[5.641s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/payload_manager/share/payload_manager/hook/pythonpath_develop.sh'
+[5.642s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/payload_manager' for CMake module files
+[5.643s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/payload_manager' for CMake config files
+[5.644s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/payload_manager/lib'
+[5.644s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/payload_manager/bin'
+[5.645s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/payload_manager/lib/pkgconfig/payload_manager.pc'
+[5.645s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/payload_manager/lib/python3.12/site-packages'
+[5.645s] Level 1:colcon.colcon_core.shell:create_environment_hook('payload_manager', 'pythonpath')
+[5.646s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/payload_manager/share/payload_manager/hook/pythonpath.ps1'
+[5.647s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/payload_manager/share/payload_manager/hook/pythonpath.dsv'
+[5.647s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/payload_manager/share/payload_manager/hook/pythonpath.sh'
+[5.649s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/payload_manager/bin'
+[5.649s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(payload_manager)
+[5.649s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/payload_manager/share/payload_manager/package.ps1'
+[5.651s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/payload_manager/share/payload_manager/package.dsv'
+[5.652s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/payload_manager/share/payload_manager/package.sh'
+[5.653s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/payload_manager/share/payload_manager/package.bash'
+[5.653s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/payload_manager/share/payload_manager/package.zsh'
+[5.654s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/payload_manager/share/colcon-core/packages/payload_manager)
+[6.190s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/giacomo/drone_ws/src/uav_config'
+[6.190s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[6.190s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.600s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/giacomo/drone_ws/src/vision_guidance'
+[6.601s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[6.601s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.937s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/giacomo/drone_ws/src/vision_perception'
+[6.937s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[6.937s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.946s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/state_machine': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/state_machine/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/state_machine/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/state_machine/build --no-deps symlink_data
+[6.947s] Level 1:colcon.colcon_core.shell:create_environment_hook('sitl_launcher', 'pythonpath_develop')
+[6.948s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/sitl_launcher/share/sitl_launcher/hook/pythonpath_develop.ps1'
+[6.949s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/build/sitl_launcher/share/sitl_launcher/hook/pythonpath_develop.dsv'
+[6.951s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/sitl_launcher/share/sitl_launcher/hook/pythonpath_develop.sh'
+[6.952s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/status_monitoring': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/status_monitoring/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/status_monitoring/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/status_monitoring/build --no-deps symlink_data
+[6.953s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/sitl_launcher' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/sitl_launcher/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/sitl_launcher/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/sitl_launcher/build --no-deps symlink_data
+[6.953s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/sitl_launcher' for CMake module files
+[6.954s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/sitl_launcher' for CMake config files
+[6.956s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/sitl_launcher/lib'
+[6.956s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/sitl_launcher/bin'
+[6.956s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/sitl_launcher/lib/pkgconfig/sitl_launcher.pc'
+[6.957s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/sitl_launcher/lib/python3.12/site-packages'
+[6.957s] Level 1:colcon.colcon_core.shell:create_environment_hook('sitl_launcher', 'pythonpath')
+[6.958s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/sitl_launcher/share/sitl_launcher/hook/pythonpath.ps1'
+[6.959s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/sitl_launcher/share/sitl_launcher/hook/pythonpath.dsv'
+[6.960s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/sitl_launcher/share/sitl_launcher/hook/pythonpath.sh'
+[6.961s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/sitl_launcher/bin'
+[6.961s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(sitl_launcher)
+[6.962s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/sitl_launcher/share/sitl_launcher/package.ps1'
+[6.963s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/sitl_launcher/share/sitl_launcher/package.dsv'
+[6.964s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/sitl_launcher/share/sitl_launcher/package.sh'
+[6.965s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/sitl_launcher/share/sitl_launcher/package.bash'
+[6.966s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/sitl_launcher/share/sitl_launcher/package.zsh'
+[6.967s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/sitl_launcher/share/colcon-core/packages/sitl_launcher)
+[7.163s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/trajectory_planner' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/trajectory_planner -- -j8 -l8
+[7.166s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/trajectory_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/trajectory_planner
+[7.208s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(trajectory_planner)
+[7.209s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/trajectory_planner' for CMake module files
+[7.209s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/trajectory_planner' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/vision_perception:/home/giacomo/drone_ws/install/vision_guidance:/home/giacomo/drone_ws/install/uav_config:/home/giacomo/drone_ws/install/status_monitoring:/home/giacomo/drone_ws/install/state_machine:/home/giacomo/drone_ws/install/sitl_launcher:/home/giacomo/drone_ws/install/payload_manager:/home/giacomo/drone_ws/install/mission_manager:/home/giacomo/drone_ws/install/hardware_interfaces:/home/giacomo/drone_ws/install/data_logger:/home/giacomo/drone_ws/install/communication_bridge:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/trajectory_planner
+[7.210s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/trajectory_planner' for CMake config files
+[7.211s] Level 1:colcon.colcon_core.shell:create_environment_hook('trajectory_planner', 'cmake_prefix_path')
+[7.211s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/hook/cmake_prefix_path.ps1'
+[7.212s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/hook/cmake_prefix_path.dsv'
+[7.212s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/hook/cmake_prefix_path.sh'
+[7.213s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/trajectory_planner/lib'
+[7.213s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/trajectory_planner/bin'
+[7.214s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/trajectory_planner/lib/pkgconfig/trajectory_planner.pc'
+[7.214s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/trajectory_planner/lib/python3.12/site-packages'
+[7.214s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/trajectory_planner/bin'
+[7.215s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/package.ps1'
+[7.216s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/package.dsv'
+[7.217s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/package.sh'
+[7.217s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/package.bash'
+[7.218s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/package.zsh'
+[7.219s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/trajectory_planner/share/colcon-core/packages/trajectory_planner)
+[7.219s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(trajectory_planner)
+[7.220s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/trajectory_planner' for CMake module files
+[7.221s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/trajectory_planner' for CMake config files
+[7.221s] Level 1:colcon.colcon_core.shell:create_environment_hook('trajectory_planner', 'cmake_prefix_path')
+[7.222s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/hook/cmake_prefix_path.ps1'
+[7.222s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/hook/cmake_prefix_path.dsv'
+[7.223s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/hook/cmake_prefix_path.sh'
+[7.224s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/trajectory_planner/lib'
+[7.224s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/trajectory_planner/bin'
+[7.224s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/trajectory_planner/lib/pkgconfig/trajectory_planner.pc'
+[7.225s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/trajectory_planner/lib/python3.12/site-packages'
+[7.225s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/trajectory_planner/bin'
+[7.226s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/package.ps1'
+[7.227s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/package.dsv'
+[7.228s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/package.sh'
+[7.228s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/package.bash'
+[7.229s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/trajectory_planner/share/trajectory_planner/package.zsh'
+[7.230s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/trajectory_planner/share/colcon-core/packages/trajectory_planner)
+[8.034s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/vision_guidance': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/vision_guidance/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/vision_guidance/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/vision_guidance/build --no-deps symlink_data
+[8.037s] Level 1:colcon.colcon_core.shell:create_environment_hook('status_monitoring', 'pythonpath_develop')
+[8.038s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/status_monitoring/share/status_monitoring/hook/pythonpath_develop.ps1'
+[8.038s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/status_monitoring' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/status_monitoring/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/status_monitoring/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/status_monitoring/build --no-deps symlink_data
+[8.039s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/build/status_monitoring/share/status_monitoring/hook/pythonpath_develop.dsv'
+[8.040s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/status_monitoring/share/status_monitoring/hook/pythonpath_develop.sh'
+[8.040s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/status_monitoring' for CMake module files
+[8.041s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/status_monitoring' for CMake config files
+[8.042s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/status_monitoring/lib'
+[8.042s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/status_monitoring/bin'
+[8.042s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/status_monitoring/lib/pkgconfig/status_monitoring.pc'
+[8.042s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/status_monitoring/lib/python3.12/site-packages'
+[8.042s] Level 1:colcon.colcon_core.shell:create_environment_hook('status_monitoring', 'pythonpath')
+[8.043s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/status_monitoring/share/status_monitoring/hook/pythonpath.ps1'
+[8.043s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/status_monitoring/share/status_monitoring/hook/pythonpath.dsv'
+[8.044s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/status_monitoring/share/status_monitoring/hook/pythonpath.sh'
+[8.044s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/status_monitoring/bin'
+[8.045s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(status_monitoring)
+[8.045s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/status_monitoring/share/status_monitoring/package.ps1'
+[8.046s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/status_monitoring/share/status_monitoring/package.dsv'
+[8.046s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/status_monitoring/share/status_monitoring/package.sh'
+[8.047s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/status_monitoring/share/status_monitoring/package.bash'
+[8.048s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/status_monitoring/share/status_monitoring/package.zsh'
+[8.049s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/status_monitoring/share/colcon-core/packages/status_monitoring)
+[8.140s] Level 1:colcon.colcon_core.shell:create_environment_hook('state_machine', 'pythonpath_develop')
+[8.140s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/state_machine/share/state_machine/hook/pythonpath_develop.ps1'
+[8.141s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/state_machine' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/state_machine/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/state_machine/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/state_machine/build --no-deps symlink_data
+[8.142s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/build/state_machine/share/state_machine/hook/pythonpath_develop.dsv'
+[8.142s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/state_machine/share/state_machine/hook/pythonpath_develop.sh'
+[8.143s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/state_machine' for CMake module files
+[8.145s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/state_machine' for CMake config files
+[8.145s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/state_machine/lib'
+[8.146s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/state_machine/bin'
+[8.146s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/state_machine/lib/pkgconfig/state_machine.pc'
+[8.146s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/state_machine/lib/python3.12/site-packages'
+[8.146s] Level 1:colcon.colcon_core.shell:create_environment_hook('state_machine', 'pythonpath')
+[8.147s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/state_machine/share/state_machine/hook/pythonpath.ps1'
+[8.147s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/state_machine/share/state_machine/hook/pythonpath.dsv'
+[8.148s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/state_machine/share/state_machine/hook/pythonpath.sh'
+[8.149s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/state_machine/bin'
+[8.149s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(state_machine)
+[8.150s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/state_machine/share/state_machine/package.ps1'
+[8.151s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/state_machine/share/state_machine/package.dsv'
+[8.152s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/state_machine/share/state_machine/package.sh'
+[8.154s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/state_machine/share/state_machine/package.bash'
+[8.155s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/state_machine/share/state_machine/package.zsh'
+[8.155s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/state_machine/share/colcon-core/packages/state_machine)
+[8.333s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/uav_config': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/uav_config/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/uav_config/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/uav_config/build --no-deps symlink_data
+[8.348s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/giacomo/drone_ws/src/build/vision_perception': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/vision_perception/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/vision_perception/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/vision_perception/build --no-deps symlink_data
+[9.044s] Level 1:colcon.colcon_core.shell:create_environment_hook('vision_guidance', 'pythonpath_develop')
+[9.045s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/vision_guidance/share/vision_guidance/hook/pythonpath_develop.ps1'
+[9.045s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/vision_guidance' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/vision_guidance/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/vision_guidance/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/vision_guidance/build --no-deps symlink_data
+[9.046s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/build/vision_guidance/share/vision_guidance/hook/pythonpath_develop.dsv'
+[9.046s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/vision_guidance/share/vision_guidance/hook/pythonpath_develop.sh'
+[9.047s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/vision_guidance' for CMake module files
+[9.047s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/vision_guidance' for CMake config files
+[9.048s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/vision_guidance/lib'
+[9.048s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/vision_guidance/bin'
+[9.048s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/vision_guidance/lib/pkgconfig/vision_guidance.pc'
+[9.048s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/vision_guidance/lib/python3.12/site-packages'
+[9.048s] Level 1:colcon.colcon_core.shell:create_environment_hook('vision_guidance', 'pythonpath')
+[9.048s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/vision_guidance/share/vision_guidance/hook/pythonpath.ps1'
+[9.049s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/vision_guidance/share/vision_guidance/hook/pythonpath.dsv'
+[9.049s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/vision_guidance/share/vision_guidance/hook/pythonpath.sh'
+[9.050s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/vision_guidance/bin'
+[9.050s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(vision_guidance)
+[9.050s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/vision_guidance/share/vision_guidance/package.ps1'
+[9.051s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/vision_guidance/share/vision_guidance/package.dsv'
+[9.052s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/vision_guidance/share/vision_guidance/package.sh'
+[9.052s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/vision_guidance/share/vision_guidance/package.bash'
+[9.053s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/vision_guidance/share/vision_guidance/package.zsh'
+[9.053s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/vision_guidance/share/colcon-core/packages/vision_guidance)
+[9.288s] Level 1:colcon.colcon_core.shell:create_environment_hook('vision_perception', 'pythonpath_develop')
+[9.289s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/vision_perception/share/vision_perception/hook/pythonpath_develop.ps1'
+[9.289s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/vision_perception' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/vision_perception/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/vision_perception/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/vision_perception/build --no-deps symlink_data
+[9.290s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/build/vision_perception/share/vision_perception/hook/pythonpath_develop.dsv'
+[9.291s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/vision_perception/share/vision_perception/hook/pythonpath_develop.sh'
+[9.291s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/vision_perception' for CMake module files
+[9.292s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/vision_perception' for CMake config files
+[9.293s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/vision_perception/lib'
+[9.293s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/vision_perception/bin'
+[9.293s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/vision_perception/lib/pkgconfig/vision_perception.pc'
+[9.293s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/vision_perception/lib/python3.12/site-packages'
+[9.293s] Level 1:colcon.colcon_core.shell:create_environment_hook('vision_perception', 'pythonpath')
+[9.294s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/vision_perception/share/vision_perception/hook/pythonpath.ps1'
+[9.294s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/vision_perception/share/vision_perception/hook/pythonpath.dsv'
+[9.295s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/vision_perception/share/vision_perception/hook/pythonpath.sh'
+[9.296s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/vision_perception/bin'
+[9.296s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(vision_perception)
+[9.296s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/vision_perception/share/vision_perception/package.ps1'
+[9.297s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/vision_perception/share/vision_perception/package.dsv'
+[9.298s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/vision_perception/share/vision_perception/package.sh'
+[9.299s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/vision_perception/share/vision_perception/package.bash'
+[9.299s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/vision_perception/share/vision_perception/package.zsh'
+[9.300s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/vision_perception/share/colcon-core/packages/vision_perception)
+[9.321s] Level 1:colcon.colcon_core.shell:create_environment_hook('uav_config', 'pythonpath_develop')
+[9.321s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/uav_config/share/uav_config/hook/pythonpath_develop.ps1'
+[9.322s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/giacomo/drone_ws/src/build/uav_config' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/uav_config/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/uav_config/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/uav_config/build --no-deps symlink_data
+[9.322s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/build/uav_config/share/uav_config/hook/pythonpath_develop.dsv'
+[9.323s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/build/uav_config/share/uav_config/hook/pythonpath_develop.sh'
+[9.324s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/uav_config' for CMake module files
+[9.324s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/uav_config' for CMake config files
+[9.325s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/uav_config/lib'
+[9.325s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/uav_config/bin'
+[9.325s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/uav_config/lib/pkgconfig/uav_config.pc'
+[9.326s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/uav_config/lib/python3.12/site-packages'
+[9.326s] Level 1:colcon.colcon_core.shell:create_environment_hook('uav_config', 'pythonpath')
+[9.326s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/uav_config/share/uav_config/hook/pythonpath.ps1'
+[9.327s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/giacomo/drone_ws/src/install/uav_config/share/uav_config/hook/pythonpath.dsv'
+[9.327s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/giacomo/drone_ws/src/install/uav_config/share/uav_config/hook/pythonpath.sh'
+[9.328s] Level 1:colcon.colcon_core.environment:checking '/home/giacomo/drone_ws/src/install/uav_config/bin'
+[9.328s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(uav_config)
+[9.328s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/uav_config/share/uav_config/package.ps1'
+[9.329s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/giacomo/drone_ws/src/install/uav_config/share/uav_config/package.dsv'
+[9.330s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/uav_config/share/uav_config/package.sh'
+[9.330s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/uav_config/share/uav_config/package.bash'
+[9.331s] INFO:colcon.colcon_core.shell:Creating package script '/home/giacomo/drone_ws/src/install/uav_config/share/uav_config/package.zsh'
+[9.331s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/giacomo/drone_ws/src/install/uav_config/share/colcon-core/packages/uav_config)
+[9.332s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[9.332s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[9.332s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[9.332s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[9.362s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[9.362s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[9.362s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[9.384s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[9.384s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/giacomo/drone_ws/src/install/local_setup.ps1'
+[9.386s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/giacomo/drone_ws/src/install/_local_setup_util_ps1.py'
+[9.389s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/giacomo/drone_ws/src/install/setup.ps1'
+[9.392s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/giacomo/drone_ws/src/install/local_setup.sh'
+[9.393s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/giacomo/drone_ws/src/install/_local_setup_util_sh.py'
+[9.394s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/giacomo/drone_ws/src/install/setup.sh'
+[9.396s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/giacomo/drone_ws/src/install/local_setup.bash'
+[9.397s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/giacomo/drone_ws/src/install/setup.bash'
+[9.399s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/giacomo/drone_ws/src/install/local_setup.zsh'
+[9.399s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/giacomo/drone_ws/src/install/setup.zsh'

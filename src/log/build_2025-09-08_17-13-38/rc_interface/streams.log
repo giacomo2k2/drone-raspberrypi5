@@ -1,0 +1,31 @@
+[0.024s] Invoking command in '/home/giacomo/drone_ws/src/build/rc_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake /home/giacomo/drone_ws/src/rc_interface -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/giacomo/drone_ws/src/install/rc_interface
+[0.074s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.720s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.743s] -- Found ament_lint_auto: 0.17.3 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[1.062s] -- Added test 'lint_cmake' to check CMake code style
+[1.063s] -- Added test 'xmllint' to check XML markup files
+[1.067s] -- Configuring done (1.0s)
+[1.075s] -- Generating done (0.0s)
+[1.081s] -- Build files have been written to: /home/giacomo/drone_ws/src/build/rc_interface
+[1.091s] Invoked command in '/home/giacomo/drone_ws/src/build/rc_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake /home/giacomo/drone_ws/src/rc_interface -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/giacomo/drone_ws/src/install/rc_interface
+[1.096s] Invoking command in '/home/giacomo/drone_ws/src/build/rc_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/rc_interface -- -j8 -l8
+[1.497s] Invoked command in '/home/giacomo/drone_ws/src/build/rc_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/rc_interface -- -j8 -l8
+[1.500s] Invoking command in '/home/giacomo/drone_ws/src/build/rc_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/rc_interface
+[1.518s] -- Install configuration: ""
+[1.518s] -- Execute custom install script
+[1.521s] -- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/ament_index/resource_index/package_run_dependencies/rc_interface
+[1.538s] -- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/ament_index/resource_index/parent_prefix_path/rc_interface
+[1.562s] -- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/environment/ament_prefix_path.sh
+[1.585s] -- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/environment/ament_prefix_path.dsv
+[1.601s] -- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/environment/path.sh
+[1.619s] -- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/environment/path.dsv
+[1.639s] -- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/local_setup.bash
+[1.664s] -- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/local_setup.sh
+[1.688s] -- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/local_setup.zsh
+[1.704s] -- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/local_setup.dsv
+[1.722s] -- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/package.dsv
+[1.739s] -- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/ament_index/resource_index/packages/rc_interface
+[1.765s] -- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/cmake/rc_interfaceConfig.cmake
+[1.789s] -- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/cmake/rc_interfaceConfig-version.cmake
+[1.809s] -- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/package.xml
+[1.838s] Invoked command in '/home/giacomo/drone_ws/src/build/rc_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/rc_interface

@@ -1,0 +1,15 @@
+[2.794s] Invoking command in '/home/giacomo/drone_ws/src/build/data_logger': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/data_logger/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/data_logger/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/data_logger/build --no-deps symlink_data
+[3.937s] running develop
+[4.505s] running egg_info
+[4.561s] writing data_logger.egg-info/PKG-INFO
+[4.561s] writing dependency_links to data_logger.egg-info/dependency_links.txt
+[4.562s] writing requirements to data_logger.egg-info/requires.txt
+[4.562s] writing top-level names to data_logger.egg-info/top_level.txt
+[4.668s] reading manifest file 'data_logger.egg-info/SOURCES.txt'
+[4.669s] writing manifest file 'data_logger.egg-info/SOURCES.txt'
+[4.727s] running build_ext
+[4.727s] Creating /home/giacomo/drone_ws/src/install/data_logger/lib/python3.12/site-packages/data-logger.egg-link (link to .)
+[4.729s] 
+[4.731s] Installed /home/giacomo/drone_ws/src/build/data_logger
+[4.731s] running symlink_data
+[5.154s] Invoked command in '/home/giacomo/drone_ws/src/build/data_logger' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/data_logger/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/data_logger/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/data_logger/build --no-deps symlink_data

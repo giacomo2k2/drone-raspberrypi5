@@ -1,0 +1,17 @@
+[2.720s] Invoking command in '/home/giacomo/drone_ws/src/build/vision_guidance': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/vision_guidance/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/vision_guidance/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/vision_guidance/build --no-deps symlink_data --force
+[3.300s] running develop
+[3.604s] running egg_info
+[3.631s] writing vision_guidance.egg-info/PKG-INFO
+[3.631s] writing dependency_links to vision_guidance.egg-info/dependency_links.txt
+[3.632s] writing requirements to vision_guidance.egg-info/requires.txt
+[3.632s] writing top-level names to vision_guidance.egg-info/top_level.txt
+[3.691s] reading manifest file 'vision_guidance.egg-info/SOURCES.txt'
+[3.691s] writing manifest file 'vision_guidance.egg-info/SOURCES.txt'
+[3.726s] running build_ext
+[3.726s] Creating /home/giacomo/drone_ws/src/install/vision_guidance/lib/python3.12/site-packages/vision-guidance.egg-link (link to .)
+[3.726s] 
+[3.727s] Installed /home/giacomo/drone_ws/src/build/vision_guidance
+[3.727s] running symlink_data
+[3.727s] symbolically linking /home/giacomo/drone_ws/src/build/vision_guidance/resource/vision_guidance -> /home/giacomo/drone_ws/src/install/vision_guidance/share/ament_index/resource_index/packages
+[3.727s] symbolically linking /home/giacomo/drone_ws/src/build/vision_guidance/package.xml -> /home/giacomo/drone_ws/src/install/vision_guidance/share/vision_guidance
+[3.771s] Invoked command in '/home/giacomo/drone_ws/src/build/vision_guidance' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/vision_guidance/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/vision_guidance/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/vision_guidance/build --no-deps symlink_data --force

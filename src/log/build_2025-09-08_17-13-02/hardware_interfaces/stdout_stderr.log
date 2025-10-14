@@ -1,0 +1,31 @@
+running egg_info
+creating ../build/hardware_interfaces/hardware_interfaces.egg-info
+writing ../build/hardware_interfaces/hardware_interfaces.egg-info/PKG-INFO
+writing dependency_links to ../build/hardware_interfaces/hardware_interfaces.egg-info/dependency_links.txt
+writing requirements to ../build/hardware_interfaces/hardware_interfaces.egg-info/requires.txt
+writing top-level names to ../build/hardware_interfaces/hardware_interfaces.egg-info/top_level.txt
+writing manifest file '../build/hardware_interfaces/hardware_interfaces.egg-info/SOURCES.txt'
+reading manifest file '../build/hardware_interfaces/hardware_interfaces.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../build/hardware_interfaces/hardware_interfaces.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/giacomo/drone_ws/src/build/hardware_interfaces/build
+creating /home/giacomo/drone_ws/src/build/hardware_interfaces/build/lib
+creating /home/giacomo/drone_ws/src/build/hardware_interfaces/build/lib/hardware_interfaces
+copying hardware_interfaces/__init__.py -> /home/giacomo/drone_ws/src/build/hardware_interfaces/build/lib/hardware_interfaces
+running install
+running install_lib
+creating /home/giacomo/drone_ws/src/install/hardware_interfaces/lib/python3.12/site-packages/hardware_interfaces
+copying /home/giacomo/drone_ws/src/build/hardware_interfaces/build/lib/hardware_interfaces/__init__.py -> /home/giacomo/drone_ws/src/install/hardware_interfaces/lib/python3.12/site-packages/hardware_interfaces
+byte-compiling /home/giacomo/drone_ws/src/install/hardware_interfaces/lib/python3.12/site-packages/hardware_interfaces/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/giacomo/drone_ws/src/install/hardware_interfaces/share/ament_index
+creating /home/giacomo/drone_ws/src/install/hardware_interfaces/share/ament_index/resource_index
+creating /home/giacomo/drone_ws/src/install/hardware_interfaces/share/ament_index/resource_index/packages
+copying resource/hardware_interfaces -> /home/giacomo/drone_ws/src/install/hardware_interfaces/share/ament_index/resource_index/packages
+copying package.xml -> /home/giacomo/drone_ws/src/install/hardware_interfaces/share/hardware_interfaces
+running install_egg_info
+Copying ../build/hardware_interfaces/hardware_interfaces.egg-info to /home/giacomo/drone_ws/src/install/hardware_interfaces/lib/python3.12/site-packages/hardware_interfaces-0.0.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/home/giacomo/drone_ws/src/build/hardware_interfaces/install.log'

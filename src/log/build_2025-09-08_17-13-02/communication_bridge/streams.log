@@ -1,0 +1,33 @@
+[2.717s] Invoking command in '/home/giacomo/drone_ws/src/communication_bridge': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/communication_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/communication_bridge/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/communication_bridge build --build-base /home/giacomo/drone_ws/src/build/communication_bridge/build install --record /home/giacomo/drone_ws/src/build/communication_bridge/install.log --single-version-externally-managed install_data
+[3.485s] running egg_info
+[3.486s] creating ../build/communication_bridge/communication_bridge.egg-info
+[3.541s] writing ../build/communication_bridge/communication_bridge.egg-info/PKG-INFO
+[3.541s] writing dependency_links to ../build/communication_bridge/communication_bridge.egg-info/dependency_links.txt
+[3.542s] writing requirements to ../build/communication_bridge/communication_bridge.egg-info/requires.txt
+[3.544s] writing top-level names to ../build/communication_bridge/communication_bridge.egg-info/top_level.txt
+[3.544s] writing manifest file '../build/communication_bridge/communication_bridge.egg-info/SOURCES.txt'
+[3.651s] reading manifest file '../build/communication_bridge/communication_bridge.egg-info/SOURCES.txt'
+[3.652s] adding license file 'LICENSE'
+[3.653s] writing manifest file '../build/communication_bridge/communication_bridge.egg-info/SOURCES.txt'
+[3.656s] running build
+[3.657s] running build_py
+[3.657s] creating /home/giacomo/drone_ws/src/build/communication_bridge/build
+[3.657s] creating /home/giacomo/drone_ws/src/build/communication_bridge/build/lib
+[3.658s] creating /home/giacomo/drone_ws/src/build/communication_bridge/build/lib/communication_bridge
+[3.658s] copying communication_bridge/__init__.py -> /home/giacomo/drone_ws/src/build/communication_bridge/build/lib/communication_bridge
+[3.658s] running install
+[3.673s] running install_lib
+[3.746s] creating /home/giacomo/drone_ws/src/install/communication_bridge/lib/python3.12/site-packages/communication_bridge
+[3.746s] copying /home/giacomo/drone_ws/src/build/communication_bridge/build/lib/communication_bridge/__init__.py -> /home/giacomo/drone_ws/src/install/communication_bridge/lib/python3.12/site-packages/communication_bridge
+[3.749s] byte-compiling /home/giacomo/drone_ws/src/install/communication_bridge/lib/python3.12/site-packages/communication_bridge/__init__.py to __init__.cpython-312.pyc
+[3.749s] running install_data
+[3.750s] creating /home/giacomo/drone_ws/src/install/communication_bridge/share/ament_index
+[3.750s] creating /home/giacomo/drone_ws/src/install/communication_bridge/share/ament_index/resource_index
+[3.750s] creating /home/giacomo/drone_ws/src/install/communication_bridge/share/ament_index/resource_index/packages
+[3.750s] copying resource/communication_bridge -> /home/giacomo/drone_ws/src/install/communication_bridge/share/ament_index/resource_index/packages
+[3.750s] copying package.xml -> /home/giacomo/drone_ws/src/install/communication_bridge/share/communication_bridge
+[3.751s] running install_egg_info
+[3.820s] Copying ../build/communication_bridge/communication_bridge.egg-info to /home/giacomo/drone_ws/src/install/communication_bridge/lib/python3.12/site-packages/communication_bridge-0.0.0-py3.12.egg-info
+[3.826s] running install_scripts
+[4.255s] writing list of installed files to '/home/giacomo/drone_ws/src/build/communication_bridge/install.log'
+[4.403s] Invoked command in '/home/giacomo/drone_ws/src/communication_bridge' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/communication_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/communication_bridge/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/communication_bridge build --build-base /home/giacomo/drone_ws/src/build/communication_bridge/build install --record /home/giacomo/drone_ws/src/build/communication_bridge/install.log --single-version-externally-managed install_data

@@ -1,0 +1,15 @@
+[1.918s] Invoking command in '/home/giacomo/drone_ws/src/build/status_monitoring': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/status_monitoring/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/status_monitoring/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/status_monitoring/build --no-deps symlink_data
+[2.501s] running develop
+[2.816s] running egg_info
+[2.847s] writing status_monitoring.egg-info/PKG-INFO
+[2.847s] writing dependency_links to status_monitoring.egg-info/dependency_links.txt
+[2.847s] writing requirements to status_monitoring.egg-info/requires.txt
+[2.848s] writing top-level names to status_monitoring.egg-info/top_level.txt
+[2.907s] reading manifest file 'status_monitoring.egg-info/SOURCES.txt'
+[2.907s] writing manifest file 'status_monitoring.egg-info/SOURCES.txt'
+[2.942s] running build_ext
+[2.942s] Creating /home/giacomo/drone_ws/src/install/status_monitoring/lib/python3.12/site-packages/status-monitoring.egg-link (link to .)
+[2.943s] 
+[2.943s] Installed /home/giacomo/drone_ws/src/build/status_monitoring
+[2.943s] running symlink_data
+[3.005s] Invoked command in '/home/giacomo/drone_ws/src/build/status_monitoring' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/status_monitoring/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/status_monitoring/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/giacomo/drone_ws/src/build/status_monitoring/build --no-deps symlink_data

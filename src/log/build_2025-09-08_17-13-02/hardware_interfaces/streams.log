@@ -1,0 +1,33 @@
+[2.838s] Invoking command in '/home/giacomo/drone_ws/src/hardware_interfaces': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/hardware_interfaces/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/hardware_interfaces/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/hardware_interfaces build --build-base /home/giacomo/drone_ws/src/build/hardware_interfaces/build install --record /home/giacomo/drone_ws/src/build/hardware_interfaces/install.log --single-version-externally-managed install_data
+[3.502s] running egg_info
+[3.503s] creating ../build/hardware_interfaces/hardware_interfaces.egg-info
+[3.555s] writing ../build/hardware_interfaces/hardware_interfaces.egg-info/PKG-INFO
+[3.556s] writing dependency_links to ../build/hardware_interfaces/hardware_interfaces.egg-info/dependency_links.txt
+[3.557s] writing requirements to ../build/hardware_interfaces/hardware_interfaces.egg-info/requires.txt
+[3.557s] writing top-level names to ../build/hardware_interfaces/hardware_interfaces.egg-info/top_level.txt
+[3.557s] writing manifest file '../build/hardware_interfaces/hardware_interfaces.egg-info/SOURCES.txt'
+[3.687s] reading manifest file '../build/hardware_interfaces/hardware_interfaces.egg-info/SOURCES.txt'
+[3.688s] adding license file 'LICENSE'
+[3.689s] writing manifest file '../build/hardware_interfaces/hardware_interfaces.egg-info/SOURCES.txt'
+[3.691s] running build
+[3.692s] running build_py
+[3.693s] creating /home/giacomo/drone_ws/src/build/hardware_interfaces/build
+[3.697s] creating /home/giacomo/drone_ws/src/build/hardware_interfaces/build/lib
+[3.698s] creating /home/giacomo/drone_ws/src/build/hardware_interfaces/build/lib/hardware_interfaces
+[3.698s] copying hardware_interfaces/__init__.py -> /home/giacomo/drone_ws/src/build/hardware_interfaces/build/lib/hardware_interfaces
+[3.699s] running install
+[3.716s] running install_lib
+[3.789s] creating /home/giacomo/drone_ws/src/install/hardware_interfaces/lib/python3.12/site-packages/hardware_interfaces
+[3.789s] copying /home/giacomo/drone_ws/src/build/hardware_interfaces/build/lib/hardware_interfaces/__init__.py -> /home/giacomo/drone_ws/src/install/hardware_interfaces/lib/python3.12/site-packages/hardware_interfaces
+[3.791s] byte-compiling /home/giacomo/drone_ws/src/install/hardware_interfaces/lib/python3.12/site-packages/hardware_interfaces/__init__.py to __init__.cpython-312.pyc
+[3.794s] running install_data
+[3.794s] creating /home/giacomo/drone_ws/src/install/hardware_interfaces/share/ament_index
+[3.795s] creating /home/giacomo/drone_ws/src/install/hardware_interfaces/share/ament_index/resource_index
+[3.796s] creating /home/giacomo/drone_ws/src/install/hardware_interfaces/share/ament_index/resource_index/packages
+[3.799s] copying resource/hardware_interfaces -> /home/giacomo/drone_ws/src/install/hardware_interfaces/share/ament_index/resource_index/packages
+[3.800s] copying package.xml -> /home/giacomo/drone_ws/src/install/hardware_interfaces/share/hardware_interfaces
+[3.800s] running install_egg_info
+[3.868s] Copying ../build/hardware_interfaces/hardware_interfaces.egg-info to /home/giacomo/drone_ws/src/install/hardware_interfaces/lib/python3.12/site-packages/hardware_interfaces-0.0.0-py3.12.egg-info
+[3.870s] running install_scripts
+[4.285s] writing list of installed files to '/home/giacomo/drone_ws/src/build/hardware_interfaces/install.log'
+[4.839s] Invoked command in '/home/giacomo/drone_ws/src/hardware_interfaces' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/giacomo/drone_ws/src/build/hardware_interfaces/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/giacomo/drone_ws/src/install/hardware_interfaces/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/hardware_interfaces build --build-base /home/giacomo/drone_ws/src/build/hardware_interfaces/build install --record /home/giacomo/drone_ws/src/build/hardware_interfaces/install.log --single-version-externally-managed install_data

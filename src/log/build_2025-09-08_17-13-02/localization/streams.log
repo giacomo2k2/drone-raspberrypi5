@@ -1,0 +1,42 @@
+[0.901s] Invoking command in '/home/giacomo/drone_ws/src/build/localization': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake /home/giacomo/drone_ws/src/localization -DCMAKE_INSTALL_PREFIX=/home/giacomo/drone_ws/src/install/localization
+[1.243s] -- The C compiler identification is GNU 13.3.0
+[1.243s] -- The CXX compiler identification is GNU 13.3.0
+[1.243s] -- Detecting C compiler ABI info
+[1.244s] -- Detecting C compiler ABI info - done
+[1.244s] -- Check for working C compiler: /usr/lib/ccache/cc - skipped
+[1.244s] -- Detecting C compile features
+[1.244s] -- Detecting C compile features - done
+[1.244s] -- Detecting CXX compiler ABI info
+[1.440s] -- Detecting CXX compiler ABI info - done
+[1.469s] -- Check for working CXX compiler: /usr/lib/ccache/c++ - skipped
+[1.469s] -- Detecting CXX compile features
+[1.470s] -- Detecting CXX compile features - done
+[1.483s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.799s] -- Found Python3: /home/giacomo/venv-ardupilot/bin/python3 (found version "3.12.3") found components: Interpreter 
+[2.062s] -- Found ament_lint_auto: 0.17.3 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[2.306s] -- Added test 'lint_cmake' to check CMake code style
+[2.306s] -- Added test 'xmllint' to check XML markup files
+[2.309s] -- Configuring done (1.4s)
+[2.316s] -- Generating done (0.0s)
+[2.320s] -- Build files have been written to: /home/giacomo/drone_ws/src/build/localization
+[2.530s] Invoked command in '/home/giacomo/drone_ws/src/build/localization' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake /home/giacomo/drone_ws/src/localization -DCMAKE_INSTALL_PREFIX=/home/giacomo/drone_ws/src/install/localization
+[2.531s] Invoking command in '/home/giacomo/drone_ws/src/build/localization': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/localization -- -j8 -l8
+[2.609s] Invoked command in '/home/giacomo/drone_ws/src/build/localization' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/localization -- -j8 -l8
+[2.611s] Invoking command in '/home/giacomo/drone_ws/src/build/localization': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/localization
+[2.626s] -- Install configuration: ""
+[2.627s] -- Installing: /home/giacomo/drone_ws/src/install/localization/share/ament_index/resource_index/package_run_dependencies/localization
+[2.628s] -- Installing: /home/giacomo/drone_ws/src/install/localization/share/ament_index/resource_index/parent_prefix_path/localization
+[2.628s] -- Installing: /home/giacomo/drone_ws/src/install/localization/share/localization/environment/ament_prefix_path.sh
+[2.629s] -- Installing: /home/giacomo/drone_ws/src/install/localization/share/localization/environment/ament_prefix_path.dsv
+[2.630s] -- Installing: /home/giacomo/drone_ws/src/install/localization/share/localization/environment/path.sh
+[2.631s] -- Installing: /home/giacomo/drone_ws/src/install/localization/share/localization/environment/path.dsv
+[2.632s] -- Installing: /home/giacomo/drone_ws/src/install/localization/share/localization/local_setup.bash
+[2.632s] -- Installing: /home/giacomo/drone_ws/src/install/localization/share/localization/local_setup.sh
+[2.633s] -- Installing: /home/giacomo/drone_ws/src/install/localization/share/localization/local_setup.zsh
+[2.633s] -- Installing: /home/giacomo/drone_ws/src/install/localization/share/localization/local_setup.dsv
+[2.634s] -- Installing: /home/giacomo/drone_ws/src/install/localization/share/localization/package.dsv
+[2.635s] -- Installing: /home/giacomo/drone_ws/src/install/localization/share/ament_index/resource_index/packages/localization
+[2.636s] -- Installing: /home/giacomo/drone_ws/src/install/localization/share/localization/cmake/localizationConfig.cmake
+[2.636s] -- Installing: /home/giacomo/drone_ws/src/install/localization/share/localization/cmake/localizationConfig-version.cmake
+[2.637s] -- Installing: /home/giacomo/drone_ws/src/install/localization/share/localization/package.xml
+[2.644s] Invoked command in '/home/giacomo/drone_ws/src/build/localization' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/localization

@@ -1,0 +1,11 @@
+package.xml
+setup.cfg
+setup.py
+resource/sitl_launcher
+sitl_launcher/__init__.py
+sitl_launcher.egg-info/PKG-INFO
+sitl_launcher.egg-info/SOURCES.txt
+sitl_launcher.egg-info/dependency_links.txt
+sitl_launcher.egg-info/requires.txt
+sitl_launcher.egg-info/top_level.txt
+sitl_launcher.egg-info/zip-safe

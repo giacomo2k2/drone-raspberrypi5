@@ -1,0 +1,25 @@
+-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found ament_lint_auto: 0.17.3 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (1.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/giacomo/drone_ws/src/build/rc_interface
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/ament_index/resource_index/package_run_dependencies/rc_interface
+-- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/ament_index/resource_index/parent_prefix_path/rc_interface
+-- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/environment/ament_prefix_path.sh
+-- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/environment/ament_prefix_path.dsv
+-- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/environment/path.sh
+-- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/environment/path.dsv
+-- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/local_setup.bash
+-- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/local_setup.sh
+-- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/local_setup.zsh
+-- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/local_setup.dsv
+-- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/package.dsv
+-- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/ament_index/resource_index/packages/rc_interface
+-- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/cmake/rc_interfaceConfig.cmake
+-- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/cmake/rc_interfaceConfig-version.cmake
+-- Symlinking: /home/giacomo/drone_ws/src/install/rc_interface/share/rc_interface/package.xml

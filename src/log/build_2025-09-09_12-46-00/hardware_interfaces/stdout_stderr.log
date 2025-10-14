@@ -1,0 +1,13 @@
+running develop
+running egg_info
+writing hardware_interfaces.egg-info/PKG-INFO
+writing dependency_links to hardware_interfaces.egg-info/dependency_links.txt
+writing requirements to hardware_interfaces.egg-info/requires.txt
+writing top-level names to hardware_interfaces.egg-info/top_level.txt
+reading manifest file 'hardware_interfaces.egg-info/SOURCES.txt'
+writing manifest file 'hardware_interfaces.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/giacomo/drone_ws/src/install/hardware_interfaces/lib/python3.12/site-packages/hardware-interfaces.egg-link (link to .)
+
+Installed /home/giacomo/drone_ws/src/build/hardware_interfaces
+running symlink_data

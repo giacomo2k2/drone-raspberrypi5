@@ -1,0 +1,13 @@
+running develop
+running egg_info
+writing data_logger.egg-info/PKG-INFO
+writing dependency_links to data_logger.egg-info/dependency_links.txt
+writing requirements to data_logger.egg-info/requires.txt
+writing top-level names to data_logger.egg-info/top_level.txt
+reading manifest file 'data_logger.egg-info/SOURCES.txt'
+writing manifest file 'data_logger.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/giacomo/drone_ws/src/install/data_logger/lib/python3.12/site-packages/data-logger.egg-link (link to .)
+
+Installed /home/giacomo/drone_ws/src/build/data_logger
+running symlink_data

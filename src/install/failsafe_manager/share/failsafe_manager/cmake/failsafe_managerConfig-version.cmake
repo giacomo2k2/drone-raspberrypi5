@@ -1,0 +1,1 @@
+/home/giacomo/drone_ws/src/build/failsafe_manager/ament_cmake_core/failsafe_managerConfig-version.cmake

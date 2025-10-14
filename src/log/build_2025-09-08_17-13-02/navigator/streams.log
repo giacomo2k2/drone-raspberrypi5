@@ -1,0 +1,64 @@
+[1.234s] Invoking command in '/home/giacomo/drone_ws/src/build/navigator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake /home/giacomo/drone_ws/src/navigator -DCMAKE_INSTALL_PREFIX=/home/giacomo/drone_ws/src/install/navigator
+[1.358s] -- The C compiler identification is GNU 13.3.0
+[1.507s] -- The CXX compiler identification is GNU 13.3.0
+[1.546s] -- Detecting C compiler ABI info
+[1.702s] -- Detecting C compiler ABI info - done
+[1.728s] -- Check for working C compiler: /usr/lib/ccache/cc - skipped
+[1.729s] -- Detecting C compile features
+[1.730s] -- Detecting C compile features - done
+[1.753s] -- Detecting CXX compiler ABI info
+[1.959s] -- Detecting CXX compiler ABI info - done
+[1.993s] -- Check for working CXX compiler: /usr/lib/ccache/c++ - skipped
+[1.994s] -- Detecting CXX compile features
+[1.995s] -- Detecting CXX compile features - done
+[2.002s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[2.312s] -- Found Python3: /home/giacomo/venv-ardupilot/bin/python3 (found version "3.12.3") found components: Interpreter 
+[2.546s] -- Found rclcpp: 28.1.11 (/opt/ros/jazzy/share/rclcpp/cmake)
+[2.646s] -- Found rosidl_generator_c: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[2.683s] -- Found rosidl_generator_cpp: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[2.732s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.789s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.001s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[3.007s] -- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[3.184s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[3.230s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[3.288s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.488s] -- Found geometry_msgs: 5.3.6 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[3.581s] -- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)
+[3.685s] -- Found ament_lint_auto: 0.17.3 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[3.999s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[4.000s] -- Configured cppcheck include dirs: 
+[4.000s] -- Configured cppcheck exclude dirs and/or files: 
+[4.003s] -- Added test 'lint_cmake' to check CMake code style
+[4.007s] -- Added test 'uncrustify' to check C / C++ code style
+[4.007s] -- Configured uncrustify additional arguments: 
+[4.011s] -- Added test 'xmllint' to check XML markup files
+[4.014s] -- Configuring done (2.8s)
+[4.044s] -- Generating done (0.0s)
+[4.054s] -- Build files have been written to: /home/giacomo/drone_ws/src/build/navigator
+[4.093s] Invoked command in '/home/giacomo/drone_ws/src/build/navigator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake /home/giacomo/drone_ws/src/navigator -DCMAKE_INSTALL_PREFIX=/home/giacomo/drone_ws/src/install/navigator
+[4.094s] Invoking command in '/home/giacomo/drone_ws/src/build/navigator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/navigator -- -j8 -l8
+[4.307s] [ 50%] [32mBuilding CXX object CMakeFiles/talker.dir/src/navigator_node.cpp.o[0m
+[4.307s] [100%] [32m[1mLinking CXX executable talker[0m
+[4.850s] [100%] Built target talker
+[5.158s] Invoked command in '/home/giacomo/drone_ws/src/build/navigator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/navigator -- -j8 -l8
+[5.160s] Invoking command in '/home/giacomo/drone_ws/src/build/navigator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/navigator
+[5.475s] -- Install configuration: ""
+[5.475s] -- Installing: /home/giacomo/drone_ws/src/install/navigator/lib/talker
+[5.475s] -- Set non-toolchain portion of runtime path of "/home/giacomo/drone_ws/src/install/navigator/lib/talker" to ""
+[5.475s] -- Installing: /home/giacomo/drone_ws/src/install/navigator/share/ament_index/resource_index/package_run_dependencies/navigator
+[5.475s] -- Installing: /home/giacomo/drone_ws/src/install/navigator/share/ament_index/resource_index/parent_prefix_path/navigator
+[5.475s] -- Installing: /home/giacomo/drone_ws/src/install/navigator/share/navigator/environment/ament_prefix_path.sh
+[5.475s] -- Installing: /home/giacomo/drone_ws/src/install/navigator/share/navigator/environment/ament_prefix_path.dsv
+[5.475s] -- Installing: /home/giacomo/drone_ws/src/install/navigator/share/navigator/environment/path.sh
+[5.475s] -- Installing: /home/giacomo/drone_ws/src/install/navigator/share/navigator/environment/path.dsv
+[5.476s] -- Installing: /home/giacomo/drone_ws/src/install/navigator/share/navigator/local_setup.bash
+[5.476s] -- Installing: /home/giacomo/drone_ws/src/install/navigator/share/navigator/local_setup.sh
+[5.476s] -- Installing: /home/giacomo/drone_ws/src/install/navigator/share/navigator/local_setup.zsh
+[5.476s] -- Installing: /home/giacomo/drone_ws/src/install/navigator/share/navigator/local_setup.dsv
+[5.476s] -- Installing: /home/giacomo/drone_ws/src/install/navigator/share/navigator/package.dsv
+[5.476s] -- Installing: /home/giacomo/drone_ws/src/install/navigator/share/ament_index/resource_index/packages/navigator
+[5.476s] -- Installing: /home/giacomo/drone_ws/src/install/navigator/share/navigator/cmake/navigatorConfig.cmake
+[5.476s] -- Installing: /home/giacomo/drone_ws/src/install/navigator/share/navigator/cmake/navigatorConfig-version.cmake
+[5.476s] -- Installing: /home/giacomo/drone_ws/src/install/navigator/share/navigator/package.xml
+[5.506s] Invoked command in '/home/giacomo/drone_ws/src/build/navigator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/navigator

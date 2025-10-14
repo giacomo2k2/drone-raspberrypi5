@@ -1,0 +1,1 @@
+/home/giacomo/drone_ws/src/uav_config/launch/sitl_bringup.launch.py

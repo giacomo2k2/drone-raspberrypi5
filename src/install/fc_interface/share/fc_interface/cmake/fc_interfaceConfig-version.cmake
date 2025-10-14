@@ -1,0 +1,1 @@
+/home/giacomo/drone_ws/src/build/fc_interface/ament_cmake_core/fc_interfaceConfig-version.cmake

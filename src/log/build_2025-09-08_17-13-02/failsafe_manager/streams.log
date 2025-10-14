@@ -1,0 +1,42 @@
+[0.580s] Invoking command in '/home/giacomo/drone_ws/src/build/failsafe_manager': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake /home/giacomo/drone_ws/src/failsafe_manager -DCMAKE_INSTALL_PREFIX=/home/giacomo/drone_ws/src/install/failsafe_manager
+[1.249s] -- The C compiler identification is GNU 13.3.0
+[1.250s] -- The CXX compiler identification is GNU 13.3.0
+[1.251s] -- Detecting C compiler ABI info
+[1.251s] -- Detecting C compiler ABI info - done
+[1.251s] -- Check for working C compiler: /usr/lib/ccache/cc - skipped
+[1.251s] -- Detecting C compile features
+[1.252s] -- Detecting C compile features - done
+[1.252s] -- Detecting CXX compiler ABI info
+[1.252s] -- Detecting CXX compiler ABI info - done
+[1.252s] -- Check for working CXX compiler: /usr/lib/ccache/c++ - skipped
+[1.253s] -- Detecting CXX compile features
+[1.253s] -- Detecting CXX compile features - done
+[1.253s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.268s] -- Found Python3: /home/giacomo/venv-ardupilot/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.529s] -- Found ament_lint_auto: 0.17.3 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[1.776s] -- Added test 'lint_cmake' to check CMake code style
+[1.778s] -- Added test 'xmllint' to check XML markup files
+[1.781s] -- Configuring done (1.2s)
+[1.788s] -- Generating done (0.0s)
+[1.792s] -- Build files have been written to: /home/giacomo/drone_ws/src/build/failsafe_manager
+[1.804s] Invoked command in '/home/giacomo/drone_ws/src/build/failsafe_manager' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake /home/giacomo/drone_ws/src/failsafe_manager -DCMAKE_INSTALL_PREFIX=/home/giacomo/drone_ws/src/install/failsafe_manager
+[1.806s] Invoking command in '/home/giacomo/drone_ws/src/build/failsafe_manager': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/failsafe_manager -- -j8 -l8
+[1.888s] Invoked command in '/home/giacomo/drone_ws/src/build/failsafe_manager' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/giacomo/drone_ws/src/build/failsafe_manager -- -j8 -l8
+[1.906s] Invoking command in '/home/giacomo/drone_ws/src/build/failsafe_manager': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/failsafe_manager
+[1.923s] -- Install configuration: ""
+[1.924s] -- Installing: /home/giacomo/drone_ws/src/install/failsafe_manager/share/ament_index/resource_index/package_run_dependencies/failsafe_manager
+[1.924s] -- Installing: /home/giacomo/drone_ws/src/install/failsafe_manager/share/ament_index/resource_index/parent_prefix_path/failsafe_manager
+[1.924s] -- Installing: /home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/environment/ament_prefix_path.sh
+[1.925s] -- Installing: /home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/environment/ament_prefix_path.dsv
+[1.925s] -- Installing: /home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/environment/path.sh
+[1.925s] -- Installing: /home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/environment/path.dsv
+[1.929s] -- Installing: /home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/local_setup.bash
+[1.929s] -- Installing: /home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/local_setup.sh
+[1.930s] -- Installing: /home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/local_setup.zsh
+[1.930s] -- Installing: /home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/local_setup.dsv
+[1.930s] -- Installing: /home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/package.dsv
+[1.930s] -- Installing: /home/giacomo/drone_ws/src/install/failsafe_manager/share/ament_index/resource_index/packages/failsafe_manager
+[1.930s] -- Installing: /home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/cmake/failsafe_managerConfig.cmake
+[1.930s] -- Installing: /home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/cmake/failsafe_managerConfig-version.cmake
+[1.931s] -- Installing: /home/giacomo/drone_ws/src/install/failsafe_manager/share/failsafe_manager/package.xml
+[1.932s] Invoked command in '/home/giacomo/drone_ws/src/build/failsafe_manager' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/giacomo/drone_ws/install/drone_sitl:/home/giacomo/drone_ws/install/drone_interface:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/giacomo/drone_ws/src/build/failsafe_manager
