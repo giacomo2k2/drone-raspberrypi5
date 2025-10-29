@@ -7,7 +7,7 @@
   <maintainer email="pezzolati.g@gmail.com">giacomo</maintainer>
   <license>Apache-2.0</license>
 
-  <exec_depend>rcply</exec_depend>
+  <exec_depend>rclpy</exec_depend>
   <exec_depend>sensor_msgs</exec_depend>
   <exec_depend>apriltag_msgs</exec_depend>
 

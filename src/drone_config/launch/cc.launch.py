@@ -65,7 +65,7 @@ def generate_launch_description():
         ]
     )
 
-    # 9. Define the Composable Node Container (CORRECTED)
+    # 9. Define the Composable Node Container
     apriltag_container = ComposableNodeContainer(
         # This defines the CONTAINER process, which is the component manager
         name='apriltag_container',
@@ -73,25 +73,25 @@ def generate_launch_description():
         package='rclcpp_components',
         executable='component_container',
         composable_node_descriptions=[
-            apriltag_node, # The COMPOSABLE NODE is passed here
+            apriltag_node,
         ],
         output='screen',
     )
     
     delayed_uav_nodes = TimerAction(
-        period=4, 
+        period=4.0,
         actions=uav_nodes,
     )
 
     # --- FINAL LAUNCH DESCRIPTION ---
     return LaunchDescription([
         
-        # MAVROS (8s)
-        mavros, 
+        # MAVROS
+        mavros,
         
         # Start AprilTag Detector (needs the image bridge and CameraInfo node running)
-        TimerAction(period=2, actions=[apriltag_container]),
+        # TimerAction(period=4.0, actions=[apriltag_container]),
         
-        # Finally, start your custom nodes (12s)
+        # Finally, start your custom nodes
         delayed_uav_nodes,
     ])
