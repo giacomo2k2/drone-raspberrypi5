@@ -1,1 +1,0 @@
-/home/giacomo/drone_ws/src/sitl_launcher/setup.py

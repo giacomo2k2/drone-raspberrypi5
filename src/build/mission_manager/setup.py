@@ -1,1 +1,0 @@
-/home/giacomo/drone_ws/src/mission_manager/setup.py

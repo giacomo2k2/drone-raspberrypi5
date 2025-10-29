@@ -1,1 +1,0 @@
-/home/giacomo/drone_ws/src/payload_manager/setup.py

@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/giacomo/drone_ws/src/build/trajectory_planner/trajectory_planner_node" "TARGETS" "trajectory_planner_node" "DESTINATION" "lib/trajectory_planner")

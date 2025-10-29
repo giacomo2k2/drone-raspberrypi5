@@ -7,6 +7,7 @@
 #include <sensor_msgs/msg/magnetic_field.hpp>
 #include <mavros_msgs/msg/estimator_status.hpp>
 #include <mavros_msgs/msg/status_text.hpp>
+#include <mavros_msgs/msg/position_target.hpp>
 
 class FCInterfaceNode : public rclcpp::Node {
 public: 
@@ -16,12 +17,7 @@ public:
 
         /*Publishers*/
 
-        // Publish setpoints to MAVROS
-        setpoint_pub = this->create_publisher<geometry_msgs::msg::PoseStamped>(
-            "/mavros/setpoint_position/local", 10
-        );
-
-        // Publsh a simplified state for other nodes
+        // Publish a simplified state for other nodes
         drone_state_pub = this->create_publisher<mavros_msgs::msg::State>(
             "/drone/fc_interface/state", 10
         );
@@ -50,20 +46,33 @@ public:
             "/drone/fc_interface/status_text", 10
         );
 
+        
+        position_local_pub = this->create_publisher<geometry_msgs::msg::PoseStamped>(
+            "/drone/fc_interface/position_local", 10
+        );
+
+
+        rclcpp::QoS qos_setpoint(rclcpp::KeepLast(10));
+        qos_setpoint.best_effort();
+
+        setpoint_local_pub = this->create_publisher<mavros_msgs::msg::PositionTarget>(
+            "/mavros/setpoint_raw/local", qos_setpoint
+        );
+
 
         /*Subscribers*/
 
+        rclcpp::QoS qos_state(rclcpp::KeepLast(10));
+        qos_state.reliable();
+        qos_state.transient_local();
+
         // Subscribe to MAVROS state
         state_sub = this->create_subscription<mavros_msgs::msg::State>(
-            "/mavros/state", 10, 
+            "/mavros/state", qos_state, 
             std::bind(&FCInterfaceNode::stateCallback, this, std::placeholders::_1)
         );
 
-        // Subscribe to setpoints coming from navigator
-        setpoint_sub = this->create_subscription<geometry_msgs::msg::PoseStamped>(
-            "/drone/navigator/final_setpoints", 10,
-            std::bind(&FCInterfaceNode::setpointCallback, this, std::placeholders::_1)
-        );
+  
 
         rclcpp::QoS qos(rclcpp::KeepLast(10));
         qos.best_effort();
@@ -72,7 +81,6 @@ public:
             "/mavros/battery", qos, 
             std::bind(&FCInterfaceNode::batteryCallback, this, std::placeholders::_1)
         );
-
         
         fix_sub = this->create_subscription<sensor_msgs::msg::NavSatFix>(
             "/mavros/global_position/raw/fix", qos, 
@@ -98,17 +106,23 @@ public:
             "/mavros/statustext/recv", qos, 
             std::bind(&FCInterfaceNode::status_text_callback, this, std::placeholders::_1)
         );
+
+        setpoint_local_sub = this->create_subscription<mavros_msgs::msg::PositionTarget>(
+            "/drone/navigator/setpoint_local", qos,
+            std::bind(&FCInterfaceNode::setpointLocalCallback, this, std::placeholders::_1)
+        );
+
+        position_local_sub = this->create_subscription<geometry_msgs::msg::PoseStamped>(
+            "/mavros/local_position/pose", qos,
+            std::bind(&FCInterfaceNode::positionLocalCallback, this, std::placeholders::_1)
+        );
+
     }   
 
 private: 
     void stateCallback(const mavros_msgs::msg::State::SharedPtr msg) {
         // forward the state to a "clean" topic
         drone_state_pub->publish(*msg);
-    }
-
-    void setpointCallback(const geometry_msgs::msg::PoseStamped::SharedPtr msg) {
-        // forward setpoints to FC
-        setpoint_pub->publish(*msg);
     }
 
     void batteryCallback(const sensor_msgs::msg::BatteryState::SharedPtr msg) {
@@ -135,8 +149,19 @@ private:
         status_text_pub->publish(*msg);
     }
 
+    void setpointLocalCallback(const mavros_msgs::msg::PositionTarget::SharedPtr msg) {
+        // forward local setpoints to FC
+        setpoint_local_pub->publish(*msg);
+    }
 
-    rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr setpoint_pub;
+    void positionLocalCallback(const geometry_msgs::msg::PoseStamped::SharedPtr msg) {
+        // currently not forwarded
+        position_local_pub->publish(*msg);
+    }
+
+
+    rclcpp::Publisher<mavros_msgs::msg::PositionTarget>::SharedPtr setpoint_local_pub;
+    rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr position_local_pub;
     rclcpp::Publisher<mavros_msgs::msg::State>::SharedPtr drone_state_pub;
     rclcpp::Publisher<sensor_msgs::msg::BatteryState>::SharedPtr battery_pub;
     rclcpp::Publisher<sensor_msgs::msg::NavSatFix>::SharedPtr fix_pub;
@@ -146,7 +171,8 @@ private:
     rclcpp::Publisher<mavros_msgs::msg::StatusText>::SharedPtr status_text_pub;
 
     rclcpp::Subscription<mavros_msgs::msg::State>::SharedPtr state_sub;
-    rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr setpoint_sub;
+    rclcpp::Subscription<mavros_msgs::msg::PositionTarget>::SharedPtr setpoint_local_sub;
+    rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr position_local_sub;
     rclcpp::Subscription<sensor_msgs::msg::BatteryState>::SharedPtr battery_sub;
     rclcpp::Subscription<sensor_msgs::msg::NavSatFix>::SharedPtr fix_sub;
     rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr imu_sub;

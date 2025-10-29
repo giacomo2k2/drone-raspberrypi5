@@ -7,11 +7,17 @@
   <maintainer email="pezzolati.g@gmail.com">giacomo</maintainer>
   <license>Apache-2.0</license>
   
-  <depend>rclcpp</depend>
-  <depend>mavros_msgs</depend>
-
 
   <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+
+
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>mavros_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>drone_interfaces</depend>
+  <depend>std_msgs</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

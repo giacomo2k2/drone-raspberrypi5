@@ -1,1 +1,0 @@
-/home/giacomo/drone_ws/src/build/localization/ament_cmake_environment_hooks/local_setup.zsh

@@ -1,3 +1,16 @@
 TODO
 
-- move the state machine clients into fc_interface
+PRIORITY 0
+- make sure that there is a clean devision between SITL and actual build
+- understand how to program the raspberry (how to pass files)
+- communication bridge between raspberry and FC
+
+PRIORITY 1
+- create camera hardware 
+- create failsafe manager
+- datalogger
+
+PRIORITY 2
+- create a communication bridge via udp between raspberry and pc
+- send telemetry via wifi
+- create a service to get a mission and waypoints ...

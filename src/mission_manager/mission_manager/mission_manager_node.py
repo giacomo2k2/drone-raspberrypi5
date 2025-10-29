@@ -2,8 +2,13 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 from geometry_msgs.msg import Point
+
+
 from rclpy.action import ActionClient
-from example_interfaces.action import FollowTrajectory  # Replace with your actual action type
+
+
+from drone_interfaces.srv import Disarm
+from drone_interfaces.action import FollowTrajectory
 
 class MissionManagerNode(Node):
     def __init__(self):
@@ -18,19 +23,23 @@ class MissionManagerNode(Node):
         )
         self.current_mode = "IDLE"
 
-        # Action client for Navigator
-        self.navigator_action_client = ActionClient(self, FollowTrajectory, 'follow_trajectory')
+        # Service client
+        self.disarm_client = self.create_client(Disarm, '/drone/state_machine/disarm_srv')
+
+        # Action client
+        self.navigator_action_client = ActionClient(self, FollowTrajectory, 'drone/navigator/follow_trajectory')
 
         # Dummy mission: waypoints, hold times, and hold index
         self.waypoints = [
-            Point(x=0.0, y=0.0, z=1.0),
-            Point(x=5.0, y=0.0, z=1.0),
-            Point(x=5.0, y=5.0, z=1.0),
-            Point(x=0.0, y=5.0, z=1.0),
-            Point(x=0.0, y=0.0, z=1.0)
+            Point(x=0.0, y=0.0, z=0.0),
+            Point(x=0.0, y=0.0, z=10.0),
+            Point(x=0.0, y=15.0, z=10.0),
+            Point(x=0.0, y=15.0, z=0.0),
         ]
-        self.hold_times = [0, 2, 0, 0, 0]  # seconds to hold at each waypoint
-        self.hold_index = 1  # index where the drone should pause
+        self.hold_times = [0, 2, 2, 0]
+        self.hold_indexes = [0, 1, 2, 3]
+
+        self.use_camera = True
 
         # State
         self.mission_started = False
@@ -43,7 +52,7 @@ class MissionManagerNode(Node):
 
     def mission_loop(self):
         # Only start mission when drone is in FLY mode and mission not started
-        if self.current_mode == "FLY" and not self.mission_started:
+        if self.current_mode == "ARMED" and not self.mission_started:
             self.get_logger().info("Starting mission...")
             self.mission_started = True
             self.send_navigation_goal()
@@ -60,7 +69,10 @@ class MissionManagerNode(Node):
         # Example: you can use custom fields in your FollowTrajectory action
         goal_msg.waypoints = self.waypoints
         goal_msg.hold_times = self.hold_times
-        goal_msg.hold_index = self.hold_index
+        goal_msg.hold_indexes = self.hold_indexes
+        goal_msg.use_camera = self.use_camera
+
+        self.get_logger().info("Sending navigation goal to Navigator...")
 
         # Send goal
         self._send_goal_future = self.navigator_action_client.send_goal_async(
@@ -82,13 +94,39 @@ class MissionManagerNode(Node):
     def navigator_feedback_cb(self, feedback_msg):
         feedback = feedback_msg.feedback
         # Example feedback: current position, segment, progress, etc.
-        self.get_logger().info(f"Navigator feedback: x={feedback.current_point.x:.2f}, "
-                               f"y={feedback.current_point.y:.2f}, z={feedback.current_point.z:.2f}")
+        self.get_logger().info(f"nav feedback: "
+                               f"type: {feedback.segment_type}, "
+                               f"Pos: x={feedback.current_point.x:.2f}, y={feedback.current_point.y:.2f}, z={feedback.current_point.z:.2f} | "
+                               f"Set: x={feedback.setpoint.x:.2f}, y={feedback.setpoint.y:.2f}, z={feedback.setpoint.z:.2f} | "
+                               f"Seg: minor={feedback.current_minor_segment}, major={feedback.current_major_segment} | "
+                               f"Prog: local={feedback.local_progress:.2f}, global={feedback.global_progress:.2f}, deviation={feedback.deviation:.2f}"
+                                )
 
     def navigator_result_cb(self, future):
         result = future.result().result
         self.get_logger().info("Navigator action finished!")
-        # Optionally, you can start next mission here
+
+        if result.success:
+            self.get_logger().info("Mission completed successfully!")
+
+            # Disarm the drone
+            if not self.disarm_client.wait_for_service(timeout_sec=2.0):
+                self.get_logger().error("Disarm service not available")
+                return
+            req = Disarm.Request()
+            future = self.disarm_client.call_async(req)
+
+            # Blocking wait for disarm to complete
+            rclpy.spin_until_future_complete(self, future)
+            res = future.result()
+            if res.success:
+                self.get_logger().info("Disarm request succeeded")
+            else:
+                self.get_logger().error("Disarm request failed")
+
+        else:
+            self.get_logger().error("Mission failed!")
+
 
 def main(args=None):
     rclpy.init(args=args)

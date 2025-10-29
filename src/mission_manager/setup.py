@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'mission_manager_node = mission_manager.mission_manager_node:main',
         ],
     },
 )

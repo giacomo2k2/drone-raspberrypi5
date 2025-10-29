@@ -1,1 +1,0 @@
-/home/giacomo/drone_ws/src/build/fc_interface/ament_cmake_environment_hooks/local_setup.sh

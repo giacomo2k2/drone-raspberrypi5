@@ -1,4 +1,0 @@
-source;share/fc_interface/local_setup.bash
-source;share/fc_interface/local_setup.dsv
-source;share/fc_interface/local_setup.sh
-source;share/fc_interface/local_setup.zsh

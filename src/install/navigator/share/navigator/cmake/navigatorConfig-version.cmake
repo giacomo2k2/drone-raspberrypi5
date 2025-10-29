@@ -1,1 +1,0 @@
-/home/giacomo/drone_ws/src/build/navigator/ament_cmake_core/navigatorConfig-version.cmake

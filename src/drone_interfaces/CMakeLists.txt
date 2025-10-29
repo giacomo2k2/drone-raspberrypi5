@@ -19,12 +19,18 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/FailsafeEvent.msg"
   "msg/PreArmCheck.msg"
   "msg/Status.msg"
+  "msg/ApriltagPosition.msg"
 
   # services
   "srv/GenerateGlobalTrajectory.srv"
+  "srv/Disarm.srv"
+  "srv/Land.srv"
+  "srv/Takeoff.srv"
+  "srv/ActivateDetector.srv"
 
   # actions
   "action/FollowTrajectory.action"
+ 
 
   DEPENDENCIES std_msgs geometry_msgs builtin_interfaces diagnostic_msgs)
 

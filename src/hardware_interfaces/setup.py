@@ -20,6 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'camera_node = hardware_interfaces.camera_node:main',
+            'camera_calibration_node = hardware_interfaces.camera_calibration_node:main', 
         ],
     },
 )

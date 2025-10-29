@@ -1,2 +1,0 @@
-[console_scripts]
-state_machine_node = state_machine.state_machine_node:main

@@ -1,0 +1,5 @@
+# Request
+bool trigger
+---
+# Response
+bool success          
