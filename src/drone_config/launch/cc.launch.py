@@ -7,7 +7,11 @@ from launch_ros.descriptions import ComposableNode
 # --- AprilTag Configuration ---
 APRILTAG_PKG = 'apriltag_ros'
 CAMERA_NAME = 'gimbal_camera' 
-# -------------------------------
+
+
+# --- Platform config ---
+PLATFORM = 'SITL'
+# --------------------------
 
 def generate_launch_description():
     
@@ -36,7 +40,6 @@ def generate_launch_description():
         Node(package="trajectory_planner", executable="navigator_node", output="screen"),
         Node(package="trajectory_planner", executable="global_trajectory_planner_node.py", output="screen"),
         Node(package="mission_manager", executable="mission_manager_node", output="screen"),
-        Node(package="hardware_interfaces", executable="camera_node", output="screen"),
         Node(package="hardware_interfaces", executable="camera_calibration_node", output="screen"),
         Node(package="vision_guidance", executable="apriltag_guidance_node", output="screen"),
     ]

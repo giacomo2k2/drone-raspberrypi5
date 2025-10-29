@@ -8,16 +8,23 @@ import os
 # Get the system's path separator (usually ':')
 PATH_SEP = os.pathsep
 
-# --- Configuration Constants ---
+# --- Ardupilot config ---
 ARDUPILOT_PATH = "/media/giacomo/SSD2/Projects/ardupilot/ardupilot"
 ARDUPILOT_SITL_SCRIPT = os.path.join(ARDUPILOT_PATH, "Tools/autotest/sim_vehicle.py")
 ARDUPILOT_CWD = os.path.join(ARDUPILOT_PATH, "ArduCopter")
+
+# --- Gazebo config ---
 GAZEBO_WS_PATH = "/media/giacomo/SSD2/Projects/gz_ws/src/ardupilot_gazebo"
 GAZEBO_WORLD = os.path.join(GAZEBO_WS_PATH, "worlds/iris_runway.sdf")
 GAZEBO_BIN = "gz" 
+
 # --- AprilTag Configuration ---
 APRILTAG_PKG = 'apriltag_ros'
 CAMERA_NAME = 'gimbal_camera' 
+
+# --- Platform config ---
+PLATFORM = 'SITL'
+
 # -------------------------------
 
 def generate_launch_description():

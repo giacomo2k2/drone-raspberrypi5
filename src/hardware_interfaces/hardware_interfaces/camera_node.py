@@ -28,7 +28,6 @@ class CameraNode(Node):
             depth=10
         )
 
-
         self.sub_image = self.create_subscription(Image, f'/{CAMERA}/image_raw', self.image_callback, 1)
         self.sub_tags = self.create_subscription(AprilTagDetectionArray, f'/{CAMERA}/detections', self.tags_callback, qos_profile)
         self.sub_info = self.create_subscription(CameraInfo, f'/{CAMERA}/camera_info', self.info_callback, qos_profile)
