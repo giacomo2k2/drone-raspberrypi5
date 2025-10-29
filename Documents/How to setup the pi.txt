@@ -1,0 +1,11 @@
+How to setup the pi
+
+1) install git
+2) create a ros2 workspace
+3) clone the firmware
+4) install rosdep, rosdep init, rosdep update, download packages from src
+5) install mavros using apt (ros-your_distro_mavros)
+6) install cv_bridge using apt (ros-your_distro-cv_bridge
+7) run sudo /opt/ros/your_distro/lib/mavros/install_geographiclib_datasets.sh 
+8) install all python modules (better in a venv)
+
