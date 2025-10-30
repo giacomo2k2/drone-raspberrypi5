@@ -21,7 +21,7 @@ def generate_launch_description():
         executable="mavros_node",
         parameters=[
             {
-                "fcu_url": "udp://:14551@127.0.0.1:14552", 
+                "fcu_url": "serial:///dev/ttyAMA0:921600", 
                 "gcs_url": "",
                 "tgt_system": 1,
                 "tgt_component": 1,
