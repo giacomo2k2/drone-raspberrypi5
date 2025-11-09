@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from mavros_msgs.msg import StatusText
+
 
 # import monitors
 from status_monitoring.monitors.PWR_monitor import PWRMonitor
@@ -9,8 +9,7 @@ from status_monitoring.monitors.IMU_monitor import IMUMonitor
 from status_monitoring.monitors.MAG_monitor import MAGMonitor
 from status_monitoring.monitors.estimator_monitor import EstimatorMonitor
 
-from drone_interfaces.msg import FailsafeEvent, PreArmCheck, Status
-
+from drone_interfaces.msg import FailsafeEvent, PreArmCheck, ComponentsStatus, SingleComponentStatus
 
 
 
@@ -19,9 +18,6 @@ from drone_interfaces.msg import FailsafeEvent, PreArmCheck, Status
 # /mavros/extended_state
 # /mavros/home_position/home
 # /mavros/mag_calibration/status
-
-
-
 
 
 
@@ -37,32 +33,32 @@ class StatusMonitoringNode (Node):
             'GPS': GPSMonitor(self),
             'IMU': IMUMonitor(self),
             'MAG': MAGMonitor(self, timeout_threshold=5.0),
+            'ESTIMATOR': EstimatorMonitor(self),
         }
 
-        self.pre_arm_good = False
+        self.components_status = ComponentsStatus()
+        for monitor in self.monitors.keys():
+            single_component_status = SingleComponentStatus()
+            single_component_status.component_name = monitor
+            single_component_status.status = "NOMINAL"
+            self.components_status.components_status.append(single_component_status)
+
 
         # publishers
         #self.failsafe_pub = self.create_publisher(FailsafeEvent, '/drone/status_monitoring/failsafe', 10)
         self.prearm_pub = self.create_publisher(PreArmCheck, '/drone/status_monitoring/prearm', 10)
-        #self.status_pub = self.create_publisher(Status, '/drone/status_monitoring/status', 10)
+        self.components_status_pub = self.create_publisher(ComponentsStatus, '/drone/status_monitoring/components_status', 10)
 
-        # subscribers
-        self.status_text_sub = self.create_subscription(StatusText, '/drone/fc_interface/status_text', self.status_text_cb, 10)
-
+    
         # timer
         self.timer = self.create_timer(1, self.monitor_loop_cb)
         
 
-    def status_text_cb(self, msg: StatusText):
-        text = msg.text
-
-        if "EKF3 IMU1 is using GPS" == text:
-            self.pre_arm_good = True
-
+   
 
     def update(self):
         self.statuses = {key: monitor.update() for key, monitor in self.monitors.items()}
-
+         
 
     def monitor_loop_cb(self):
         self.update()
@@ -72,15 +68,16 @@ class StatusMonitoringNode (Node):
         
         prearm_msg = PreArmCheck()
 
-        #################### PAY ATTENTION to pre arm good (for SITL only )############################
-        checks_passed = self.pre_arm_good
+    
+        checks_passed = True
 
         prearm_msg.failed_components = []
-
-        if not self.pre_arm_good:
-            prearm_msg.failed_components.append("waiting for SITL pre arm good")
-
         for key, result in self.statuses.items():
+
+            for component_status in self.components_status.components_status:
+                if component_status.component_name == key:
+                    component_status.status = result['status']
+           
             if self.statuses[key]['status'] == "CRITICAL":
                 checks_passed = False
                 self.pre_arm_good = False
@@ -89,11 +86,12 @@ class StatusMonitoringNode (Node):
                         prearm_msg.failed_components.append(check)
 
         prearm_msg.checks_passed = checks_passed
+        now = self.get_clock().now()
+        prearm_msg.timestamp = now.to_msg()
+        self.components_status.timestamp = now.to_msg()
 
-        prearm_msg.timestamp = self.get_clock().now().to_msg()
-        
         self.prearm_pub.publish(prearm_msg)
-
+        self.components_status_pub.publish(self.components_status)
 
 
 def main(args = None):

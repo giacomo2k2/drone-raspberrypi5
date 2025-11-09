@@ -1,0 +1,7 @@
+# StartMission.srv
+
+string mission_type
+drone_interfaces/MissionData mission_data
+---
+bool accepted
+string message

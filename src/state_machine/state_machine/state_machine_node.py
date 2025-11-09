@@ -5,9 +5,9 @@ from rclpy.node import Node
 from std_msgs.msg import String
 from mavros_msgs.srv import CommandBool, SetMode
 from mavros_msgs.msg import State
-from drone_interfaces.msg import PreArmCheck
+from drone_interfaces.msg import PreArmCheck, CompanionComputerSM
 
-from drone_interfaces.srv import Disarm, Land, Takeoff
+from drone_interfaces.srv import Arm, Disarm, Land, Takeoff
 
 from mavros_msgs.srv import CommandTOL
 
@@ -27,9 +27,11 @@ class FlightProcedures(Enum):
 
 class FlightMode(Enum):
     IDLE = 0x00
-    ARMING = 0x10
-    ARMED = 0x20
-    DISARMED = 0x30
+    PRE_ARMING = 0x10
+    PRE_ARMED = 0x20
+    ARMING = 0x30
+    ARMED = 0x40
+    DISARMED = 0x50
 
 
 class StateMachineNode(Node):
@@ -37,7 +39,7 @@ class StateMachineNode(Node):
         super().__init__('state_machine')
 
         # Publishers
-        self.mode_pub = self.create_publisher(String, 'drone/state_machine/flight_mode', 10)
+        self.SM_pub = self.create_publisher(CompanionComputerSM, 'drone/state_machine/state_machine', 10)
 
         # Subscribers
         self.state_sub = self.create_subscription(State, '/drone/fc_interface/state', self.state_cb, 10)
@@ -49,6 +51,7 @@ class StateMachineNode(Node):
         self.takeoff_cli = self.create_client(CommandTOL, '/mavros/cmd/takeoff')
 
         # server
+        self.arm_srv = self.create_service(Arm, '/drone/state_machine/arm_srv', self.arm_cb)
         self.disarm_srv = self.create_service(Disarm, '/drone/state_machine/disarm_srv', self.disarm_cb)
         self.takeoff_srv = self.create_service(Takeoff, '/drone/state_machine/takeoff_srv', self.takeoff_cb)
         self.land_srv = self.create_service(Land, '/drone/state_machine/land_srv', self.land_cb)
@@ -62,7 +65,10 @@ class StateMachineNode(Node):
 
         self._mode_requested = False
         self._arm_requested = False
-    
+
+        self.pending_arm_response = None
+        self.pending_disarm_response = None
+
         # takeoff
         self._takeoff_requested = False
         self._takeoff_altitude = None
@@ -76,11 +82,30 @@ class StateMachineNode(Node):
     def state_cb(self, msg):
         self.fc_state = msg
 
+    def arm_cb(self, request, response):
+        if self.pending_arm_response:
+            self.get_logger().warn("ARM request already in progress.")
+            response.success = False
+            return response
+
+        self.get_logger().info("Received ARM service call, initiating state machine procedure.")
+        self.procedure = FlightProcedures.ARM
+        self.mode = FlightMode.ARMING
+        self.pending_arm_response = response  # save response
+        return response  # still return immediately (ROS2 API requires it)
+
+
     def disarm_cb(self, request, response):
-        self.get_logger().info(f"Switching to DISARM procedure")
+        if self.pending_disarm_response:
+            self.get_logger().warn("DISARM request already in progress.")
+            response.success = False
+            return response
+
+        self.get_logger().info("Received DISARM service call, initiating procedure.")
         self.procedure = FlightProcedures.DISARM
-        response.success = True
+        self.pending_disarm_response = response
         return response
+
     
     def land_cb(self, request, response):
         self.get_logger().info(f"Switching to LAND procedure")
@@ -89,7 +114,7 @@ class StateMachineNode(Node):
         return response
     
     def takeoff_cb(self, request, response):
-        self.get_logger().info(f"Switching to TAKEOFF, altutude requested: {request.altitude}")
+        self.get_logger().info(f"Switching to TAKEOFF, altitude requested: {request.altitude}")
 
         self.takeoff_altitude = request.altitude
         self.procedure = FlightProcedures.TAKEOFF
@@ -102,8 +127,12 @@ class StateMachineNode(Node):
 
         match self.mode:
             case FlightMode.IDLE:
+                self.mode = FlightMode.PRE_ARMING
                 self.procedure = FlightProcedures.WAIT_MAVROS_CONNECTED
-                self.mode = FlightMode.ARMING
+            case FlightMode.PRE_ARMING:
+                pass
+            case FlightMode.PRE_ARMED:
+                pass
             case FlightMode.ARMING:
                 pass
             case FlightMode.ARMED:
@@ -116,8 +145,7 @@ class StateMachineNode(Node):
 
         match self.procedure:
             case FlightProcedures.IDLE:
-                self.get_logger().info("Waiting for commands...")
-
+                pass
             case FlightProcedures.WAIT_MAVROS_CONNECTED:
                 if self.fc_state and self.fc_state.connected:
                     self.get_logger().info("MAVROS connection established.")
@@ -137,8 +165,9 @@ class StateMachineNode(Node):
 
             case FlightProcedures.CHANGE_MODE_GUIDED:
                 if self.fc_state.mode.upper() == 'GUIDED':
-                    self.get_logger().info("Mode changed to GUIDED, arming...")
-                    self.procedure = FlightProcedures.ARM
+                    self.get_logger().info("Mode changed to GUIDED, waiting for ARM command.")
+                    self.mode = FlightMode.PRE_ARMED
+                    self.procedure = FlightProcedures.IDLE
                     self._mode_requested = False
                 else:
                     if not self._mode_requested:
@@ -149,18 +178,24 @@ class StateMachineNode(Node):
                         self.get_logger().info("Waiting for mode change to GUIDED...") 
 
             case FlightProcedures.ARM:
-                if self.fc_state.armed:
-                    self.get_logger().info("armed, moving to FLY mode")
+                if self.fc_state and self.fc_state.armed:
+                    self.get_logger().info("Drone armed successfully.")
                     self.mode = FlightMode.ARMED
                     self.procedure = FlightProcedures.IDLE
                     self._arm_requested = False
+
+                    if self.pending_arm_response:
+                        self.pending_arm_response.success = True
+                        self.pending_arm_response = None
+
                 else:
                     if not self._arm_requested:
-                        self.get_logger().info("sending arming request")
-                        self.arm(True)       
-                        self._arm_requested = True   
+                        self.get_logger().info("Sending arming request...")
+                        self.arm(True)
+                        self._arm_requested = True
                     else:
-                        self.get_logger().info("waiting for FC to arm...")
+                        self.get_logger().info("Waiting for FCU to report ARMED...")
+
 
             case FlightProcedures.TAKEOFF:
                     if not self._takeoff_requested:
@@ -185,26 +220,30 @@ class StateMachineNode(Node):
                         self.procedure = FlightProcedures.IDLE
                                 
             case FlightProcedures.DISARM:
-                if not self.fc_state.armed:
-                    self.get_logger().info("Disarmed successfully")
+                if self.fc_state and not self.fc_state.armed:
+                    self.get_logger().info("Drone disarmed successfully.")
                     self.mode = FlightMode.DISARMED
                     self.procedure = FlightProcedures.IDLE
                     self._arm_requested = False
-                else:            
+
+                    if self.pending_disarm_response:
+                        self.pending_disarm_response.success = True
+                        self.pending_disarm_response = None
+
+                else:
                     if not self._arm_requested:
-                        self.get_logger().info("sending disarming request")
-                        self.arm(False)       
-                        self._arm_requested = True   
+                        self.get_logger().info("Sending disarming request...")
+                        self.arm(False)
+                        self._arm_requested = True
                     else:
-                        self.get_logger().info("waiting for FC to disarm...")
-            
+                        self.get_logger().info("Waiting for FCU to report DISARMED...")
 
 
         # Publish current mode for other nodes
-        msg = String()
-        msg.data = self.mode.name
-        self.mode_pub.publish(msg)
-        self.get_logger().info(f"Mode: {self.mode.name}, Procedure: {self.procedure.name}")
+        msg = CompanionComputerSM()
+        msg.flight_mode = self.mode.name
+        msg.flight_procedure = self.procedure.name
+        self.SM_pub.publish(msg)
 
 
     def arm(self, value: bool):

@@ -12,7 +12,7 @@ from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
 from drone_interfaces.msg import ApriltagPosition
 
 
-CAMERA = 'gimbal_camera'
+CAMERA = 'camera'
 
 class ApriltagGuidanceNode(Node):
 

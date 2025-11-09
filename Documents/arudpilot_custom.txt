@@ -1,0 +1,31 @@
+ARDUPILOT CUSTOM BUILD
+on: https://custom.ardupilot.org/ 
+target: mambaf405v2
+
+- BARO:
+	DPS280/DPS310 Barometric Sensor
+
+
+ARDUPILOT SETUP PARAMETERS
+
+	PARAMETERS
+- RC1 max 1750
+- RC1 min 1250
+- RC2 max 1750
+- RC2 min 1250
+- RC2 reversed
+	 
+- MOT_PWM_TYPE DSHOT300
+
+- BARO_EXT_BUS Disabled
+- BARO_probe_ext 64
+
+- servo1_function motor4
+- servo2_function motor1
+- servo3_function motor2
+- servo4_function motor3
+	
+
+
+	POWER
+- analog voltage only

@@ -12,8 +12,6 @@ from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
 
 from std_msgs.msg import Bool
 
-# The topic name is /gimbal_camera/image_raw, correctly bridged in the launch file.
-CAMERA = 'gimbal_camera'
 
 class CameraNode(Node):
 
@@ -28,9 +26,12 @@ class CameraNode(Node):
             depth=10
         )
 
-        self.sub_image = self.create_subscription(Image, f'/{CAMERA}/image_raw', self.image_callback, 1)
-        self.sub_tags = self.create_subscription(AprilTagDetectionArray, f'/{CAMERA}/detections', self.tags_callback, qos_profile)
-        self.sub_info = self.create_subscription(CameraInfo, f'/{CAMERA}/camera_info', self.info_callback, qos_profile)
+        self.declare_parameter('camera_name', 'camera')
+        self.camera_name = self.get_parameter('camera_name').get_parameter_value().string_value
+
+        self.sub_image = self.create_subscription(Image, f'/{self.camera_name}/image_raw', self.image_callback, 1)
+        self.sub_tags = self.create_subscription(AprilTagDetectionArray, f'/{self.camera_name}/detections', self.tags_callback, qos_profile)
+        self.sub_info = self.create_subscription(CameraInfo, f'/{self.camera_name}/camera_info', self.info_callback, qos_profile)
         self.detector_status_sub = self.create_subscription(Bool, '/drone/camera_calibration/detector_status', self.detector_status_cb, 10)
 
         self.camera_info = None
@@ -89,7 +90,7 @@ class CameraNode(Node):
             
                 # draw 6D pose axes
                 try: 
-                    t = self.tf_buffer.lookup_transform(CAMERA, f'tag36h11:{det.id}', rclpy.time.Time())
+                    t = self.tf_buffer.lookup_transform(self.camera_name, f'tag36h11:{det.id}', rclpy.time.Time())
 
                 except (tf2.LookupException, tf2.ExtrapolationException):
                     continue

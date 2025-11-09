@@ -1,0 +1,7 @@
+# Arm.srv
+
+# Request
+bool trigger
+---
+# Response
+bool success          

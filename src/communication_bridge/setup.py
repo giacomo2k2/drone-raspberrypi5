@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'web_socket_node=communication_bridge.web_socket_node:main'
         ],
     },
 )

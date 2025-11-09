@@ -10,6 +10,8 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name + '/config', ['config/sitl_camera_configuration.yaml']),
+        ('share/' + package_name + '/config', ['config/cc_camera_configuration.yaml'])
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -22,6 +24,7 @@ setup(
         'console_scripts': [
             'camera_node = hardware_interfaces.camera_node:main',
             'camera_calibration_node = hardware_interfaces.camera_calibration_node:main', 
+            'camera_capture_node = hardware_interfaces.camera_capture_node:main',
         ],
     },
 )

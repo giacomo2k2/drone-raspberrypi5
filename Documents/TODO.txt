@@ -2,7 +2,6 @@ TODO
 
 PRIORITY 0
 - make sure that there is a clean devision between SITL and actual build
-- understand how to program the raspberry (how to pass files)
 - communication bridge between raspberry and FC
 
 PRIORITY 1

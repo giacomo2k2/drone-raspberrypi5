@@ -12,27 +12,38 @@ find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(builtin_interfaces REQUIRED)
 find_package(diagnostic_msgs REQUIRED)
+find_package(geographic_msgs REQUIRED)
 
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   # messages
   "msg/FailsafeEvent.msg"
   "msg/PreArmCheck.msg"
-  "msg/Status.msg"
+  "msg/SingleComponentStatus.msg"
+  "msg/ComponentsStatus.msg"
   "msg/ApriltagPosition.msg"
+  "msg/CompanionComputerInfo.msg"
+  "msg/CompanionComputerSM.msg"
+  "msg/Mission.msg"
 
   # services
   "srv/GenerateGlobalTrajectory.srv"
+  "srv/Arm.srv"
   "srv/Disarm.srv"
   "srv/Land.srv"
   "srv/Takeoff.srv"
   "srv/ActivateDetector.srv"
+  "srv/StartMission.srv"
+  "srv/AbortMission.srv"
 
   # actions
   "action/FollowTrajectory.action"
- 
 
-  DEPENDENCIES std_msgs geometry_msgs builtin_interfaces diagnostic_msgs)
+  # missions
+  "msg/MissionData.msg"
+  "msg/SetpointNavigation.msg"
+
+  DEPENDENCIES std_msgs geometry_msgs builtin_interfaces diagnostic_msgs geographic_msgs)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

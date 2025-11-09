@@ -1,0 +1,70 @@
+1 — High-level architecture
+
+FC (ArduPilot) — handles low-level flight & failsafes; communicates with Pi over MAVLink via UART. (MAVROS on the Pi talks to FC.)
+
+Pi (ROS2) — autonomy, perception, mission manager, state machine, telemetry aggregator, REST/WebSocket gateway.
+
+GCS (custom mission planner) — UI + operator control; connects to Pi via HTTP/WS (primary) and to FC directly via MAVLink (fallback).
+
+Optional: MAVLink UDP forwarding and video stream (RTSP/WebRTC).
+
+2 — Design goals & constraints (explicit)
+
+GCS must be able to:
+
+Upload missions and assets (tiny files, mission scripts).
+
+Start/stop/pause/resume missions.
+
+Get real-time telemetry, status events, logs.
+
+Send high-level commands to Pi modules (vision on/off, parameter update).
+
+Pi must be able to:
+
+Command FC via MAVROS (guidance setpoints, mode changes).
+
+Stream state/events/AI inference results to GCS.
+
+Operate autonomously if GCS disconnects.
+
+System must be safe: loss of GCS or Pi must revert to FC-only safe behavior (FC autopilot).
+
+Easily migrate to 4G/server: same REST/WS endpoints but hosted on remote server; use VPN/WireGuard for secure comms.
+
+3 — API overview (recommended)
+
+Two protocols:
+
+REST (HTTP JSON) — one-shot requests, config, file upload, mission upload, status snapshosts.
+
+WebSocket (JSON over WS) — streaming telemetry, events, notifications, low-latency commands.
+
+Ports & endpoints (suggested)
+
+REST: http://<pi_ip>:8080/
+
+POST /mission/upload — upload mission file (JSON/MAVLINK/Custom)
+
+POST /mission/start — start mission id
+
+POST /mission/stop — stop mission
+
+POST /module/<module>/cmd — control modules (vision, planner)
+
+GET /status — current system status (sync snapshot)
+
+GET /health — simple health check
+
+WebSocket: ws://<pi_ip>:8765/ws
+
+Subscriptions: telemetry, events, ai, logs
+
+Commands may also be sent via WS (for lower latency)
+
+Suggested optional MAVLink UDP (for GCS legacy telemetry)
+
+UDP 14550 forwarded by Pi when requested.
+
+4 — JSON message schemas (examples)
+4.1 WebSocket telemetry message (from Pi → GCS)

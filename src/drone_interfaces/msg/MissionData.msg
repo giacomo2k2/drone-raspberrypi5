@@ -1,0 +1,3 @@
+# MissionData.msg
+
+drone_interfaces/SetpointNavigation setpoint_navigation

@@ -44,7 +44,6 @@ inline std::string toString(SegmentType type) {
     }
 }
 
-
 // ---------------- Trajectory segment ----------------
 struct TrajectorySegment
 {
@@ -204,6 +203,8 @@ private:
     double landing_threshold_ = 1.5;
     double landing_velocity_ = 0.5;
 
+    bool drone_stopped_ = false;
+
     // ----------------- HOLD ---------------------
     rclcpp::Time hold_time_start_;
 
@@ -250,9 +251,9 @@ private:
     rclcpp_action::CancelResponse handleCancel(
         const std::shared_ptr<GoalHandleFollowTrajectory> goal_handle)
     {
-        RCLCPP_WARN(this->get_logger(), "Trajectory execution canceled!");
-        stop_drone("Trajectory execution canceled");
+
         (void)goal_handle;
+       
         return rclcpp_action::CancelResponse::ACCEPT;
     }
 
@@ -260,7 +261,7 @@ private:
     {   
 
         active_goal_ = goal_handle;
-
+        
         const auto goal = active_goal_->get_goal();
         
         waypoints_ = goal->waypoints;
@@ -271,13 +272,17 @@ private:
         feedback_ = std::make_shared<FollowTrajectory::Feedback>();
         action_result_ = std::make_shared<FollowTrajectory::Result>();
 
+        // print in console waypoints, hold times and hold indexes
+        //RCLCPP_INFO(this->get_logger(), "Waypoints received:");
+        //for (size_t i = 0; i < waypoints_.size(); ++i) {
+        //     RCLCPP_INFO(this->get_logger(), "Waypoint %zu: (%.2f, %.2f, %.2f), Hold time: %.2f s", 
+        //                 i, waypoints_[i].x, waypoints_[i].y, waypoints_[i].z, hold_times_[i]);
+        // }
+
 
         if (!trajectory_client_->wait_for_service(2s)) {
-            RCLCPP_ERROR(this->get_logger(), "Trajectory service unavailable");
-            action_result_->success = false;
-            action_result_->message = "Trajectory service unavailable";
-            active_goal_->abort(action_result_);
-            cleanupGoal();
+            
+            requestAbortLand("Trajectory generation service not available");
             return;
         }
 
@@ -301,7 +306,7 @@ private:
 
         if (hold_indexes_[segment_index+1] - hold_indexes_[segment_index] == 1) {
             if (waypoints_[hold_indexes_[segment_index]].z < 0.1 && waypoints_[hold_indexes_[segment_index+1]].z > 0.1) {
-                // segment type: fly
+                // segment type: Takeoff
                 seg.type = SegmentType::Takeoff;
                 seg.takeoff_altitude = waypoints_[hold_indexes_[segment_index+1]].z;
                 trajectory_.push_back(seg);
@@ -366,10 +371,7 @@ private:
                 if (!result->success) {
                     RCLCPP_ERROR(this->get_logger(), "Segment %zu generation failed: %s",
                                 segment_index, result->message.c_str());
-                    action_result_->success = false;
-                    action_result_->message = "Trajectory generation failed: " + result->message;
-                    active_goal_->abort(action_result_);
-                    cleanupGoal();
+                    requestAbortLand("Trajectory generation failed: " + result->message);
                     return;
                 }
                 
@@ -434,10 +436,42 @@ private:
         );
     }
 
+    void requestAbortLand(std::string reason = "", bool canceled = false) {
+        if (!land_requested_) {
+            RCLCPP_INFO(this->get_logger(), "Requesting Land");
+            land_requested_ = true;
+            auto request = std::make_shared<drone_interfaces::srv::Land::Request>();
+            auto result_future = land_client_->async_send_request(request);
+        } else {
+            if (current_pose_.pose.position.z < 0.1) {
+                land_requested_ = false;
+                action_result_->success = false;
+                action_result_->message = reason;
+                if (canceled)
+                    active_goal_->canceled(action_result_);
+                else
+                    active_goal_->abort(action_result_);
+                cleanupGoal();
+                return;        
+            } else {
+                return;
+            }
+        }
+    }
 
+   
     void trajectoryControlLoop()
     {      
-        
+        if (!active_goal_) return;
+
+        // Check for cancel request
+        if (active_goal_->is_canceling()) {
+            if (!drone_stopped_) stop_drone("Goal canceled by client");
+
+            requestAbortLand("Trajectory aborted by client", true);
+        }
+
+
         if (trajectory_.empty()) return;
 
         if (current_major_segment_ >= trajectory_.size()) {
@@ -498,14 +532,15 @@ private:
             
             // ------------------- LAND ----------------
             case SegmentType::Land:
+
+                
                 
                 if (use_camera_ && !detector_status_) {
                     auto request = std::make_shared<drone_interfaces::srv::ActivateDetector::Request>();
                     request->activate = true;
                     activate_detector_client_->async_send_request(request);
                 }
-                
-            
+
                 setpoint.type_mask = mavros_msgs::msg::PositionTarget::IGNORE_PX |
                                         mavros_msgs::msg::PositionTarget::IGNORE_PY |
                                         mavros_msgs::msg::PositionTarget::IGNORE_PZ |
@@ -683,10 +718,8 @@ private:
 
                 if (deviation_ > position_tolerance_) {
                     stop_drone("Too large deviation from planned path: " + std::to_string(deviation_) + " m");
-                    action_result_->success = false;
-                    action_result_->message = "Trajectory aborted because of too large deviation from planned path.";
-                    active_goal_->abort(action_result_);
-                    cleanupGoal();
+
+                    requestAbortLand("Trajectory aborted because of too large deviation from planned path.");
                 }
 
                 break;
@@ -715,27 +748,27 @@ private:
     // ---------------- Stop drone safely ----------------
     void stop_drone(std::string reason = "")
     {
+        drone_stopped_ = true;
+
         RCLCPP_WARN(this->get_logger(), "Stopping drone! Reason: %s", reason.c_str());
         mavros_msgs::msg::PositionTarget stop_point;
         stop_point.header.stamp = this->now();
         stop_point.coordinate_frame = mavros_msgs::msg::PositionTarget::FRAME_LOCAL_NED;
-        stop_point.type_mask = mavros_msgs::msg::PositionTarget::IGNORE_VX |
-                               mavros_msgs::msg::PositionTarget::IGNORE_VY |
-                               mavros_msgs::msg::PositionTarget::IGNORE_VZ |
-                               mavros_msgs::msg::PositionTarget::IGNORE_AFX |
-                               mavros_msgs::msg::PositionTarget::IGNORE_AFY |
-                               mavros_msgs::msg::PositionTarget::IGNORE_AFZ |
-                               mavros_msgs::msg::PositionTarget::IGNORE_YAW |
-                               mavros_msgs::msg::PositionTarget::IGNORE_YAW_RATE;
+        stop_point.type_mask = mavros_msgs::msg::PositionTarget::IGNORE_PX |
+                            mavros_msgs::msg::PositionTarget::IGNORE_PY |
+                            mavros_msgs::msg::PositionTarget::IGNORE_PZ |
+                            mavros_msgs::msg::PositionTarget::IGNORE_AFX |
+                            mavros_msgs::msg::PositionTarget::IGNORE_AFY |
+                            mavros_msgs::msg::PositionTarget::IGNORE_AFZ |
+                            mavros_msgs::msg::PositionTarget::IGNORE_YAW |
+                            mavros_msgs::msg::PositionTarget::IGNORE_YAW_RATE;
 
-        {
+        stop_point.velocity.x = 0.0;
+        stop_point.velocity.y = 0.0;
+        stop_point.velocity.z = 0.0;
             
-            if (!current_pose_.header.stamp.sec) return; // pose not received yet
-            stop_point.position = current_pose_.pose.position;
-        }
-
-
         setpoint_pub_->publish(stop_point);
+
     }
 
 

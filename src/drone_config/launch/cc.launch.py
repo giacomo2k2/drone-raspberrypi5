@@ -4,18 +4,17 @@ from launch_ros.actions import Node, ComposableNodeContainer
 from launch_ros.descriptions import ComposableNode
 
 
-# --- AprilTag Configuration ---
+# AprilTag config
 APRILTAG_PKG = 'apriltag_ros'
-CAMERA_NAME = 'gimbal_camera' 
+CAMERA_NAME = 'camera' 
 
+# Platform config 
+PLATFORM = 'CC'
 
-# --- Platform config ---
-PLATFORM = 'SITL'
-# --------------------------
 
 def generate_launch_description():
     
-    # 5. Start MAVROS2 bridge
+    # 1. Start MAVROS2 bridge
     mavros = Node(
         package="mavros",
         executable="mavros_node",
@@ -32,7 +31,7 @@ def generate_launch_description():
         output="screen",
     )
 
-    # 6. UAV software nodes (Keep your existing nodes)
+    # 2. UAV software nodes (Keep your existing nodes)
     uav_nodes = [
         Node(package="fc_interface", executable="fc_interface_node", output="screen"),
         Node(package="state_machine", executable="state_machine_node", output="screen"),
@@ -40,21 +39,24 @@ def generate_launch_description():
         Node(package="trajectory_planner", executable="navigator_node", output="screen"),
         Node(package="trajectory_planner", executable="global_trajectory_planner_node.py", output="screen"),
         Node(package="mission_manager", executable="mission_manager_node", output="screen"),
-        Node(package="hardware_interfaces", executable="camera_calibration_node", output="screen"),
+        Node(package="hardware_interfaces", executable="camera_calibration_node", output="screen", parameters=[{'camera_name': CAMERA_NAME, 'platform': "CC"}]),
+        Node(package="hardware_interfaces", executable="camera_capture_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
         Node(package="vision_guidance", executable="apriltag_guidance_node", output="screen"),
     ]
 
+    delayed_uav_nodes = TimerAction(
+        period=10.0,
+        actions=uav_nodes,
+    )
 
     
-    # 8. AprilTag Composable Node Setup 
-
-    
+    # 3. AprilTag Composable Node Setup 
     apriltag_node = ComposableNode(
         # Use fully qualified plugin name for robustness
         package=APRILTAG_PKG,
         plugin='AprilTagNode', 
         name='apriltag_detector',
-        remappings=[
+        remappings=[    
             ('/image_rect', f'/{CAMERA_NAME}/image_rect'), 
             ('/camera_info', f'/{CAMERA_NAME}/camera_info'),
             ('/detections', f'/{CAMERA_NAME}/detections'),
@@ -68,7 +70,7 @@ def generate_launch_description():
         ]
     )
 
-    # 9. Define the Composable Node Container
+    # 4. Define the Composable Node Container
     apriltag_container = ComposableNodeContainer(
         # This defines the CONTAINER process, which is the component manager
         name='apriltag_container',
@@ -80,21 +82,39 @@ def generate_launch_description():
         ],
         output='screen',
     )
-    
-    delayed_uav_nodes = TimerAction(
-        period=4.0,
-        actions=uav_nodes,
+
+
+    # ROSbridge WebSocket server
+    ros_bridge = Node(
+            package='rosbridge_server',
+            executable='rosbridge_websocket',
+            name='rosbridge_websocket',
+            output='screen',
+            parameters=[{'port': 9091}],
     )
 
-    # --- FINAL LAUNCH DESCRIPTION ---
+    # Web Video Server for streaming image topics
+    web_server = Node(
+            package='web_video_server',
+            executable='web_video_server',
+            name='web_video_server',
+            output='screen',
+            parameters=[{
+                'port': 8081,  
+                'ros__parameters': {}
+            }]
+    )
+
+    
+ 
+
     return LaunchDescription([
         
-        # MAVROS
         mavros,
         
-        # Start AprilTag Detector (needs the image bridge and CameraInfo node running)
-        # TimerAction(period=4.0, actions=[apriltag_container]),
+        TimerAction(period=4.0, actions=[apriltag_container]),
+
+        TimerAction(period=6.0, actions=[ros_bridge, web_server]),
         
-        # Finally, start your custom nodes
         delayed_uav_nodes,
     ])

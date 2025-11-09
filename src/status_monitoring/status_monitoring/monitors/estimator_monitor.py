@@ -1,6 +1,6 @@
 from rclpy.node import Node
-from mavros_msgs.msg import EstimatorStatus
-
+from geometry_msgs.msg import PoseStamped
+from geometry_msgs.msg import TwistStamped
 
 class EstimatorMonitor:
     def __init__(self, node: Node, timeout_threshold = 1.0):
@@ -8,54 +8,49 @@ class EstimatorMonitor:
 
         self.timeout_threshold = timeout_threshold
 
-        self.estimator_status = EstimatorStatus() 
-
+        self.local_position = None 
+        self.local_velocity = None
 
         self.nominal = None
-        self.last_update = None
-        self.stale = None
+        self.last_update_pos = None
+        self.last_update_vel = None
+        self.stale_pos = None
+        self.stale_vel = None
 
-        self.estimator_sub = self.node.create_subscription(EstimatorStatus, '/drone/fc_interface/estimator', self.estimatorcb, 10)
+        self.local_position_sub = self.node.create_subscription(PoseStamped, '/drone/fc_interface/position_local', self.local_position_cb, 10)
+        self.local_velocity_sub = self.node.create_subscription(TwistStamped, '/drone/fc_interface/velocity_local', self.local_velocity_cb, 10)
 
+    def local_position_cb(self, msg: PoseStamped):
+        self.stale_pos = self.is_stale_pos()
+        self.last_update_pos = self.node.get_clock().now()
 
-    def estimatorcb(self, msg: EstimatorStatus):
-        self.stale = self.is_stale()
-        self.last_update = self.node.get_clock().now()
-        
-        self.estimator_status = msg
+        self.local_position = msg
 
+    def local_velocity_cb(self, msg: TwistStamped):
+        self.stale_vel = self.is_stale_vel()
+        self.last_update_vel = self.node.get_clock().now()
 
-    def is_stale(self):
-        if self.last_update is None:
+        self.local_velocity = msg
+
+    def is_stale_pos(self):
+        if self.last_update_pos is None:
             return True
-        age = (self.node.get_clock().now().nanoseconds - self.last_update.nanoseconds) / 1e9
+        age = (self.node.get_clock().now().nanoseconds - self.last_update_pos.nanoseconds) / 1e9
         return age > self.timeout_threshold
     
+    def is_stale_vel(self):
+        if self.last_update_vel is None:
+            return True
+        age = (self.node.get_clock().now().nanoseconds - self.last_update_vel.nanoseconds) / 1e9
+        return age > self.timeout_threshold
 
-
-    def update(self): 
-        self.nominal = not(self.estimator_status.attitude_status_flag or
-                           self.estimator_status.velocity_horiz_status_flag or
-                           self.estimator_status.velocity_vert_status_flag or
-                           self.estimator_status.pos_horiz_rel_status_flag or
-                           self.estimator_status.pos_horiz_abs_status_flag or
-                           self.estimator_status.pos_vert_abs_status_flag or
-                           self.estimator_status.pos_vert_agl_status_flag or
-                           not(self.estimator_status.const_pos_mode_status_flag) or
-                           not(self.estimator_status.gps_glitch_status_flag) or
-                           not(self.estimator_status.accel_error_status_flag))
+    def update(self):
+        self.nominal = not self.stale_pos and not self.stale_vel and self.local_position and self.local_velocity
         
         status = "NOMINAL" if self.nominal else "CRITICAL" 
 
         return {
             "status": status, 
-            "no_attitude": not(self.estimator_status.attitude_status_flag),
-            "no_horiz_velocity": not(self.estimator_status.velocity_horiz_status_flag), 
-            "no_vert_velocity": not(self.estimator_status.velocity_vert_status_flag), 
-            "no_horiz_rel_pos": not(self.estimator_status.pos_horiz_rel_status_flag), 
-            "no_horiz_abs_pos": not(self.estimator_status.pos_horiz_abs_status_flag), 
-            "no_vert_abs_pos": not(self.estimator_status.pos_vert_abs_status_flag), 
-            "estimator_frozen": self.estimator_status.const_pos_mode_status_flag, 
-            "gps_glitch": self.estimator_status.gps_glitch_status_flag, 
-            "imu_glitch": self.estimator_status.accel_error_status_flag,
+            "no_position": self.local_position is None or self.stale_pos,
+            "no_velocity": self.local_velocity is None or self.stale_vel,
         } 

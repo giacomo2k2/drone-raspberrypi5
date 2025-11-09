@@ -8,31 +8,26 @@ import os
 # Get the system's path separator (usually ':')
 PATH_SEP = os.pathsep
 
-# --- Ardupilot config ---
+# Ardupilot config 
 ARDUPILOT_PATH = "/media/giacomo/SSD2/Projects/ardupilot/ardupilot"
 ARDUPILOT_SITL_SCRIPT = os.path.join(ARDUPILOT_PATH, "Tools/autotest/sim_vehicle.py")
 ARDUPILOT_CWD = os.path.join(ARDUPILOT_PATH, "ArduCopter")
 
-# --- Gazebo config ---
+# Gazebo config 
 GAZEBO_WS_PATH = "/media/giacomo/SSD2/Projects/gz_ws/src/ardupilot_gazebo"
 GAZEBO_WORLD = os.path.join(GAZEBO_WS_PATH, "worlds/iris_runway.sdf")
 GAZEBO_BIN = "gz" 
 
-# --- AprilTag Configuration ---
+# AprilTag config
 APRILTAG_PKG = 'apriltag_ros'
-CAMERA_NAME = 'gimbal_camera' 
+CAMERA_NAME = 'camera' 
 
-# --- Platform config ---
+# Platform config 
 PLATFORM = 'SITL'
 
 # -------------------------------
 
 def generate_launch_description():
-    # Determine the directory of the launch file to find the config file
-    launch_dir = os.path.dirname(os.path.realpath(__file__))
-    
-    # --- Robust Environment Setup ---
-    # ... (set_plugin_path and set_resource_path remain the same) ...
     
     # 1. Plugin Path (Required to find libArduPilotPlugin.so)
     plugin_path_value = PATH_SEP.join([
@@ -87,9 +82,10 @@ def generate_launch_description():
                 "gcs_url": "",
                 "tgt_system": 1,
                 "tgt_component": 1,
-                "plugin_denylist": ["ftp", "distance_sensor"], 
+                "plugin_denylist": ["ftp", "distance_sensor"],  
             }
         ],
+        
         arguments=["--log-level", "error"], 
         output="screen",
     )
@@ -99,11 +95,11 @@ def generate_launch_description():
         Node(package="fc_interface", executable="fc_interface_node", output="screen"),
         Node(package="state_machine", executable="state_machine_node", output="screen"),
         Node(package="status_monitoring", executable="status_monitoring_node", output="screen"),
-        Node(package="trajectory_planner", executable="navigator_node", output="screen"),
-        Node(package="trajectory_planner", executable="global_trajectory_planner_node.py", output="screen"),
+        Node(package="navigation", executable="navigator_node", output="screen"),
+        Node(package="navigation", executable="global_trajectory_planner_node.py", output="screen"),
         Node(package="mission_manager", executable="mission_manager_node", output="screen"),
-        Node(package="hardware_interfaces", executable="camera_node", output="screen"),
-        Node(package="hardware_interfaces", executable="camera_calibration_node", output="screen"),
+        Node(package="hardware_interfaces", executable="camera_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
+        Node(package="hardware_interfaces", executable="camera_calibration_node", output="screen", parameters=[{'camera_name': CAMERA_NAME, 'platform': "SITL"}]),
         Node(package="vision_guidance", executable="apriltag_guidance_node", output="screen"),
     ]
 
@@ -128,8 +124,6 @@ def generate_launch_description():
     
     
     # 8. AprilTag Composable Node Setup 
-
-    
     apriltag_node = ComposableNode(
         # Use fully qualified plugin name for robustness
         package=APRILTAG_PKG,
@@ -161,31 +155,51 @@ def generate_launch_description():
         ],
         output='screen',
     )
+
+
+    # ROSbridge WebSocket server
+    ros_bridge = Node(
+            package='rosbridge_server',
+            executable='rosbridge_websocket',
+            name='rosbridge_websocket',
+            output='screen',
+            parameters=[{'port': 9091}],
+    )
+
+    # Web Video Server for streaming image topics
+    web_server = Node(
+            package='web_video_server',
+            executable='web_video_server',
+            name='web_video_server',
+            output='screen',
+            parameters=[{
+                'port': 8081,  
+                'ros__parameters': {}
+            }]
+    )
+
     
     delayed_uav_nodes = TimerAction(
         period=12.0, 
         actions=uav_nodes,
     )
 
-    # --- FINAL LAUNCH DESCRIPTION ---
+    
     return LaunchDescription([
-        # CRITICAL: These MUST come before the Gazebo process!
+    
         set_plugin_path,         
         set_resource_path,       
         
-        # Start Gazebo and Bridge
         gazebo, 
         camera_bridge,
         
-        # Give Gazebo time to load (6s) then start ArduPilot SITL
         TimerAction(period=6.0, actions=[ardupilot]), 
         
-        # MAVROS (8s)
         TimerAction(period=8.0, actions=[mavros]), 
         
-        # Start AprilTag Detector (needs the image bridge and CameraInfo node running)
         TimerAction(period=10.0, actions=[apriltag_container]),
         
-        # Finally, start your custom nodes (12s)
+        TimerAction(period=12.0, actions=[ros_bridge, web_server]),
+
         delayed_uav_nodes,
     ])

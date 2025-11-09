@@ -3,59 +3,87 @@ from rclpy.node import Node
 import numpy as np
 from sensor_msgs.msg import CameraInfo, Image
 import math
+import yaml
 from cv_bridge import CvBridge
 from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
 
+from ament_index_python.packages import get_package_share_directory
+
 from drone_interfaces.srv import ActivateDetector
 
-from std_msgs.msg import Bool
+import os
 
-CAMERA_NAME = 'gimbal_camera'
+from std_msgs.msg import Bool
 
 class CameraCalibrationNode(Node): 
     def __init__(self): 
         super().__init__('camera_calibration_node')
 
-        self.image_width = 640
-        self.image_height = 480
-        self.horizontal_fov = 2.0
+        package_share = get_package_share_directory('hardware_interfaces')
 
-        cx = self.image_width/2.0
-        cy = self.image_height/2.0
 
-        fx = fy = self.image_width/(2*math.tan(self.horizontal_fov/2))
+        self.declare_parameter('platform', "CC")
 
-        mtx = np.array([[fx, 0.0, cx], [0.0, fy, cy], [0, 0, 1]])
-        dist = np.zeros([5])
+        self.platform = self.get_parameter('platform').value
+
+        self.declare_parameter('camera_name', 'camera')
+        self.camera_name = self.get_parameter('camera_name').get_parameter_value().string_value
+
+        if self.platform == "SITL":
+            config_file = os.path.join(package_share, 'config', 'sitl_camera_configuration.yaml')
+        else:
+            config_file = os.path.join(package_share, 'config', 'cc_camera_configuration.yaml')
+
+        with open(config_file, 'r') as f:
+            cfg = yaml.safe_load(f)
+
+        if self.platform == "SITL":
+
+            self.image_width = cfg.get('image_width', 640)
+            self.image_height = cfg.get('image_height', 480)
+            self.horizontal_fov = cfg.get('horizontal_fov', 2.0)
+
+            cx = self.image_width/2.0
+            cy = self.image_height/2.0
+
+            fx = fy = self.image_width/(2*math.tan(self.horizontal_fov/2))
+
+            mtx = np.array([[fx, 0.0, cx], [0.0, fy, cy], [0, 0, 1]])
+            dist = np.zeros([5])
+
+        else:
+            mtx = np.array(cfg['camera_matrix']['data']).reshape((3,3))
+            dist = np.array(cfg['distortion_coefficients']['data'])
+
 
         self.bridge = CvBridge()
 
         # publisher
-
         qos_profile = QoSProfile(
             reliability=ReliabilityPolicy.BEST_EFFORT,
             history=HistoryPolicy.KEEP_LAST,
             depth=10
         )
 
-        self.info_pub = self.create_publisher(CameraInfo, f'/{CAMERA_NAME}/camera_info', qos_profile)
-        self.video_pub = self.create_publisher(Image, f'/{CAMERA_NAME}/image_rect', qos_profile)
+
+        
+
+        self.info_pub = self.create_publisher(CameraInfo, f'/{self.camera_name}/camera_info', qos_profile)
+        self.video_pub = self.create_publisher(Image, f'/{self.camera_name}/image_rect', qos_profile)
         self.detector_status_pub = self.create_publisher(Bool, '/drone/camera_calibration/detector_status', 10)
         
+        # subscriptions
         self.video_sub = self.create_subscription(
             Image,
-            f'/{CAMERA_NAME}/image_raw',
+            f'/{self.camera_name}/image_raw',
             self.process_and_publish_cb,
             1) 
-        
 
         self.activate_detector_srv = self.create_service(ActivateDetector, '/drone/camera_calibration/activate_detector', self.activate_detector_cb)
 
         self.detector_active = False
 
         # prepare camera info message
-
-
         self.camera_info = CameraInfo()
         self.camera_info.width = self.image_width
         self.camera_info.height = self.image_height
@@ -100,8 +128,8 @@ class CameraCalibrationNode(Node):
         
         rect_image_msg.header = raw_image_msg.header
         self.camera_info.header = raw_image_msg.header
-        rect_image_msg.header.frame_id = CAMERA_NAME
-        self.camera_info.header.frame_id = CAMERA_NAME
+        rect_image_msg.header.frame_id = self.camera_name
+        self.camera_info.header.frame_id = self.camera_name
 
         self.video_pub.publish(rect_image_msg)
         self.info_pub.publish(self.camera_info)

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>trajectory_planner</name>
+  <name>navigation</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
   <maintainer email="pezzolati.g@gmail.com">giacomo</maintainer>
@@ -10,7 +10,6 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
   <buildtool_depend>ament_cmake_python</buildtool_depend>
-
 
   <depend>rclcpp</depend>
   <depend>rclcpp_action</depend>
