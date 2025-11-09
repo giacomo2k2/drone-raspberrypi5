@@ -52,8 +52,10 @@ class CameraCalibrationNode(Node):
             dist = np.zeros([5])
 
         else:
-            mtx = np.array(cfg['camera_matrix']['data']).reshape((3,3))
-            dist = np.array(cfg['distortion_coefficients']['data'])
+            self.image_width = cfg["camera_calibration_node"]["ros__parameters"]["image_width"]
+            self.image_height = cfg["camera_calibration_node"]["ros__parameters"]["image_height"]
+            mtx = np.array(cfg["camera_calibration_node"]["ros__parameters"]['camera_matrix']['data']).reshape((3,3))
+            dist = np.array(cfg["camera_calibration_node"]["ros__parameters"]['distortion_coefficients']['data'])
 
 
         self.bridge = CvBridge()
@@ -64,7 +66,6 @@ class CameraCalibrationNode(Node):
             history=HistoryPolicy.KEEP_LAST,
             depth=10
         )
-
 
         
 

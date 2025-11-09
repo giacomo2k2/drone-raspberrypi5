@@ -10,14 +10,14 @@ class CameraCaptureNode (Node):
     def __init__(self):
         super().__init__('camera_capture_node')
         self.video_pub = self.create_publisher(Image, '/image_raw', 10)
-        self.timer = self.create_timer(1/30, self.video_pub)
-        self.cap = cv2.VideoCapture(2)
+        self.timer = self.create_timer(1/30, self.publish_video)
+        self.cap = cv2.VideoCapture(0)
         self.bridge = CvBridge()
 
         self.declare_parameter('camera_name', 'camera')
         self.camera_name = self.get_parameter('camera_name').get_parameter_value().string_value
 
-    def publish_info_video(self):
+    def publish_video(self):
         ret, frame = self.cap.read()
         if not ret:
             self.get_logger().error("Cannot read frame")

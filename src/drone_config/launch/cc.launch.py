@@ -1,5 +1,5 @@
 from launch import LaunchDescription
-from launch.actions import TimerAction
+from launch.actions import TimerAction, ExecuteProcess
 from launch_ros.actions import Node, ComposableNodeContainer
 from launch_ros.descriptions import ComposableNode
 
@@ -31,13 +31,28 @@ def generate_launch_description():
         output="screen",
     )
 
+    # Call set_stream_rate service after 5 seconds
+    set_stream_rate_cmd = TimerAction(
+        period=10.0,  # wait for MAVROS to start
+        actions=[
+            ExecuteProcess(
+                cmd=[
+                    'ros2', 'service', 'call', '/mavros/set_stream_rate',
+                    'mavros_msgs/srv/StreamRate',
+                    "{stream_id: 0, message_rate: 50, on_off: true}"
+                ],
+                output='screen'
+            )
+        ]
+    )
+
     # 2. UAV software nodes (Keep your existing nodes)
     uav_nodes = [
         Node(package="fc_interface", executable="fc_interface_node", output="screen"),
         Node(package="state_machine", executable="state_machine_node", output="screen"),
         Node(package="status_monitoring", executable="status_monitoring_node", output="screen"),
-        Node(package="trajectory_planner", executable="navigator_node", output="screen"),
-        Node(package="trajectory_planner", executable="global_trajectory_planner_node.py", output="screen"),
+        Node(package="navigation", executable="navigator_node", output="screen"),
+        Node(package="navigation", executable="global_trajectory_planner_node.py", output="screen"),
         Node(package="mission_manager", executable="mission_manager_node", output="screen"),
         Node(package="hardware_interfaces", executable="camera_calibration_node", output="screen", parameters=[{'camera_name': CAMERA_NAME, 'platform': "CC"}]),
         Node(package="hardware_interfaces", executable="camera_capture_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
@@ -111,6 +126,8 @@ def generate_launch_description():
     return LaunchDescription([
         
         mavros,
+
+	set_stream_rate_cmd,
         
         TimerAction(period=4.0, actions=[apriltag_container]),
 
