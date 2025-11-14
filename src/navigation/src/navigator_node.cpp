@@ -469,6 +469,7 @@ private:
             if (!drone_stopped_) stop_drone("Goal canceled by client");
 
             requestAbortLand("Trajectory aborted by client", true);
+            return;
         }
 
 
@@ -716,7 +717,7 @@ private:
                 }
 
 
-                if (deviation_ > position_tolerance_) {
+                if (deviation_ > position_tolerance_ && !drone_stopped_) {
                     stop_drone("Too large deviation from planned path: " + std::to_string(deviation_) + " m");
 
                     requestAbortLand("Trajectory aborted because of too large deviation from planned path.");

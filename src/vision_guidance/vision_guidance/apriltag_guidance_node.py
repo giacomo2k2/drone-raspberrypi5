@@ -57,6 +57,7 @@ class ApriltagGuidanceNode(Node):
         self.timeout_expired = (self.get_clock().now() - self.start_time).nanoseconds * 1e-9 > self.timeout
 
         msg = ApriltagPosition()
+        msg.header.stamp = self.get_clock().now().to_msg()
         msg.center.x = self.center_cam[0]
         msg.center.y = self.center_cam[1]
         msg.center.z = self.center_cam[2]

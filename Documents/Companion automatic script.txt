@@ -1,0 +1,73 @@
+Companion_automatic_script
+
+
+1. Create a launch wrapper script
+for example in: /home/pi/companion/start_companion.sh
+
+	#!/bin/bash
+	set -e
+
+	# Load workspace environment
+	source /home/pi/drone_ws/install/setup.bash
+
+	# Log to a dedicated file
+	LOG_DIR=/home/pi/companion/logs
+	mkdir -p "$LOG_DIR"
+	exec >> "$LOG_DIR/companion.log" 2>&1
+
+	# Start your launch file
+	exec ros2 launch your_pkg your_launch_file.launch.py
+	
+	
+make it executable: 
+	chmod +x /home/pi/companion/start_companion.sh
+
+2. Create systemd service
+create unit file: sudo nano /etc/systemd/system/companion.service
+
+	[Unit]
+	Description=ROS2 ArduPilot Companion Computer
+	After=network-online.target
+	Wants=network-online.target
+
+	[Service]
+	Type=simple
+	User=pi
+	WorkingDirectory=/home/pi/companion
+	ExecStart=/home/pi/companion/start_companion.sh
+	Restart=always
+	RestartSec=2
+	Environment=RCUTILS_LOGGING_BUFFERED_STREAM=1
+
+	# Make systemd kill the launch tree cleanly
+	KillSignal=SIGINT
+	TimeoutStopSec=20
+
+	# Prevent simultaneous dev + production environment
+	OOMScoreAdjust=-1000
+
+	[Install]
+	WantedBy=multi-user.target
+
+
+3. Activate it
+sudo systemctl daemon-reload
+sudo systemctl enable companion.service
+sudo systemctl start companion.service
+
+
+check status: 
+systemctl status companion.service
+
+check logs: 
+journalctl -u companion.service -f
+
+
+4. Workflow when servicing
+
+i. sudo systemctl stop companion.service
+ii. do your things
+iii. sudo systemctl enable companion.service
+
+
+

@@ -104,6 +104,7 @@ class MissionManagerNode(Node):
     def mission_timer_cb(self):
         if self.mission_started and self.mission_type:
             mission_msg = Mission()
+            mission_msg.header.stamp = self.get_clock().now().to_msg()
             mission_msg.mission_type = self.mission_type
             mission_msg.mission_status = "in-progress"
             mission_msg.progress = self.mission_progress
@@ -113,6 +114,7 @@ class MissionManagerNode(Node):
         
         if self.mission_completed:
             mission_msg = Mission()
+            mission_msg.header.stamp = self.get_clock().now().to_msg()
             mission_msg.mission_type = self.mission_type
             mission_msg.mission_status = "completed"
             mission_msg.progress = 1.0

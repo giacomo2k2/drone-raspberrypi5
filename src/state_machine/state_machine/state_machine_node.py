@@ -241,6 +241,7 @@ class StateMachineNode(Node):
 
         # Publish current mode for other nodes
         msg = CompanionComputerSM()
+        msg.header.stamp = self.get_clock().now().to_msg()
         msg.flight_mode = self.mode.name
         msg.flight_procedure = self.procedure.name
         self.SM_pub.publish(msg)

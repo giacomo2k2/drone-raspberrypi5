@@ -5,6 +5,8 @@ from launch_ros.descriptions import ComposableNode
 from ament_index_python.packages import get_package_share_directory
 import os
 
+from datetime import datetime
+
 # Get the system's path separator (usually ':')
 PATH_SEP = os.pathsep
 
@@ -100,6 +102,7 @@ def generate_launch_description():
         Node(package="mission_manager", executable="mission_manager_node", output="screen"),
         Node(package="hardware_interfaces", executable="camera_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
         Node(package="hardware_interfaces", executable="camera_calibration_node", output="screen", parameters=[{'camera_name': CAMERA_NAME, 'platform': "SITL"}]),
+        Node(package="hardware_interfaces", executable="video_logger_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
         Node(package="vision_guidance", executable="apriltag_guidance_node", output="screen"),
     ]
 
@@ -157,7 +160,7 @@ def generate_launch_description():
     )
 
 
-    # ROSbridge WebSocket server
+    # 10. ROSbridge WebSocket server
     ros_bridge = Node(
             package='rosbridge_server',
             executable='rosbridge_websocket',
@@ -166,7 +169,7 @@ def generate_launch_description():
             parameters=[{'port': 9091}],
     )
 
-    # Web Video Server for streaming image topics
+    # 11. Web Video Server for streaming image topics
     web_server = Node(
             package='web_video_server',
             executable='web_video_server',
@@ -178,13 +181,40 @@ def generate_launch_description():
             }]
     )
 
-    
-    delayed_uav_nodes = TimerAction(
-        period=12.0, 
-        actions=uav_nodes,
+    # 12. Bag logger
+    now = datetime.now()
+    filename = now.strftime("%Y_%m_%d_%H_%M_%S_")
+
+    bag_folder = os.path.join("Data/bag/", f"bag_{filename}")
+
+    bag_logger = ExecuteProcess(
+    cmd=[
+        'ros2', 'bag', 'record',
+        '-o', bag_folder,
+        '/drone/fc_interface/state',
+        '/drone/fc_interface/battery',
+        '/drone/fc_interface/fix',
+        "/drone/fc_interface/imu",
+        "/drone/fc_interface/mag",
+        "/drone/fc_interface/global_origin",
+        "/drone/fc_interface/position_local",
+        "/drone/fc_interface/position_global",
+        "/drone/fc_interface/velocity_local",
+        "/drone/fc_interface/heading",
+        "/drone/fc_interface/rc",
+        '/drone/camera_calibration/detector_status', 
+        '/drone/mission_manager/mission',
+        "/drone/navigator/setpoint_local",
+        '/drone/apriltag_guidance/apriltag_distance',
+        '/drone/status_monitoring/prearm',
+        '/drone/status_monitoring/components_status',
+        '/drone/state_machine/state_machine',
+        
+    ],
+    output='screen'
     )
 
-    
+
     return LaunchDescription([
     
         set_plugin_path,         
@@ -193,13 +223,15 @@ def generate_launch_description():
         gazebo, 
         camera_bridge,
         
-        TimerAction(period=6.0, actions=[ardupilot]), 
+        TimerAction(period=0.0, actions=[ardupilot]), 
         
-        TimerAction(period=8.0, actions=[mavros]), 
+        TimerAction(period=2.0, actions=[mavros]), 
         
-        TimerAction(period=10.0, actions=[apriltag_container]),
+        TimerAction(period=5.0, actions=[apriltag_container]),
         
-        TimerAction(period=12.0, actions=[ros_bridge, web_server]),
+        TimerAction(period=5.0, actions=[ros_bridge, web_server]),
 
-        delayed_uav_nodes,
+        TimerAction(period=5.0, actions=uav_nodes),
+
+        TimerAction(period=6.0, actions=[bag_logger]),
     ])

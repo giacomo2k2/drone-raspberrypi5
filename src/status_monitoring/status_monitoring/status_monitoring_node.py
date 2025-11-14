@@ -89,6 +89,8 @@ class StatusMonitoringNode (Node):
         now = self.get_clock().now()
         prearm_msg.timestamp = now.to_msg()
         self.components_status.timestamp = now.to_msg()
+        prearm_msg.header.stamp = now.to_msg()
+        self.components_status.header.stamp = now.to_msg()
 
         self.prearm_pub.publish(prearm_msg)
         self.components_status_pub.publish(self.components_status)

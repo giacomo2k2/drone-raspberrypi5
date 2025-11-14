@@ -25,6 +25,7 @@ setup(
             'camera_node = hardware_interfaces.camera_node:main',
             'camera_calibration_node = hardware_interfaces.camera_calibration_node:main', 
             'camera_capture_node = hardware_interfaces.camera_capture_node:main',
+            'video_logger_node = hardware_interfaces.video_logger_node:main',
         ],
     },
 )
