@@ -1,0 +1,6 @@
+# StopRecording.srv
+
+bool request
+---
+bool success
+string message

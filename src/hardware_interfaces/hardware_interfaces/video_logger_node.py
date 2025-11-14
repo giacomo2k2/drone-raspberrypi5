@@ -6,6 +6,8 @@ import cv2
 import os
 from datetime import datetime
 
+from drone_interfaces.srv import StopRecording
+
 class LoggerNode(Node):
 
     def __init__(self):
@@ -43,6 +45,19 @@ class LoggerNode(Node):
             self.image_callback,
             10
         )
+
+        self.create_service(StopRecording, 'drone/video_logger/stop_recording', self.stop_callback)
+
+
+    def stop_callback(self, request, response):
+        if self.video_writer.isOpened():
+            self.video_writer.release()
+            self.get_logger().info("Video recording stopped safely.")
+
+            response.success = True
+            response.message = "Video recording stopped."
+        return response
+
 
     def image_callback(self, msg):
         try:

@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from drone_interfaces.srv import Shutdown
+from drone_interfaces.srv import Shutdown, StopRecording
 import subprocess
 import threading
 
@@ -14,9 +14,21 @@ class ShutdownNode(Node):
             self.shutdown_callback
         )
 
+        self.stop_recording_client = self.create_client(StopRecording, 'drone/video_logger/stop_recording')
+    
+
     def shutdown_callback(self, request, response):
         self.get_logger().info('Shutdown request received. Shutting down the system...')
 
+        # First, stop video recording safely
+        if not self.stop_recording_client.wait_for_service(timeout_sec=5.0):
+            self.get_logger().error('Video Logger service not available. Cannot stop recording safely.')
+        else:
+            stop_request = StopRecording.Request()
+            self.stop_recording_client.call_async(stop_request)
+            
+            
+    
         try:
             # Send OS shutdown command
             subprocess.Popen(['sudo', 'shutdown', '-h', 'now'])

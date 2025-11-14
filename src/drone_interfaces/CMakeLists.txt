@@ -36,6 +36,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/StartMission.srv"
   "srv/AbortMission.srv"
   "srv/Shutdown.srv"
+  "srv/StopRecording.srv"
 
   # actions
   "action/FollowTrajectory.action"
