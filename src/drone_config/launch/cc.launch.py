@@ -58,8 +58,9 @@ def generate_launch_description():
         Node(package="mission_manager", executable="mission_manager_node", output="screen"),
         Node(package="hardware_interfaces", executable="camera_calibration_node", output="screen", parameters=[{'camera_name': CAMERA_NAME, 'platform': "CC"}]),
         Node(package="hardware_interfaces", executable="camera_capture_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
-	Node(package="hardware_interfaces", executable="video_logger_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
+	    Node(package="hardware_interfaces", executable="video_logger_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
         Node(package="vision_guidance", executable="apriltag_guidance_node", output="screen"),
+        Node(package="status_monitoring", executable="shutdown_node", output="screen"),
     ]
 
 

@@ -35,6 +35,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/ActivateDetector.srv"
   "srv/StartMission.srv"
   "srv/AbortMission.srv"
+  "srv/Shutdown.srv"
 
   # actions
   "action/FollowTrajectory.action"

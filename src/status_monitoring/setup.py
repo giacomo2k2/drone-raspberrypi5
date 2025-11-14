@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'status_monitoring_node= status_monitoring.status_monitoring_node:main',
+            'shutdown_node= status_monitoring.shutdown_node:main',
         ],
     },
 )

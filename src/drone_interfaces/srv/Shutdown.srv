@@ -1,0 +1,6 @@
+# Shutdown.srv
+
+bool trigger
+---
+bool accepted
+string message
