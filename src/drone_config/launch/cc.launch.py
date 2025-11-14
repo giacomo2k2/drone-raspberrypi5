@@ -58,6 +58,7 @@ def generate_launch_description():
         Node(package="mission_manager", executable="mission_manager_node", output="screen"),
         Node(package="hardware_interfaces", executable="camera_calibration_node", output="screen", parameters=[{'camera_name': CAMERA_NAME, 'platform': "CC"}]),
         Node(package="hardware_interfaces", executable="camera_capture_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
+	Node(package="hardware_interfaces", executable="video_logger_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
         Node(package="vision_guidance", executable="apriltag_guidance_node", output="screen"),
     ]
 
@@ -121,7 +122,7 @@ def generate_launch_description():
     now = datetime.now()
     filename = now.strftime("%Y_%m_%d_%H_%M_%S_")
 
-    bag_folder = os.path.join("Data/bag/", f"bag_{filename}")
+    bag_folder = os.path.join("data/bag/", f"bag_{filename}")
 
     bag_logger = ExecuteProcess(
     cmd=[

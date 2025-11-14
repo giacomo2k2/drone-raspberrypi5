@@ -185,7 +185,7 @@ def generate_launch_description():
     now = datetime.now()
     filename = now.strftime("%Y_%m_%d_%H_%M_%S_")
 
-    bag_folder = os.path.join("Data/bag/", f"bag_{filename}")
+    bag_folder = os.path.join("data/bag/", f"bag_{filename}")
 
     bag_logger = ExecuteProcess(
     cmd=[

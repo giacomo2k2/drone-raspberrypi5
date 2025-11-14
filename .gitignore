@@ -2,7 +2,8 @@
 /build/
 /install/
 /log/
-/Data/
+/data/
+/start_companion/
 
 # Python cache
 __pycache__/

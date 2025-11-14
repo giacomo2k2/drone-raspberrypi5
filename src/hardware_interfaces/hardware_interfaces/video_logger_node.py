@@ -12,7 +12,7 @@ class LoggerNode(Node):
         super().__init__('logger_node')
 
         # Create video folder
-        video_folder = "Data/video"
+        video_folder = "data/video"
         os.makedirs(video_folder, exist_ok=True)
 
         # Generate timestamped filename
