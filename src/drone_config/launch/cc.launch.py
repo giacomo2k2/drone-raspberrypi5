@@ -56,10 +56,10 @@ def generate_launch_description():
         Node(package="navigation", executable="navigator_node", output="screen"),
         Node(package="navigation", executable="global_trajectory_planner_node.py", output="screen"),
         Node(package="mission_manager", executable="mission_manager_node", output="screen"),
-        Node(package="hardware_interfaces", executable="camera_calibration_node", output="screen", parameters=[{'camera_name': CAMERA_NAME, 'platform': "CC"}]),
+        Node(package="hardware_interfaces", executable="camera_calibration_node", output="screen", parameters=[{'camera_name': CAMERA_NAME, 'platform': PLATFORM}]),
         Node(package="hardware_interfaces", executable="camera_capture_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
 	    Node(package="hardware_interfaces", executable="video_logger_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
-        Node(package="vision_guidance", executable="apriltag_guidance_node", output="screen"),
+        Node(package="vision_guidance", executable="apriltag_guidance_node", output="screen", parameters=[{'platform': PLATFORM}]),
         Node(package="status_monitoring", executable="shutdown_node", output="screen"),
     ]
 

@@ -25,3 +25,5 @@ camera_calibration_node:
       - 0.005930765962818241
       - -0.1902521717232018
       rows: 1
+
+    camera_z_rotation: 180.0  # degrees

@@ -8,7 +8,7 @@ import tf2_py as tf2
 from scipy.spatial.transform import Rotation as R
 import numpy as np
 from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
-
+from std_msgs.msg import Float64
 from drone_interfaces.msg import ApriltagPosition
 
 
@@ -18,6 +18,17 @@ class ApriltagGuidanceNode(Node):
 
     def __init__(self):
         super().__init__('apriltag_guidance_node') 
+
+
+        self.declare_parameter('platform', "CC")
+
+        self.platform = self.get_parameter('platform').value
+
+        if self.platform == "CC":
+            self.z_rot = np.pi
+        else:
+            self.z_rot = np.pi
+
         
         self.bridge = CvBridge()
 
@@ -31,10 +42,11 @@ class ApriltagGuidanceNode(Node):
 
         self.sub_tags = self.create_subscription(AprilTagDetectionArray, f'/{CAMERA}/detections', self.tags_callback, 10)
         self.sub_info = self.create_subscription(CameraInfo, f'/{CAMERA}/camera_info', self.info_callback, qos_profile)
+        self.heading_sub = self.create_subscription(Float64, "/drone/fc_interface/heading", self.heading_callback, 10)
 
         self.camera_info = None
         self.detections = []
-
+        self.heading = None
         # TF listener
         self.tf_buffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
@@ -55,7 +67,7 @@ class ApriltagGuidanceNode(Node):
             return
         
         self.timeout_expired = (self.get_clock().now() - self.start_time).nanoseconds * 1e-9 > self.timeout
-
+        
         msg = ApriltagPosition()
         msg.header.stamp = self.get_clock().now().to_msg()
         msg.center.x = self.center_cam[0]
@@ -63,16 +75,22 @@ class ApriltagGuidanceNode(Node):
         msg.center.z = self.center_cam[2]
         msg.timeout_expired = self.timeout_expired
 
+        
+
         self.apriltag_distance_pub.publish(msg)
 
+    def heading_callback(self, msg):
+        self.heading = msg.data
 
     def tags_callback(self, msg):
 
-        if CameraInfo == None:
+        if self.camera_info is None:
             return
          
         self.detections = msg.detections  
-        self.start_time = self.get_clock().now()
+
+        if len(self.detections) > 0:
+            self.start_time = self.get_clock().now()
 
         for det in self.detections:
             # draw 6D pose axes
@@ -89,6 +107,16 @@ class ApriltagGuidanceNode(Node):
             t_vec = np.array([t.transform.translation.x,
                               t.transform.translation.y,
                               t.transform.translation.z])
+            
+            R_z_rot = R.from_euler('z', self.z_rot).as_matrix()
+            R_mat = R_z_rot @ R_mat
+            t_vec = R_z_rot @ t_vec
+
+            if self.heading is not None:
+                heading_rad = np.deg2rad(self.heading)
+                R_heading = R.from_euler('z', heading_rad).as_matrix()
+                R_mat = R_heading @ R_mat
+                t_vec = R_heading @ t_vec
             
             center_3d = np.array([0, 0, 0])
 

@@ -4,3 +4,5 @@ camera_calibration_node:
     self.image_height: 480
     self.horizontal_fov: 2.0
 
+    camera_z_rotation: 180.0  # degrees
+

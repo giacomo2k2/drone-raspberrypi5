@@ -93,6 +93,7 @@ class CameraCalibrationNode(Node):
         self.camera_info.distortion_model = 'plumb_bob'
         self.camera_info.r = np.eye(3).flatten().tolist()
         self.camera_info.p = np.hstack((mtx, np.zeros((3, 1)))).flatten().tolist()
+        
 
         self.timer = self.create_timer(1.0, self.publish_detector_status)
 

@@ -200,7 +200,7 @@ private:
     double land_altitude_ = 0.0; 
     rclcpp::Time takeoff_time_start_;
     rclcpp::Time land_time_start_;
-    double landing_threshold_ = 1.5;
+    double landing_threshold_ = 0.75;
     double landing_velocity_ = 0.5;
 
     bool drone_stopped_ = false;
@@ -216,6 +216,7 @@ private:
     double apriltag_threshold_ = 0.4; 
     double k_ = 0.1;
     bool detector_status_ = false;
+    bool detector_activated_ = false;
 
 
     // ---------------- Drone position callback ----------------
@@ -536,10 +537,11 @@ private:
 
                 
                 
-                if (use_camera_ && !detector_status_) {
+                if (use_camera_ && !detector_status_ && !detector_activated_) {
                     auto request = std::make_shared<drone_interfaces::srv::ActivateDetector::Request>();
                     request->activate = true;
                     activate_detector_client_->async_send_request(request);
+                    detector_activated_ = true;
                 }
 
                 setpoint.type_mask = mavros_msgs::msg::PositionTarget::IGNORE_PX |

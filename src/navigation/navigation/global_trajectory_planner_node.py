@@ -40,7 +40,7 @@ class TrajectoryGeneratorNode(Node):
             # self.get_logger().info(f"z_coeffs: {coeffs_z}")    
         
 
-            # Rescale periods to respect vmax/amax
+            # Rescale periods to respect vmax/am    ax
             periods = uniform_rescale_periods_3d_norm(
                 coeffs_x, coeffs_y, coeffs_z, periods_norm,
                 request.vmax, request.amax
