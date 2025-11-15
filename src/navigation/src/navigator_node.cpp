@@ -211,7 +211,7 @@ private:
 
     // ----------------- CAMERA ------------------
     bool use_camera_ = false;
-    double horizontal_velocity_ = 0.3;
+    double horizontal_velocity_ = 0.1;
     drone_interfaces::msg::ApriltagPosition apriltag_position_;
     double apriltag_threshold_ = 0.4; 
     double k_ = 0.1;
@@ -794,4 +794,5 @@ int main(int argc, char ** argv)
     rclcpp::shutdown();
     return 0;
 }
+
 
