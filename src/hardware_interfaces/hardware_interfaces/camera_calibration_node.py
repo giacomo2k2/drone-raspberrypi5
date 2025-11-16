@@ -39,8 +39,9 @@ class CameraCalibrationNode(Node):
 
         if self.platform == "SITL":
 
-            self.image_width = cfg.get('image_width', 640)
-            self.image_height = cfg.get('image_height', 480)
+            self.image_width = cfg["camera_calibration_node"]["ros__parameters"]["image_width"]
+            self.image_height = cfg["camera_calibration_node"]["ros__parameters"]["image_height"]
+            self.horizontal_fov = cfg["camera_calibration_node"]["ros__parameters"]['horizontal_fov']
             self.horizontal_fov = cfg.get('horizontal_fov', 2.0)
 
             cx = self.image_width/2.0

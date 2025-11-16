@@ -1,7 +1,7 @@
 camera_calibration_node:
   ros__parameters:
-    image_width: 1920
-    image_height: 1080
+    image_width: 640
+    image_height: 480
     camera_matrix:
       cols: 3
       data:

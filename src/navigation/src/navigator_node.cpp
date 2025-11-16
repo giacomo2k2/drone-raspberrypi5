@@ -201,7 +201,7 @@ private:
     rclcpp::Time takeoff_time_start_;
     rclcpp::Time land_time_start_;
     double landing_threshold_ = 0.75;
-    double landing_velocity_ = 0.2;
+    double landing_velocity_ = 0.3;
     double landing_yaw_rate_ = 0.5;
 
     bool drone_stopped_ = false;
