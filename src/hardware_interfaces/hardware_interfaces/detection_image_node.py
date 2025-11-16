@@ -13,10 +13,10 @@ from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
 from std_msgs.msg import Bool
 
 
-class CameraNode(Node):
+class DetectionImageNode(Node):
 
     def __init__(self):
-        super().__init__('camera_node') # Renamed node to camera_node to match launch file
+        super().__init__('detection_image_node') # Renamed node to detection_image_node to match launch file
         
         self.bridge = CvBridge()
 
@@ -34,6 +34,8 @@ class CameraNode(Node):
         self.sub_info = self.create_subscription(CameraInfo, f'/{self.camera_name}/camera_info', self.info_callback, qos_profile)
         self.detector_status_sub = self.create_subscription(Bool, '/drone/camera_calibration/detector_status', self.detector_status_cb, 10)
 
+        self.detections_image_pub = self.create_publisher(Image, f'/{self.camera_name}/tag_detections_image', 10)
+
         self.camera_info = None
         self.latest_frame = None
         self.detections = []
@@ -44,14 +46,13 @@ class CameraNode(Node):
 
         self.detector_status = False
         
-        cv2.namedWindow("Gimbal Camera Feed (SITL)", cv2.WINDOW_AUTOSIZE)
 
     def detector_status_cb(self, msg):
         self.detector_status = msg.data
 
     def image_callback(self, msg):
         self.latest_frame = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
-        self.show_frame()
+        self.print_detection()
 
     def tags_callback(self, msg):
         self.detections = msg.detections
@@ -60,15 +61,15 @@ class CameraNode(Node):
         self.camera_info = msg
 
 
-    def show_frame(self):
+    def print_detection(self):
         
         if self.latest_frame is None:
                 return
         
         frame = self.latest_frame.copy()
 
-
         detection_status = "apriltag not detected"
+
         if not self.camera_info is None:
             self.frame_width = self.camera_info.width
             self.frame_height = self.camera_info.height
@@ -79,8 +80,8 @@ class CameraNode(Node):
             cx = K[2]
             cy = K[5]
 
-            
-            for det in self.detections:
+            if self.detector_status and len(self.detections) > 0:
+                det = self.detections[0]
                 # draw bounding boxes
                 corners = det.corners
                 corners = [(int(c.x), int(c.y)) for c in corners]
@@ -93,7 +94,8 @@ class CameraNode(Node):
                     t = self.tf_buffer.lookup_transform(self.camera_name, f'tag36h11:{det.id}', rclpy.time.Time())
 
                 except (tf2.LookupException, tf2.ExtrapolationException):
-                    continue
+                    self.get_logger().warning(f"Transform for tag id {det.id} not found")
+                    return
 
                 # transform points for axes
                 q = t.transform.rotation
@@ -139,20 +141,20 @@ class CameraNode(Node):
         cv2.putText(frame, f"detector: {self.detector_status}", (20, y1), font, scale, color, thickness, cv2.LINE_AA)
         cv2.putText(frame, detection_status, (20, y2), font, scale, color, thickness, cv2.LINE_AA)
 
-        cv2.imshow("Gimbal Camera Feed (SITL)", frame)
-        cv2.waitKey(1) 
+        
+        msg = self.bridge.cv2_to_imgmsg(frame, encoding='bgr8')
+        now = self.get_clock().now().to_msg()
+        msg.header.stamp = now
+        msg.header.frame_id = self.camera_name
 
+        self.detections_image_pub.publish(msg)
+    
    
-    def cleanup(self):
-        """Clean up OpenCV windows before destroying the node."""
-        cv2.destroyAllWindows()
-        self.destroy_node()
-
 def main(args=None):
     rclpy.init(args=args)
-    camera_node = CameraNode()
-    rclpy.spin(camera_node)
-    camera_node.cleanup()
+    detection_image_node = DetectionImageNode()
+    rclpy.spin(detection_image_node)
+    detection_image_node.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':

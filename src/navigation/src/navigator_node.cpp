@@ -103,7 +103,7 @@ public:
             std::bind(&NavigatorNode::positionCallback, this, std::placeholders::_1)
         );
 
-        apriltag_position_sub_ = this->create_subscription<drone_interfaces::msg::ApriltagPosition>(
+        apriltag_distance_sub_ = this->create_subscription<drone_interfaces::msg::ApriltagPosition>(
             "/drone/apriltag_guidance/apriltag_distance", 10,
             std::bind(&NavigatorNode::apriltagCallback, this, std::placeholders::_1)
         );
@@ -136,7 +136,7 @@ private:
     // ---------------- ROS interfaces ----------------
     rclcpp::Publisher<mavros_msgs::msg::PositionTarget>::SharedPtr setpoint_pub_;
     rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr position_sub_;
-    rclcpp::Subscription<drone_interfaces::msg::ApriltagPosition>::SharedPtr apriltag_position_sub_;
+    rclcpp::Subscription<drone_interfaces::msg::ApriltagPosition>::SharedPtr apriltag_distance_sub_;
     rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr detector_status_sub;
     rclcpp_action::Server<FollowTrajectory>::SharedPtr action_server_;
     rclcpp::Client<drone_interfaces::srv::GenerateGlobalTrajectory>::SharedPtr trajectory_client_;
@@ -201,7 +201,8 @@ private:
     rclcpp::Time takeoff_time_start_;
     rclcpp::Time land_time_start_;
     double landing_threshold_ = 0.75;
-    double landing_velocity_ = 0.5;
+    double landing_velocity_ = 0.2;
+    double landing_yaw_rate_ = 0.5;
 
     bool drone_stopped_ = false;
 
@@ -211,12 +212,13 @@ private:
 
     // ----------------- CAMERA ------------------
     bool use_camera_ = false;
-    double horizontal_velocity_ = 0.1;
-    drone_interfaces::msg::ApriltagPosition apriltag_position_;
+    double horizontal_velocity_ = 0.2;
+    drone_interfaces::msg::ApriltagPosition apriltag_distance_;
     double apriltag_threshold_ = 0.4; 
-    double k_ = 0.1;
+    double k_ = 0.05;
     bool detector_status_ = false;
     bool detector_activated_ = false;
+    bool distance_received_ = false;
 
 
     // ---------------- Drone position callback ----------------
@@ -227,7 +229,8 @@ private:
 
     // --------------- Apriltag Callback ------------------
     void apriltagCallback(const drone_interfaces::msg::ApriltagPosition::SharedPtr msg) {
-        apriltag_position_ = *msg;
+        apriltag_distance_ = *msg;
+        distance_received_ = true;
     }
 
     void detectorStatusCallback(const std_msgs::msg::Bool::SharedPtr msg) {
@@ -557,26 +560,51 @@ private:
                     double vx = 0.0;
                     double vy = 0.0;
                     double vz = -landing_velocity_;
+                    double yaw_rate = 0.0;
+
 
                     if (use_camera_ && detector_status_) {
-                        if (!apriltag_position_.timeout_expired) {
-                            vx = k_*apriltag_position_.center.x;
-                            vy = -k_*apriltag_position_.center.y;
 
-                            vx = std::clamp(vx, -horizontal_velocity_, horizontal_velocity_);
-                            vy = std::clamp(vy, -horizontal_velocity_, horizontal_velocity_);
-                        }
-
-                        if (!apriltag_position_.timeout_expired && (abs(apriltag_position_.center.x)>apriltag_threshold_ || abs(apriltag_position_.center.y)>apriltag_threshold_)) {
+                        if (!distance_received_) {
+                            RCLCPP_WARN(this->get_logger(), "No apriltag distance received yet, descending...");
                             vz = 0.0;
-                        }                
-                        
-                    }
+                            vx = 0.0;
+                            vz = -landing_velocity_;
+                            yaw_rate = landing_yaw_rate_;
+
+                        } else {
+
+                            if (!apriltag_distance_.timeout_expired) {
+                                vx = k_*apriltag_distance_.center.x;
+                                vy = -k_*apriltag_distance_.center.y;
+
+                                vx = std::clamp(vx, -horizontal_velocity_, horizontal_velocity_);
+                                vy = std::clamp(vy, -horizontal_velocity_, horizontal_velocity_);
                                 
+                                yaw_rate = 0.0;
+                                bool centered = abs(apriltag_distance_.center.x)<=apriltag_threshold_ && abs(apriltag_distance_.center.y)<=apriltag_threshold_;
+                                
+                                if (centered) {
+                                    vz = -landing_velocity_;
+                                    
+                                } else {
+                                    vz = 0.0;                                    
+                                }
+
+                            } else {
+                                vx = 0.0;
+                                vy = 0.0;
+                                vz = -landing_velocity_;
+                                yaw_rate = landing_yaw_rate_;
+                            }            
+                        }
+                    }
+                    
                     setpoint.velocity.x = vx;
                     setpoint.velocity.y = vy;
                     setpoint.velocity.z = vz;
-                    
+                    setpoint.yaw_rate = yaw_rate;
+
                     setpoint.header.stamp = this->now();
                     
                 
@@ -585,8 +613,8 @@ private:
                     setpoint.velocity.x = 0.0;
                     setpoint.velocity.y = 0.0;
                     setpoint.velocity.z = 0.0;
+                    setpoint.yaw_rate = 0.0;
                     setpoint.header.stamp = this->now();
-
 
 
                     if (!land_requested_) {

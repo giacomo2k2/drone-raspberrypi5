@@ -41,7 +41,7 @@ class LoggerNode(Node):
         # Subscribe to camera images
         self.image_sub = self.create_subscription(
             Image,
-            f'/{self.camera_name}/image_raw',
+            f'/{self.camera_name}/tag_detections_image',
             self.image_callback,
             10
         )
