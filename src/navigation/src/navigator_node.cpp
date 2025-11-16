@@ -566,8 +566,7 @@ private:
                     if (use_camera_ && detector_status_) {
 
                         if (!distance_received_) {
-                            RCLCPP_WARN(this->get_logger(), "No apriltag distance received yet, descending...");
-                            vz = 0.0;
+                            vy = 0.0;
                             vx = 0.0;
                             vz = -landing_velocity_;
                             yaw_rate = landing_yaw_rate_;

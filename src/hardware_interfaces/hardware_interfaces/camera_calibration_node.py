@@ -52,6 +52,7 @@ class CameraCalibrationNode(Node):
             mtx = np.array([[fx, 0.0, cx], [0.0, fy, cy], [0, 0, 1]])
             dist = np.zeros([5])
 
+
         else:
             self.image_width = cfg["camera_calibration_node"]["ros__parameters"]["image_width"]
             self.image_height = cfg["camera_calibration_node"]["ros__parameters"]["image_height"]
@@ -68,18 +69,13 @@ class CameraCalibrationNode(Node):
             depth=10
         )
 
-        
 
         self.info_pub = self.create_publisher(CameraInfo, f'/{self.camera_name}/camera_info', qos_profile)
         self.video_pub = self.create_publisher(Image, f'/{self.camera_name}/image_rect', qos_profile)
         self.detector_status_pub = self.create_publisher(Bool, '/drone/camera_calibration/detector_status', 10)
         
         # subscriptions
-        self.video_sub = self.create_subscription(
-            Image,
-            f'/{self.camera_name}/image_raw',
-            self.process_and_publish_cb,
-            1) 
+        self.video_sub = self.create_subscription(Image, f'/{self.camera_name}/image_raw', self.process_and_publish_cb, qos_profile) 
 
         self.activate_detector_srv = self.create_service(ActivateDetector, '/drone/camera_calibration/activate_detector', self.activate_detector_cb)
 
@@ -128,16 +124,16 @@ class CameraCalibrationNode(Node):
 
         rect_image_msg = self.bridge.cv2_to_imgmsg(cv_image, encoding='bgr8')
         
-        
-        rect_image_msg.header = raw_image_msg.header
-        self.camera_info.header = raw_image_msg.header
+        now = self.get_clock().now().to_msg()
+
+        rect_image_msg.header.stamp = now
+        self.camera_info.header.stamp = now
         rect_image_msg.header.frame_id = self.camera_name
         self.camera_info.header.frame_id = self.camera_name
 
         self.video_pub.publish(rect_image_msg)
         self.info_pub.publish(self.camera_info)
         
-
    
 
 def main(args = None):
