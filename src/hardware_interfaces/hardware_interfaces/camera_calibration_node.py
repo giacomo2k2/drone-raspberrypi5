@@ -11,6 +11,7 @@ from ament_index_python.packages import get_package_share_directory
 
 from drone_interfaces.srv import ActivateDetector
 
+import cv2
 import os
 
 from std_msgs.msg import Bool
@@ -33,6 +34,13 @@ class CameraCalibrationNode(Node):
             config_file = os.path.join(package_share, 'config', 'sitl_camera_configuration.yaml')
         else:
             config_file = os.path.join(package_share, 'config', 'cc_camera_configuration.yaml')
+               # publisher
+        
+        qos_profile = QoSProfile(
+            reliability=ReliabilityPolicy.BEST_EFFORT,
+            history=HistoryPolicy.KEEP_LAST,
+            depth=10
+        )
 
         with open(config_file, 'r') as f:
             cfg = yaml.safe_load(f)
@@ -42,7 +50,6 @@ class CameraCalibrationNode(Node):
             self.image_width = cfg["camera_calibration_node"]["ros__parameters"]["image_width"]
             self.image_height = cfg["camera_calibration_node"]["ros__parameters"]["image_height"]
             self.horizontal_fov = cfg["camera_calibration_node"]["ros__parameters"]['horizontal_fov']
-            self.horizontal_fov = cfg.get('horizontal_fov', 2.0)
 
             cx = self.image_width/2.0
             cy = self.image_height/2.0
@@ -52,6 +59,8 @@ class CameraCalibrationNode(Node):
             mtx = np.array([[fx, 0.0, cx], [0.0, fy, cy], [0, 0, 1]])
             dist = np.zeros([5])
 
+             # subscriptions
+            self.video_sub = self.create_subscription(Image, f'/{self.camera_name}/image_raw', self.get_published_frame, qos_profile) 
 
         else:
             self.image_width = cfg["camera_calibration_node"]["ros__parameters"]["image_width"]
@@ -60,23 +69,17 @@ class CameraCalibrationNode(Node):
             dist = np.array(cfg["camera_calibration_node"]["ros__parameters"]['distortion_coefficients']['data'])
 
 
+            self.video_raw_pub = self.create_publisher(Image, f'/{self.camera_name}/image_raw', 10)
+            self.timer = self.create_timer(1.0/30.0, self.get_frame)
+            self.cap = cv2.VideoCapture(0, cv2.CAP_V4L2)  # Adjust the camera index as needed
+
         self.bridge = CvBridge()
-
-        # publisher
-        qos_profile = QoSProfile(
-            reliability=ReliabilityPolicy.BEST_EFFORT,
-            history=HistoryPolicy.KEEP_LAST,
-            depth=10
-        )
-
 
         self.info_pub = self.create_publisher(CameraInfo, f'/{self.camera_name}/camera_info', qos_profile)
         self.video_pub = self.create_publisher(Image, f'/{self.camera_name}/image_rect', qos_profile)
         self.detector_status_pub = self.create_publisher(Bool, '/drone/camera_calibration/detector_status', 10)
         
-        # subscriptions
-        self.video_sub = self.create_subscription(Image, f'/{self.camera_name}/image_raw', self.process_and_publish_cb, qos_profile) 
-
+       
         self.activate_detector_srv = self.create_service(ActivateDetector, '/drone/camera_calibration/activate_detector', self.activate_detector_cb)
 
         self.detector_active = False
@@ -92,13 +95,27 @@ class CameraCalibrationNode(Node):
         self.camera_info.p = np.hstack((mtx, np.zeros((3, 1)))).flatten().tolist()
         
 
-        self.timer = self.create_timer(1.0, self.publish_detector_status)
+        self.timer_detector = self.create_timer(1.0, self.publish_detector_status)
 
     def publish_detector_status(self):
         msg = Bool()
         msg.data = self.detector_active
 
         self.detector_status_pub.publish(msg)
+
+    def get_frame(self):
+        ret, frame = self.cap.read()
+        if not ret:
+            self.get_logger().error("Cannot read frame")
+            return
+        image = self.bridge.cv2_to_imgmsg(frame, encoding='bgr8')
+
+        self.video_raw_pub.publish(image)
+        self.process_and_publish_cb(frame)
+
+    def get_published_frame(self, raw_image_msg: Image):
+        frame = self.bridge.imgmsg_to_cv2(raw_image_msg, desired_encoding='bgr8')
+        self.process_and_publish_cb(frame)
 
     def activate_detector_cb(self, request, response):
         response.success = True
@@ -113,14 +130,11 @@ class CameraCalibrationNode(Node):
         
         return response
 
-
-
-    def process_and_publish_cb(self, raw_image_msg: Image):    
+    
+    def process_and_publish_cb(self, cv_image: np.ndarray):    
 
         if not self.detector_active:
             return
-
-        cv_image = self.bridge.imgmsg_to_cv2(raw_image_msg, desired_encoding='bgr8')
 
         rect_image_msg = self.bridge.cv2_to_imgmsg(cv_image, encoding='bgr8')
         

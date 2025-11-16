@@ -23,8 +23,7 @@ setup(
     entry_points={
         'console_scripts': [
             'detection_image_node = hardware_interfaces.detection_image_node:main',
-            'camera_calibration_node = hardware_interfaces.camera_calibration_node:main', 
-            'camera_capture_node = hardware_interfaces.camera_capture_node:main',
+            'camera_calibration_node = hardware_interfaces.camera_calibration_node:main',
             'video_logger_node = hardware_interfaces.video_logger_node:main',
             'camera_print_node = hardware_interfaces.camera_print_node:main',
         ],
