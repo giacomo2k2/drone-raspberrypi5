@@ -114,7 +114,7 @@ class ApriltagGuidanceNode(Node):
                 continue
 
 
-            self.get_logger().info(f"Transform rot {t.transform.rotation.x}, {t.transform.rotation.y}, {t.transform.rotation.z}, {t.transform.rotation.w}")
+
             # transform points for axes
             q = t.transform.rotation
             r = R.from_quat([q.x, q.y, q.z, q.w])

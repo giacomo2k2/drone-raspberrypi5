@@ -14,10 +14,9 @@ CAMERA_NAME = 'camera'
 # Platform config 
 PLATFORM = 'CC'
 
-#package_share = get_package_share_directory('drone_config')
-#camera_info_file = os.path.join(package_share, 'config', 'camera.yaml')
-
-camera_info_file = 'file:///media/giacomo/SSD2/Projects/drone_ws/drone_firmware/install/drone_config/share/drone_config/config/camera.yaml'
+package_share = get_package_share_directory('drone_config')
+camera_info_path = os.path.join('file://', package_share, 'config', 'camera.yaml')
+camera_info_url = f'file://{camera_info_path}'
 
 def generate_launch_description():
     
@@ -63,7 +62,7 @@ def generate_launch_description():
        Node(package="mission_manager", executable="mission_manager_node", output="screen"),
        #Node(package="hardware_interfaces", executable="detection_image_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
        Node(package="hardware_interfaces", executable="video_logger_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
-       Node(package="vision_guidance", executable="apriltag_guidance_node", output="screen", parameters=[{'platform': PLATFORM}]),
+       Node(package="vision_guidance", executable="apriltag_guidance_node", output="screen", parameters=[{'platform': PLATFORM, 'camera_frame': CAMERA_NAME, 'camera_name': CAMERA_NAME}]),
        Node(package="status_monitoring", executable="shutdown_node", output="screen"),
     ]
 
@@ -72,14 +71,14 @@ def generate_launch_description():
         plugin='camera::CameraNode',
         name='camera_node',
         parameters=[
-            {'camera': 1},  # integer index, change if you have multiple cameras
+            {'camera': 0},  # integer index, change if you have multiple cameras
             {'role': 'raw'},  # options: raw, still, video, viewfinder
             {'format': 'YUYV'},  # or MJPG, RAW8, depends on your camera
             {'width': 640},  
             {'height': 480},
             {'sensor_mode': '640:480'},
             {'orientation': 180},
-            {'camera_info_url': camera_info_file},
+            {'camera_info_url': camera_info_url},
             {'frame_id': CAMERA_NAME},
             {'use_node_time': False},
         ],
