@@ -214,7 +214,7 @@ private:
     bool use_camera_ = false;
     double horizontal_velocity_ = 0.2;
     drone_interfaces::msg::ApriltagPosition apriltag_distance_;
-    double apriltag_threshold_ = 0.4; 
+    double apriltag_threshold_ = 0.75; 
     double k_ = 0.05;
     bool detector_status_ = false;
     bool detector_activated_ = false;

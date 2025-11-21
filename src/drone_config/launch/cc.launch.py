@@ -50,17 +50,17 @@ def generate_launch_description():
 
     # 2. UAV software nodes (Keep your existing nodes)
     uav_nodes = [
-        Node(package="fc_interface", executable="fc_interface_node", output="screen"),
-        Node(package="state_machine", executable="state_machine_node", output="screen"),
-        Node(package="status_monitoring", executable="status_monitoring_node", output="screen"),
-        Node(package="navigation", executable="navigator_node", output="screen"),
-        Node(package="navigation", executable="global_trajectory_planner_node.py", output="screen"),
-        Node(package="mission_manager", executable="mission_manager_node", output="screen"),
-        Node(package="hardware_interfaces", executable="camera_calibration_node", output="screen", parameters=[{'camera_name': CAMERA_NAME, 'platform': PLATFORM}]),
-        # Node(package="hardware_interfaces", executable="detection_image_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
-        Node(package="hardware_interfaces", executable="video_logger_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
-        Node(package="vision_guidance", executable="apriltag_guidance_node", output="screen", parameters=[{'platform': PLATFORM}]),
-        Node(package="status_monitoring", executable="shutdown_node", output="screen"),
+       Node(package="fc_interface", executable="fc_interface_node", output="screen"),
+       Node(package="state_machine", executable="state_machine_node", output="screen"),
+       Node(package="status_monitoring", executable="status_monitoring_node", output="screen"),
+       Node(package="navigation", executable="navigator_node", output="screen"),
+       Node(package="navigation", executable="global_trajectory_planner_node.py", output="screen"),
+       Node(package="mission_manager", executable="mission_manager_node", output="screen"),
+       Node(package="hardware_interfaces", executable="camera_calibration_node", output="screen", parameters=[{'camera_name': CAMERA_NAME, 'platform': PLATFORM}]),
+       #Node(package="hardware_interfaces", executable="detection_image_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
+       Node(package="hardware_interfaces", executable="video_logger_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
+       Node(package="vision_guidance", executable="apriltag_guidance_node", output="screen", parameters=[{'platform': PLATFORM}]),
+       Node(package="status_monitoring", executable="shutdown_node", output="screen"),
     ]
 
     # 3. AprilTag Composable Node Setup 
@@ -158,7 +158,7 @@ def generate_launch_description():
         
         mavros,
 
-	    set_stream_rate_cmd,
+	set_stream_rate_cmd,
         
         TimerAction(period=0.0, actions=[apriltag_container]),
 

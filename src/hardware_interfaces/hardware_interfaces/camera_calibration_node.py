@@ -37,7 +37,7 @@ class CameraCalibrationNode(Node):
                # publisher
         
         qos_profile = QoSProfile(
-            reliability=ReliabilityPolicy.BEST_EFFORT,
+            reliability=ReliabilityPolicy.RELIABLE,
             history=HistoryPolicy.KEEP_LAST,
             depth=10
         )
@@ -133,8 +133,8 @@ class CameraCalibrationNode(Node):
     
     def process_and_publish_cb(self, cv_image: np.ndarray):    
 
-        if not self.detector_active:
-            return
+        # if not self.detector_active:
+        #    return
 
         rect_image_msg = self.bridge.cv2_to_imgmsg(cv_image, encoding='bgr8')
         
