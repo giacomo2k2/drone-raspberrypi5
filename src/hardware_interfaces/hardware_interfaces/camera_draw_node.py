@@ -16,7 +16,7 @@ class CameraDrawNode(Node):
         self.declare_parameter('camera_name', 'camera')
         self.camera_name = self.get_parameter('camera_name').get_parameter_value().string_value
 
-        self.detections_image_sub = self.create_subscription(Image, f'/{self.camera_name}/image_raw', self.image_callback, 10)
+        self.detections_image_sub = self.create_subscription(Image, f'/{self.camera_name}/tag_detections_image', self.image_callback, 10)
         
 
         self.latest_frame = None

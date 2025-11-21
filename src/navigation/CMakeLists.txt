@@ -21,7 +21,6 @@ find_package(drone_interfaces REQUIRED)
 add_executable(navigator_node src/navigator_node.cpp)
 ament_target_dependencies(navigator_node
   rclcpp
-  rclpy
   rclcpp_action
   mavros_msgs
   geometry_msgs

@@ -108,8 +108,13 @@ public:
             std::bind(&NavigatorNode::apriltagCallback, this, std::placeholders::_1)
         );
 
+
+        rclcpp::QoS qos_detector_status(rclcpp::KeepLast(10));
+        qos_detector_status.reliable();
+        qos_detector_status.transient_local();
+        
         detector_status_sub = this->create_subscription<std_msgs::msg::Bool>(
-            "/drone/camera_calibration/detector_status", 10,
+            "/drone/camera_calibration/detector_status", qos_detector_status,
             std::bind(&NavigatorNode::detectorStatusCallback, this, std::placeholders::_1)
         );
 
@@ -540,12 +545,12 @@ private:
 
                 
                 
-                if (use_camera_ && !detector_status_ && !detector_activated_) {
-                    auto request = std::make_shared<drone_interfaces::srv::ActivateDetector::Request>();
-                    request->activate = true;
-                    activate_detector_client_->async_send_request(request);
-                    detector_activated_ = true;
-                }
+                // if (use_camera_ && !detector_status_ && !detector_activated_) {
+                //     auto request = std::make_shared<drone_interfaces::srv::ActivateDetector::Request>();
+                //     request->activate = true;
+                //     activate_detector_client_->async_send_request(request);
+                //     detector_activated_ = true;
+                // }
 
                 setpoint.type_mask = mavros_msgs::msg::PositionTarget::IGNORE_PX |
                                         mavros_msgs::msg::PositionTarget::IGNORE_PY |
@@ -563,7 +568,7 @@ private:
                     double yaw_rate = 0.0;
 
 
-                    if (use_camera_ && detector_status_) {
+                    if (use_camera_) {
 
                         if (!distance_received_) {
                             vy = 0.0;

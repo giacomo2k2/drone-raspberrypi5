@@ -1,8 +1,0 @@
-camera_calibration_node:
-  ros__parameters:
-    image_width: 640
-    image_height: 480
-    horizontal_fov: 2.0
-
-    camera_z_rotation: 180.0  # degrees
-

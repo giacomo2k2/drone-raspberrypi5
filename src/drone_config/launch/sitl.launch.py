@@ -100,11 +100,10 @@ def generate_launch_description():
         Node(package="navigation", executable="navigator_node", output="screen"),
         Node(package="navigation", executable="global_trajectory_planner_node.py", output="screen"),
         Node(package="mission_manager", executable="mission_manager_node", output="screen"),
-        Node(package="hardware_interfaces", executable="detection_image_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
-        Node(package="hardware_interfaces", executable="camera_print_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
-        Node(package="hardware_interfaces", executable="camera_calibration_node", output="screen", parameters=[{'camera_name': CAMERA_NAME, 'platform': PLATFORM}]),
-        Node(package="hardware_interfaces", executable="video_logger_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
-        Node(package="vision_guidance", executable="apriltag_guidance_node", output="screen", parameters=[{'platform': PLATFORM}]),
+        Node(package="hardware_interfaces", executable="camera_detections_node", output="screen", parameters=[{'camera_name': CAMERA_NAME, 'camera_frame': 'iris_with_gimbal/gimbal/pitch_link/camera'}]),
+        Node(package="hardware_interfaces", executable="camera_draw_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
+        #Node(package="hardware_interfaces", executable="video_logger_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
+        Node(package="vision_guidance", executable="apriltag_guidance_node", output="screen", parameters=[{'platform': PLATFORM, 'camera_frame': 'iris_with_gimbal/gimbal/pitch_link/camera', 'camera_name': CAMERA_NAME}]),
     ]
 
 
@@ -121,41 +120,52 @@ def generate_launch_description():
         ],
         remappings=[
             (GIMBAL_CAM_TOPIC_GZ, f'/{CAMERA_NAME}/image_raw'),
-            (GIMBAL_INFO_TOPIC_GZ, f'/{CAMERA_NAME}/camera_info_gimbal'),
+            (GIMBAL_INFO_TOPIC_GZ, f'/{CAMERA_NAME}/camera_info'),
         ],
         output='screen'
     )
     
     
-    # 8. AprilTag Composable Node Setup 
-    apriltag_node = ComposableNode(
-        # Use fully qualified plugin name for robustness
-        package=APRILTAG_PKG,
-        plugin='AprilTagNode', 
-        name='apriltag_detector',
+    image_proc_node = ComposableNode(
+        package='image_proc',
+        plugin='image_proc::RectifyNode',
+        name='image_proc_node',
         remappings=[
-            ('/image_rect', f'/{CAMERA_NAME}/image_rect'), 
+                    ('image', f'/{CAMERA_NAME}/image_raw'),
+                    ('camera_info', f'/{CAMERA_NAME}/camera_info'),
+                    ('image_rect', f'/{CAMERA_NAME}/image_rect')
+                ],
+        extra_arguments=[{'use_intra_process_comms': True}]
+        
+    )
+
+    apriltag_node = ComposableNode(
+        package='apriltag_ros',
+        plugin='AprilTagNode',
+        name='apriltag_detector',
+        remappings=[    
+            ('/image_rect', f'/{CAMERA_NAME}/image_rect'),
             ('/camera_info', f'/{CAMERA_NAME}/camera_info'),
             ('/detections', f'/{CAMERA_NAME}/detections'),
             ('tag_detections_image', f'/{CAMERA_NAME}/tag_detections_image')
         ],
         parameters=[
             {'tag_family': 'tag36h11'},
-            {'tag_size': 0.3},
+            {'tag_size': 0.2},
             {'camera_frame': CAMERA_NAME},
-            {'publish_tf': True}
-        ]
+            {'publish_tf': True},
+        ], 
+        extra_arguments=[{'use_intra_process_comms': True}]
     )
 
-    # 9. Define the Composable Node Container (CORRECTED)
     apriltag_container = ComposableNodeContainer(
-        # This defines the CONTAINER process, which is the component manager
-        name='apriltag_container',
+        name='camera_apriltag_container',
         namespace='',
         package='rclcpp_components',
-        executable='component_container',
+        executable='component_container_mt',  # multithreaded for efficiency
         composable_node_descriptions=[
-            apriltag_node, # The COMPOSABLE NODE is passed here
+            apriltag_node,
+            image_proc_node,
         ],
         output='screen',
     )
@@ -227,12 +237,12 @@ def generate_launch_description():
         TimerAction(period=0.0, actions=[ardupilot]), 
         
         TimerAction(period=2.0, actions=[mavros]), 
-        
-        TimerAction(period=5.0, actions=[apriltag_container]),
-        
-        TimerAction(period=5.0, actions=[ros_bridge, web_server]),
+                
+        TimerAction(period=2.0, actions=[ros_bridge, web_server]),
 
-        TimerAction(period=5.0, actions=uav_nodes),
+        TimerAction(period=2.0, actions=uav_nodes),
+
+        TimerAction(period=8.0, actions=[apriltag_container]),
 
         TimerAction(period=6.0, actions=[bag_logger]),
     ])

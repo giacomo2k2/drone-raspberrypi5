@@ -12,13 +12,21 @@ from std_msgs.msg import Float64
 from drone_interfaces.msg import ApriltagPosition
 
 
-CAMERA = 'camera'
+from rclpy.time import Time
+from rclpy.duration import Duration
+
+
 
 class ApriltagGuidanceNode(Node):
 
     def __init__(self):
-        super().__init__('apriltag_guidance_node') 
+        super().__init__('apriltag_guidance_node')
 
+        self.declare_parameter('camera_frame', 'camera') 
+        self.camera_frame = self.get_parameter('camera_frame').value
+
+        self.declare_parameter('camera_name', 'camera')
+        self.camera_name = self.get_parameter('camera_name').value
 
         self.declare_parameter('platform', "CC")
 
@@ -35,13 +43,13 @@ class ApriltagGuidanceNode(Node):
         qos_profile = QoSProfile(
             reliability=ReliabilityPolicy.BEST_EFFORT,
             history=HistoryPolicy.KEEP_LAST,
-            depth=10
+            depth=5
         )
 
         self.apriltag_distance_pub = self.create_publisher(ApriltagPosition, '/drone/apriltag_guidance/apriltag_distance', 10)
 
-        self.sub_tags = self.create_subscription(AprilTagDetectionArray, f'/{CAMERA}/detections', self.tags_callback, 10)
-        self.sub_info = self.create_subscription(CameraInfo, f'/{CAMERA}/camera_info', self.info_callback, qos_profile)
+        self.sub_tags = self.create_subscription(AprilTagDetectionArray, f'/{self.camera_name}/detections', self.tags_callback, 10)
+        self.sub_info = self.create_subscription(CameraInfo, f'/{self.camera_name}/camera_info', self.info_callback, qos_profile)
         self.heading_sub = self.create_subscription(Float64, "/drone/fc_interface/heading", self.heading_callback, 10)
 
         self.camera_info = None
@@ -75,8 +83,7 @@ class ApriltagGuidanceNode(Node):
         msg.center.z = self.center_cam[2]
         msg.timeout_expired = self.timeout_expired
 
-        
-
+    
         self.apriltag_distance_pub.publish(msg)
 
     def heading_callback(self, msg):
@@ -84,22 +91,30 @@ class ApriltagGuidanceNode(Node):
 
     def tags_callback(self, msg):
 
-        if self.camera_info is None:
-            return
-         
         self.detections = msg.detections  
 
-        if len(self.detections) > 0:
-            self.start_time = self.get_clock().now()
+        if self.camera_info is None or len(self.detections) == 0:
+            return
+         
+        
+        self.start_time = self.get_clock().now()
 
         for det in self.detections:
             # draw 6D pose axes
-            try: 
-                t = self.tf_buffer.lookup_transform(CAMERA, f'tag36h11:{det.id}', rclpy.time.Time())
-
-            except (tf2.LookupException, tf2.ExtrapolationException):
+            try:
+                # Lookup latest transform, waiting up to 0.5 seconds
+                t = self.tf_buffer.lookup_transform(
+                    self.camera_frame, 
+                    f'tag36h11:{det.id}', 
+                    Time(),  # latest available
+                    timeout=Duration(seconds=0.5)
+                )
+            except (tf2_ros.LookupException, tf2_ros.ExtrapolationException, tf2_ros.TransformException) as e:
+                self.get_logger().warn(f"TF lookup failed for tag {det.id}: {e}")
                 continue
 
+
+            self.get_logger().info(f"Transform rot {t.transform.rotation.x}, {t.transform.rotation.y}, {t.transform.rotation.z}, {t.transform.rotation.w}")
             # transform points for axes
             q = t.transform.rotation
             r = R.from_quat([q.x, q.y, q.z, q.w])

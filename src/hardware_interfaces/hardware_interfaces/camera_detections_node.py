@@ -12,12 +12,15 @@ from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
 
 from std_msgs.msg import Bool
 
+from rclpy.time import Time
+from rclpy.duration import Duration
 
-class DetectionImageNode(Node):
+
+class CameraDetectionsNode(Node):
 
     def __init__(self):
-        super().__init__('detection_image_node') # Renamed node to detection_image_node to match launch file
-        
+        super().__init__('camera_detections_node') # Renamed node to camera_detections_node to match launch file
+
         self.bridge = CvBridge()
 
         qos_profile = QoSProfile(
@@ -29,7 +32,10 @@ class DetectionImageNode(Node):
         self.declare_parameter('camera_name', 'camera')
         self.camera_name = self.get_parameter('camera_name').get_parameter_value().string_value
 
-        self.sub_image = self.create_subscription(Image, f'/{self.camera_name}/image_raw', self.image_callback, 1)
+        self.declare_parameter('camera_frame', 'camera') 
+        self.camera_frame = self.get_parameter('camera_frame').value
+
+        self.sub_image = self.create_subscription(Image, f'/{self.camera_name}/image_rect', self.image_callback, 1)
         self.sub_tags = self.create_subscription(AprilTagDetectionArray, f'/{self.camera_name}/detections', self.tags_callback, qos_profile)
         self.sub_info = self.create_subscription(CameraInfo, f'/{self.camera_name}/camera_info', self.info_callback, qos_profile)
         self.detector_status_sub = self.create_subscription(Bool, '/drone/camera_calibration/detector_status', self.detector_status_cb, 10)
@@ -70,7 +76,7 @@ class DetectionImageNode(Node):
 
         detection_status = "apriltag not detected"
 
-        if not self.camera_info is None:
+        if not self.camera_info is None and len(self.detections) > 0:
             self.frame_width = self.camera_info.width
             self.frame_height = self.camera_info.height
 
@@ -90,42 +96,50 @@ class DetectionImageNode(Node):
 
             
                 # draw 6D pose axes
-                try: 
-                    t = self.tf_buffer.lookup_transform(self.camera_name, f'tag36h11:{det.id}', rclpy.time.Time())
+                try:
+                    # Lookup latest transform, waiting up to 0.5 seconds
+                    t = self.tf_buffer.lookup_transform(
+                        self.camera_frame, 
+                        f'tag36h11:{det.id}', 
+                        Time(),  # latest available
+                        timeout=Duration(seconds=0.5)
+                    )
 
-                except (tf2.LookupException, tf2.ExtrapolationException):
-                    self.get_logger().warning(f"Transform for tag id {det.id} not found")
-                    return
+                    # transform points for axes
+                    q = t.transform.rotation
+                    r = R.from_quat([q.x, q.y, q.z, q.w])
+                    R_mat = r.as_matrix()
+                    t_vec = np.array([t.transform.translation.x,
+                                    t.transform.translation.y,
+                                    t.transform.translation.z])
+                    
+                    L = 0.1 #axis length in meters
+                    pts_3d = np.array([[0, 0, 0], [L, 0, 0], [0, L, 0], [0, 0, L]])
+                    
+                    pts_cam = (R_mat @ pts_3d.T).T + t_vec
 
-                # transform points for axes
-                q = t.transform.rotation
-                r = R.from_quat([q.x, q.y, q.z, q.w])
-                R_mat = r.as_matrix()
-                t_vec = np.array([t.transform.translation.x,
-                                t.transform.translation.y,
-                                t.transform.translation.z])
+                    # Project in 2D
+                    pts_2d = [] 
+                    for P in pts_cam:
+                        X, Y, Z = P
+                        u = int(fx*X/Z + cx)
+                        v = int(fy*Y/Z + cy)
+                        pts_2d.append((u, v))
+
+                    origin = pts_2d[0]
+                    cv2.line(frame, origin, pts_2d[1], (0, 0, 255), 4)
+                    cv2.line(frame, origin, pts_2d[2], (0, 255, 0), 4)
+                    cv2.line(frame, origin, pts_2d[3], (255, 0, 0), 4)
+
+                    # store detection status and position
+                    detection_status = f"apriltag detected at position x={t_vec[0]:.2f}, y={t_vec[1]:.2f}, z={t_vec[2]:.2f}"
+
+
+                except (tf2_ros.LookupException, tf2_ros.ExtrapolationException, tf2_ros.TransformException) as e:
+                    self.get_logger().warn(f"TF lookup failed for tag {det.id}: {e}")
+                    
+
                 
-                L = 0.1 #axis length in meters
-                pts_3d = np.array([[0, 0, 0], [L, 0, 0], [0, L, 0], [0, 0, L]])
-                
-                pts_cam = (R_mat @ pts_3d.T).T + t_vec
-
-                # Project in 2D
-                pts_2d = [] 
-                for P in pts_cam:
-                    X, Y, Z = P
-                    u = int(fx*X/Z + cx)
-                    v = int(fy*Y/Z + cy)
-                    pts_2d.append((u, v))
-
-                origin = pts_2d[0]
-                cv2.line(frame, origin, pts_2d[1], (0, 0, 255), 4)
-                cv2.line(frame, origin, pts_2d[2], (0, 255, 0), 4)
-                cv2.line(frame, origin, pts_2d[3], (255, 0, 0), 4)
-
-                # store detection status and position
-                detection_status = f"apriltag detected at position x={t_vec[0]:.2f}, y={t_vec[1]:.2f}, z={t_vec[2]:.2f}"
-
     
         font = cv2.FONT_HERSHEY_SIMPLEX
         scale = 0.7
@@ -138,7 +152,7 @@ class DetectionImageNode(Node):
         y1 = margin 
         y2 = margin + 30
 
-        cv2.putText(frame, f"detector: {self.detector_status}", (20, y1), font, scale, color, thickness, cv2.LINE_AA)
+        #cv2.putText(frame, f"detector: {self.detector_status}", (20, y1), font, scale, color, thickness, cv2.LINE_AA)
         cv2.putText(frame, detection_status, (20, y2), font, scale, color, thickness, cv2.LINE_AA)
 
         
@@ -152,9 +166,9 @@ class DetectionImageNode(Node):
    
 def main(args=None):
     rclpy.init(args=args)
-    detection_image_node = DetectionImageNode()
-    rclpy.spin(detection_image_node)
-    detection_image_node.destroy_node()
+    camera_detections_node = CameraDetectionsNode()
+    rclpy.spin(camera_detections_node)
+    camera_detections_node.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':

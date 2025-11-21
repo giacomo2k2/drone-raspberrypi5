@@ -10,8 +10,6 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('share/' + package_name + '/config', ['config/sitl_camera_configuration.yaml']),
-        ('share/' + package_name + '/config', ['config/cc_camera_configuration.yaml'])
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -22,10 +20,10 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'detection_image_node = hardware_interfaces.detection_image_node:main',
+            'camera_detections_node = hardware_interfaces.camera_detections_node:main',
             'camera_calibration_node = hardware_interfaces.camera_calibration_node:main',
             'video_logger_node = hardware_interfaces.video_logger_node:main',
-            'camera_print_node = hardware_interfaces.camera_print_node:main',
+            'camera_draw_node = hardware_interfaces.camera_draw_node:main',
         ],
     },
 )

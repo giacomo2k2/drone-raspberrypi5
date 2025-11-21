@@ -5,6 +5,7 @@ from launch_ros.descriptions import ComposableNode
 
 from datetime import datetime
 import os
+from ament_index_python.packages import get_package_share_directory
 
 # AprilTag config
 APRILTAG_PKG = 'apriltag_ros'
@@ -13,6 +14,10 @@ CAMERA_NAME = 'camera'
 # Platform config 
 PLATFORM = 'CC'
 
+#package_share = get_package_share_directory('drone_config')
+#camera_info_file = os.path.join(package_share, 'config', 'camera.yaml')
+
+camera_info_file = 'file:///media/giacomo/SSD2/Projects/drone_ws/drone_firmware/install/drone_config/share/drone_config/config/camera.yaml'
 
 def generate_launch_description():
     
@@ -56,21 +61,54 @@ def generate_launch_description():
        Node(package="navigation", executable="navigator_node", output="screen"),
        Node(package="navigation", executable="global_trajectory_planner_node.py", output="screen"),
        Node(package="mission_manager", executable="mission_manager_node", output="screen"),
-       Node(package="hardware_interfaces", executable="camera_calibration_node", output="screen", parameters=[{'camera_name': CAMERA_NAME, 'platform': PLATFORM}]),
        #Node(package="hardware_interfaces", executable="detection_image_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
        Node(package="hardware_interfaces", executable="video_logger_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
        Node(package="vision_guidance", executable="apriltag_guidance_node", output="screen", parameters=[{'platform': PLATFORM}]),
        Node(package="status_monitoring", executable="shutdown_node", output="screen"),
     ]
 
-    # 3. AprilTag Composable Node Setup 
+    camera_node = ComposableNode(
+        package='camera_ros',
+        plugin='camera::CameraNode',
+        name='camera_node',
+        parameters=[
+            {'camera': 1},  # integer index, change if you have multiple cameras
+            {'role': 'raw'},  # options: raw, still, video, viewfinder
+            {'format': 'YUYV'},  # or MJPG, RAW8, depends on your camera
+            {'width': 640},  
+            {'height': 480},
+            {'sensor_mode': '640:480'},
+            {'orientation': 180},
+            {'camera_info_url': camera_info_file},
+            {'frame_id': CAMERA_NAME},
+            {'use_node_time': False},
+        ],
+        remappings=[
+            ('/camera_node/image_raw', f'/{CAMERA_NAME}/image_raw'),
+            ('/camera_node/camera_info', f'/{CAMERA_NAME}/camera_info'),
+        ],
+        extra_arguments=[{'use_intra_process_comms': True}]
+    )
+
+    image_proc_node = ComposableNode(
+        package='image_proc',
+        plugin='image_proc::RectifyNode',
+        name='image_proc_node',
+        remappings=[
+                    ('image', f'/{CAMERA_NAME}/image_raw'),
+                    ('camera_info', f'/{CAMERA_NAME}/camera_info'),
+                    ('image_rect', f'/{CAMERA_NAME}/image_rect')
+                ],
+        extra_arguments=[{'use_intra_process_comms': True}]
+        
+    )
+
     apriltag_node = ComposableNode(
-        # Use fully qualified plugin name for robustness
-        package=APRILTAG_PKG,
-        plugin='AprilTagNode', 
+        package='apriltag_ros',
+        plugin='AprilTagNode',
         name='apriltag_detector',
         remappings=[    
-            ('/image_rect', f'/{CAMERA_NAME}/image_rect'), 
+            ('/image_rect', f'/{CAMERA_NAME}/image_rect'),
             ('/camera_info', f'/{CAMERA_NAME}/camera_info'),
             ('/detections', f'/{CAMERA_NAME}/detections'),
             ('tag_detections_image', f'/{CAMERA_NAME}/tag_detections_image')
@@ -79,19 +117,20 @@ def generate_launch_description():
             {'tag_family': 'tag36h11'},
             {'tag_size': 0.2},
             {'camera_frame': CAMERA_NAME},
-            {'publish_tf': True}
-        ]
+            {'publish_tf': True},
+        ], 
+        extra_arguments=[{'use_intra_process_comms': True}]
     )
 
-    # 4. Define the Composable Node Container
     apriltag_container = ComposableNodeContainer(
-        # This defines the CONTAINER process, which is the component manager
-        name='apriltag_container',
+        name='camera_apriltag_container',
         namespace='',
         package='rclcpp_components',
-        executable='component_container',
+        executable='component_container_mt',  # multithreaded for efficiency
         composable_node_descriptions=[
+            camera_node,
             apriltag_node,
+            image_proc_node,
         ],
         output='screen',
     )
@@ -151,20 +190,19 @@ def generate_launch_description():
     output='screen'
     )
 
+   
     
- 
-
     return LaunchDescription([
         
         mavros,
 
-	set_stream_rate_cmd,
-        
-        TimerAction(period=0.0, actions=[apriltag_container]),
+	    set_stream_rate_cmd,
 
-        TimerAction(period=5.0, actions=[ros_bridge, web_server]),
+        TimerAction(period=2.0, actions=[ros_bridge, web_server]),
         
-        TimerAction(period=5.0, actions=uav_nodes),
+        TimerAction(period=2.0, actions=uav_nodes),
+
+        TimerAction(period=5.0, actions=[apriltag_container]),
 
         TimerAction(period=6.0, actions=[bag_logger]),
     ])
