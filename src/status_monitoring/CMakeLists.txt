@@ -46,20 +46,20 @@ ament_target_dependencies(monitors_lib
 )
 
 # Create executable for node
-add_executable(status_monitoring_node_exec
+add_executable(status_monitoring_node
   ${NODE_SRCS}
 )
-ament_target_dependencies(status_monitoring_node_exec
+ament_target_dependencies(status_monitoring_node
   rclcpp
   sensor_msgs
   geometry_msgs
   drone_interfaces
 )
-target_link_libraries(status_monitoring_node_exec monitors_lib)
+target_link_libraries(status_monitoring_node monitors_lib)
 
 # Install
 install(TARGETS
-  status_monitoring_node_exec
+  status_monitoring_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
