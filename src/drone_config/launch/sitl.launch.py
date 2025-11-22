@@ -100,10 +100,10 @@ def generate_launch_description():
         Node(package="navigation", executable="navigator_node", output="screen"),
         Node(package="navigation", executable="global_trajectory_planner_node.py", output="screen"),
         Node(package="mission_manager", executable="mission_manager_node", output="screen"),
-        Node(package="hardware_interfaces", executable="camera_detections_node", output="screen", parameters=[{'camera_name': CAMERA_NAME, 'camera_frame': 'iris_with_gimbal/gimbal/pitch_link/camera'}]),
-        Node(package="hardware_interfaces", executable="camera_draw_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
-        #Node(package="hardware_interfaces", executable="video_logger_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
-        Node(package="vision_guidance", executable="apriltag_guidance_node", output="screen", parameters=[{'platform': PLATFORM, 'camera_frame': 'iris_with_gimbal/gimbal/pitch_link/camera', 'camera_name': CAMERA_NAME}]),
+        Node(package="camera", executable="camera_draw_detections_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
+        Node(package="camera", executable="camera_draw_node.py", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
+        Node(package="camera", executable="camera_logger_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
+        Node(package="visual_servoing", executable="apriltag_guidance_node", output="screen", parameters=[{'platform': PLATFORM, 'camera_frame': 'iris_with_gimbal/gimbal/pitch_link/camera', 'camera_name': CAMERA_NAME}]),
     ]
 
 
@@ -240,9 +240,9 @@ def generate_launch_description():
                 
         TimerAction(period=2.0, actions=[ros_bridge, web_server]),
 
-        TimerAction(period=2.0, actions=uav_nodes),
+        TimerAction(period=5.0, actions=uav_nodes),
 
-        TimerAction(period=8.0, actions=[apriltag_container]),
+        TimerAction(period=10.0, actions=[apriltag_container]),
 
         TimerAction(period=6.0, actions=[bag_logger]),
     ])
