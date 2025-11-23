@@ -594,7 +594,7 @@ private:
 
                                 double horizontal_distance = sqrt((apriltag_distance_.center.x*apriltag_distance_.center.x) + apriltag_distance_.center.y*apriltag_distance_.center.y); 
                                 double distance_threshold = apriltag_distance_.center.z*horizontal_velocity_/(cone_tolerance_*landing_velocity_);
-                                distance_threshold = std::clamp(distance_threshold, 0.0, apriltag_min_threshold_);
+                                distance_threshold = std::clamp(distance_threshold, apriltag_min_threshold_, 1000.0);
 
                                 bool centered = horizontal_distance <= distance_threshold;
                                                 

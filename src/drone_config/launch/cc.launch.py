@@ -115,7 +115,7 @@ def generate_launch_description():
         ],
         parameters=[
             {'tag_family': 'tag36h11'},
-            {'size': 0.14},
+            {'size': 0.32},
         ], 
         extra_arguments=[{'use_intra_process_comms': True}]
     )
