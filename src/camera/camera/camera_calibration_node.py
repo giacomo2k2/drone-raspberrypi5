@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import cv2
 import numpy as np
 import yaml
@@ -16,20 +18,22 @@ class CameraCalibrationNode(Node):
         self.chessboard_size = (9, 6)   # inner corners (cols, raws)
         self.square_size = 0.023        # meters
 
+        # Prepare object points
+        self.objp = np.zeros((self.chessboard_size[1]*self.chessboard_size[0], 3), np.float32)                  # all coordinates of corners in the plane
+        self.objp[:, :2] = np.mgrid[0:self.chessboard_size[0], 0:self.chessboard_size[1]].T.reshape(-1, 2)      # assigns coordinates to the corners in the image (z = 0)  
+        
         # Storage for points
         self.objpoints = [] # 3D points in world space
         self.imgpoints = [] # 2D points in image place
 
-        # Prepare object points
-        self.objp = np.zeros((self.chessboard_size[1]*self.chessboard_size[0], 3), np.float32)                  # all coordinates of corners in the plane
-        self.objp[:, :2] = np.mgrid[0:self.chessboard_size[0], 0:self.chessboard_size[1]].T.reshape(-1, 2)      # assigns coordinates to the corners in the image (z = 0)        self.objp *= self.square_size
-        self.objp *= self.square_size
 
         # open webcam
         self.cap = cv2.VideoCapture(2)
         if not self.cap.isOpened():
             self.get_logger().error("Cannot open webcam")
             exit(1)
+
+        self.cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'YUYV'))
 
         self.get_logger().info("Press SPACE when chessboard is detected to capture frame, ESC to finish")
 
@@ -55,7 +59,6 @@ class CameraCalibrationNode(Node):
                 break
             elif key == 32 and ret_cb: # SPACE
                 corners2 = cv2.cornerSubPix(gray, corners, (11, 11), (-1, -1), (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001))
-
                 self.imgpoints.append(corners2)
                 self.objpoints.append(self.objp)
                 self.get_logger().info(f"Captured frame #{len(self.imgpoints)}")
@@ -79,12 +82,26 @@ class CameraCalibrationNode(Node):
             'image_width': image_size[0],
             'image_height': image_size[1],
             'camera_name': 'camera',
-            'camera_matrix': {'rows':3, 'cols':3, 'data':mtx.flatten().tolist()},
+            'camera_matrix': {
+                'rows': 3, 'cols': 3,
+                'data': mtx.flatten().tolist()
+            },
             'distortion_model': 'plumb_bob',
-            'distortion_coefficients': {'rows':1, 'cols':len(dist), 'data': dist.flatten().tolist()},
-            'rectification_matrix': {'rows':3, 'cols': 3, 'data': np.eye(3).flatten().tolist()},
-            'projection_matrix': {'rows':3, 'cols': 3, 'data': np.hstack((mtx, np.zeros((3, 1)))).flatten().tolist()}
+            'distortion_coefficients': {
+                'rows': 1,
+                'cols': len(dist.flatten()),
+                'data': dist.flatten().tolist()
+            },
+            'rectification_matrix': {
+                'rows': 3, 'cols': 3,
+                'data': np.eye(3).flatten().tolist()
+            },
+            'projection_matrix': {
+                'rows': 3, 'cols': 4,
+                'data': np.hstack((mtx, np.zeros((3, 1)))).reshape(-1).tolist()
+            }
         }
+
 
         with open(file_path, 'w') as f:
             yaml.dump(data, f)

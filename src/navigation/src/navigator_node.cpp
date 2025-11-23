@@ -208,6 +208,7 @@ private:
     double landing_threshold_ = 0.75;
     double landing_velocity_ = 0.3;
     double landing_yaw_rate_ = 0.5;
+    
 
     bool drone_stopped_ = false;
 
@@ -219,11 +220,15 @@ private:
     bool use_camera_ = false;
     double horizontal_velocity_ = 0.2;
     drone_interfaces::msg::ApriltagPosition apriltag_distance_;
-    double apriltag_threshold_ = 0.75; 
-    double k_ = 0.05;
+    
+    double k_ = 0.3;
     bool detector_status_ = false;
     bool detector_activated_ = false;
     bool distance_received_ = false;
+
+
+    double apriltag_min_threshold_ = 0.2; 
+    double cone_tolerance_ = 1.5; //> 1 used for lowering the the distance threhsold when landing
 
 
     // ---------------- Drone position callback ----------------
@@ -586,8 +591,13 @@ private:
                                 vy = std::clamp(vy, -horizontal_velocity_, horizontal_velocity_);
                                 
                                 yaw_rate = 0.0;
-                                bool centered = abs(apriltag_distance_.center.x)<=apriltag_threshold_ && abs(apriltag_distance_.center.y)<=apriltag_threshold_;
-                                
+
+                                double horizontal_distance = sqrt((apriltag_distance_.center.x*apriltag_distance_.center.x) + apriltag_distance_.center.y*apriltag_distance_.center.y); 
+                                double distance_threshold = apriltag_distance_.center.z*horizontal_velocity_/(cone_tolerance_*landing_velocity_);
+                                distance_threshold = std::clamp(distance_threshold, 0.0, apriltag_min_threshold_);
+
+                                bool centered = horizontal_distance <= distance_threshold;
+                                                
                                 if (centered) {
                                     vz = -landing_velocity_;
                                     

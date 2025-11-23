@@ -41,7 +41,7 @@ public:
 
         // Subscribers
         detections_sub_ = this->create_subscription<apriltag_msgs::msg::AprilTagDetectionArray>(
-            "/" + camera_name_ + "/detections", rclcpp::QoS(10).best_effort(),
+            "/" + camera_name_ + "/detections", rclcpp::QoS(5).best_effort(),
             std::bind(&ApriltagGuidanceNode::tags_callback, this, std::placeholders::_1));
 
         camera_info_sub_ = this->create_subscription<sensor_msgs::msg::CameraInfo>(

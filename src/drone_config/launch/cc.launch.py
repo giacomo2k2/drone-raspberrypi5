@@ -63,6 +63,7 @@ def generate_launch_description():
         Node(package="camera", executable="camera_draw_detections_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
         Node(package="camera", executable="camera_logger_node", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
         Node(package="visual_servoing", executable="apriltag_guidance_node", output="screen", parameters=[{'platform': PLATFORM, 'camera_frame': CAMERA_NAME, 'camera_name': CAMERA_NAME}]),
+        Node(package="camera", executable="camera_draw_node.py", output="screen", parameters=[{'camera_name': CAMERA_NAME}]),
         Node(package="drone_config", executable="shutdown_node", output="screen"),
     ]
 
@@ -77,7 +78,7 @@ def generate_launch_description():
             {'width': 640},  
             {'height': 480},
             {'sensor_mode': '640:480'},
-            {'orientation': 180},
+            {'orientation': 0},
             {'camera_info_url': camera_info_url},
             {'frame_id': CAMERA_NAME},
             {'use_node_time': False},
@@ -114,9 +115,7 @@ def generate_launch_description():
         ],
         parameters=[
             {'tag_family': 'tag36h11'},
-            {'tag_size': 0.2},
-            {'camera_frame': CAMERA_NAME},
-            {'publish_tf': True},
+            {'size': 0.14},
         ], 
         extra_arguments=[{'use_intra_process_comms': True}]
     )

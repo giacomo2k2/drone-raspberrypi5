@@ -151,7 +151,7 @@ def generate_launch_description():
         ],
         parameters=[
             {'tag_family': 'tag36h11'},
-            {'tag_size': 0.2},
+            {'size': 0.25},
             {'camera_frame': CAMERA_NAME},
             {'publish_tf': True},
         ], 
